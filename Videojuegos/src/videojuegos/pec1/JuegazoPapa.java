@@ -30,14 +30,13 @@ public class JuegazoPapa {
         arco1.usar();
         espada1.usar();
         baston1.usar();
-        
-        
-        
+          
         for(int i=0;i<baul.length;i++)
         {
             System.out.println(baul[i].toString());
         }
        
+        
         
        
     }

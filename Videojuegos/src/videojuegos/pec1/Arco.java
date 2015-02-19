@@ -34,7 +34,8 @@ public class Arco extends Arma{
     }
     
     public boolean estaDisponible(){
-        
+        int restante = this.flechas;
+        return restante != 0;
     }
     
     

@@ -33,6 +33,11 @@ public class Baston extends Arma{
         this.magia--;
     }
 
+    public boolean estaDisponible(){
+        int restante = this.magia;
+        return restante != 0;
+    }
+    
     @Override
     public String toString() {
         return "\nNombre: "+super.getNombre()+"\nDaño: "+super.getDanyo()+"\nMagia: "+magia;

@@ -33,6 +33,11 @@ public class Espada extends Arma{
         this.resistencia--;
     }
     
+    public boolean estaDisponible(){
+        int restante = this.resistencia;
+        return restante != 0;
+    }
+    
     @Override
     public String toString() {
         return "\nNombre: "+super.getNombre()+"\nDaño: "+super.getDanyo()+"\nResistencia: "+resistencia;
