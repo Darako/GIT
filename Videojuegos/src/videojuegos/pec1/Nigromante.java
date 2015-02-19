@@ -17,6 +17,7 @@ public class Nigromante extends Personaje {
     public Nigromante(int poder, Arma arma, int pv, String nombre, int destreza) {
         super(arma, pv, nombre, destreza);
         this.poder = poder;
+        
     }
 
     
@@ -25,6 +26,11 @@ public class Nigromante extends Personaje {
     }
     public void setPoder(int poder) {
         this.poder = poder;
+    }
+
+    @Override
+    public String toString() {
+        return "Nigromante{" + "poder=" + poder + '}';
     }
 
     

@@ -28,5 +28,10 @@ public class Druida extends Personaje{
         this.energia = energia;
     }
 
+    @Override
+    public String toString() {
+        return "Druida{" + "energia=" + energia + '}';
+    }
+
     
 }

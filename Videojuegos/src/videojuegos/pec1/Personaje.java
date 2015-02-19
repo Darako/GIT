@@ -56,5 +56,18 @@ public class Personaje {
     public boolean estaDerrotado(){
         return this.pv <= 0;
     }
+
+    public void combatir(){
+    
+}
+    private void atacar(){
+        
+    }
+    
+    @Override
+    public String toString() {
+        return "Personaje{" + "arma=" + arma + ", pv=" + pv + ", nombre=" + nombre + ", destreza=" + destreza + '}';
+    }
+    
     
 }

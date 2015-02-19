@@ -37,4 +37,10 @@ public class Kender extends Personaje{
         this.poder = poder;
     }
 
+    @Override
+    public String toString() {
+        return "Kender{" + "poder=" + poder + ", energia=" + energia + '}';
+    }
+
+    
 }
