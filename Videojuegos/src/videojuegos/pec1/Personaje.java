@@ -65,13 +65,13 @@ public class Personaje {
     
     public void atacar(Personaje per2){
         int cantidad = 0;
-        if(this.getArma().estaDisponible())
+        if(this.getArma().estaDisponible()==true)
         {
-            cantidad=+this.getArma().getDanyo();
+            cantidad = cantidad + this.getArma().getDanyo();
         }
         if(this.getDestreza()>0)
         {
-            cantidad=+this.getDestreza();
+            cantidad = cantidad + this.getDestreza();
         }
         per2.setPv(per2.getPv()-cantidad);
     }
