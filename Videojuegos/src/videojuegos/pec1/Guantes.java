@@ -11,4 +11,5 @@ package videojuegos.pec1;
  */
 public class Guantes extends Armadura{
     
+    
 }
