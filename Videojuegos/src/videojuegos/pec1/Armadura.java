@@ -27,7 +27,6 @@ public class Armadura {
     public int getDurabilidad() {
         return durabilidad;
     }
-
     public void setDurabilidad(int durabilidad) {
         this.durabilidad = durabilidad;
     }
@@ -35,7 +34,6 @@ public class Armadura {
     public int getDefensa() {
         return defensa;
     }
-
     public void setDefensa(int defensa) {
         this.defensa = defensa;
     }
@@ -43,7 +41,6 @@ public class Armadura {
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
