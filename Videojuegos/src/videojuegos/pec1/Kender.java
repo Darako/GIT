@@ -10,14 +10,12 @@ package videojuegos.pec1;
  * @author Guillermo
  */
 public class Kender extends Personaje{
-    
-    private int poder;   
+       
     private int energia;
 
     
-    public Kender(int poder, int energia, Arma arma, int pv, String nombre, int destreza) {
+    public Kender(int energia, Arma arma, int pv, String nombre, int destreza) {
         super(arma, pv, nombre, destreza);
-        this.poder = poder;
         this.energia = energia;
     }
 
@@ -29,17 +27,9 @@ public class Kender extends Personaje{
         this.energia = energia;
     }
 
-    public int getPoder() {
-        return poder;
-    }
-
-    public void setPoder(int poder) {
-        this.poder = poder;
-    }
-
     @Override
     public String toString() {
-        return "Kender{" + "poder=" + poder + ", energia=" + energia + '}';
+        return "Kender{" + " energia=" + energia + '}';
     }
 
     

@@ -11,26 +11,26 @@ package videojuegos.pec1;
  */
 public class Nigromante extends Personaje {
     
-    private int poder;
+    private int mana;
 
     
-    public Nigromante(int poder, Arma arma, int pv, String nombre, int destreza) {
+    public Nigromante(int mana, Arma arma, int pv, String nombre, int destreza) {
         super(arma, pv, nombre, destreza);
-        this.poder = poder;
+        this.mana = mana;
         
     }
 
     
     public int getPoder() {
-        return poder;
+        return mana;
     }
     public void setPoder(int poder) {
-        this.poder = poder;
+        this.mana = mana;
     }
 
     @Override
     public String toString() {
-        return "Nigromante{" + "poder=" + poder + '}';
+        return "Nigromante{" + "mana=" + mana + '}';
     }
 
     
