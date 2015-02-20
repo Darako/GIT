@@ -33,6 +33,7 @@ public class Arco extends Arma{
         this.flechas--;
     }
     
+    @Override
     public boolean estaDisponible(){
         int restante = this.flechas;
         return restante != 0;

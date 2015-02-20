@@ -35,6 +35,10 @@ public class Arma {
     }
 
     //METODOS
+    public boolean estaDisponible(){
+        return this.estaDisponible();
+    }
+    
     
     @Override
     public String toString() {

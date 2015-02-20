@@ -33,6 +33,7 @@ public class Baston extends Arma{
         this.magia--;
     }
 
+    @Override
     public boolean estaDisponible(){
         int restante = this.magia;
         return restante != 0;
