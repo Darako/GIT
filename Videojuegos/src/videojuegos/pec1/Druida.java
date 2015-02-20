@@ -11,16 +11,18 @@ package videojuegos.pec1;
  */
 public class Druida extends Personaje{
     
+    //ATRIBUTOS
     private int energia;
     private int mana;
     
+    //CONSTRUCTOR
     public Druida(int energia,int mana, Arma arma, int pv, String nombre, int destreza) {
         super(arma, pv, nombre, destreza);
         this.energia = energia;
         this.mana = mana;
     }
 
-    
+    //GETTER & SETTER
     public int getEnergia() {
         return energia;
     }
@@ -30,8 +32,7 @@ public class Druida extends Personaje{
     
     public int getMana(){
         return mana;
-    }
-    
+    }   
     public void setMana(int mana){
         this.mana = mana;
     }

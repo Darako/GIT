@@ -10,16 +10,17 @@ package videojuegos.pec1;
  * @author Guillermo
  */
 public class Kender extends Personaje{
-       
+     
+    //ATRIBUTOS
     private int energia;
 
-    
+    //CONSTRUCTOR
     public Kender(int energia, Arma arma, int pv, String nombre, int destreza) {
         super(arma, pv, nombre, destreza);
         this.energia = energia;
     }
 
-    
+    //GETTER & SETTER
     public int getEnergia() {
         return energia;
     }

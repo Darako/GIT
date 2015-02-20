@@ -11,16 +11,17 @@ package videojuegos.pec1;
  */
 public class Nigromante extends Personaje {
     
+    //ATRIBUTOS
     private int mana;
 
-    
+    //CONSTRUCTOR
     public Nigromante(int mana, Arma arma, int pv, String nombre, int destreza) {
         super(arma, pv, nombre, destreza);
         this.mana = mana;
         
     }
 
-    
+    //GETTER & SETTER
     public int getPoder() {
         return mana;
     }
