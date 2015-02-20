@@ -60,8 +60,17 @@ public class Personaje {
     public void combatir(){
     
 }
-    private void atacar(){
-        
+    private void atacar(Personaje per1, Personaje per2){
+        int cantidad = 0;
+        if(per1.getArma().estaDisponible())
+        {
+            cantidad=+per1.getArma().getDanyo();
+        }
+        if(per1.getDestreza()>0)
+        {
+            cantidad=+per1.getDestreza();
+        }
+        per2.setPv(per2.getPv()-cantidad);
     }
     
     @Override
