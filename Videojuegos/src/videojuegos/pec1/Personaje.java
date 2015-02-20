@@ -5,6 +5,8 @@
  */
 package videojuegos.pec1;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Guillermo
@@ -57,23 +59,42 @@ public class Personaje {
         return this.pv <= 0;
     }
 
-    public void combatir(){
-    
-        
-        
+    public void combatir(ArrayList<Personaje> luchadores){ 
+        int i = 0;
+        while((luchadores.get(0).getPv() > 0) && (luchadores.get(1).getPv() > 0))
+        {
+            if(i==0)
+            {
+                luchadores.get(i).atacar(luchadores.get(i+1));
+                if(luchadores.get(i+1).getPv()==0){
+                    break;
+                }
+                i++;
+            }
+            if(i==1)
+            {
+                luchadores.get(i).atacar(luchadores.get(i-1));
+                if(luchadores.get(i-1).getPv()==0){
+                    break;
+                }
+                i--;
+            }
+        }
     }
     
-    public void atacar(Personaje per2){
+    private void atacar(Personaje per){
         int cantidad = 0;
         if(this.getArma().estaDisponible()==true)
         {
             cantidad = cantidad + this.getArma().getDanyo();
+            this.getArma().usar();
         }
         if(this.getDestreza()>0)
         {
             cantidad = cantidad + this.getDestreza();
         }
-        per2.setPv(per2.getPv()-cantidad);
+        per.setPv(per.getPv()-cantidad);
+        System.out.println("Pegaron a: "+per.getNombre()+"\nVida: "+per.getPv()+"\n");
     }
     
     @Override

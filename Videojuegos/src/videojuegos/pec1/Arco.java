@@ -29,6 +29,7 @@ public class Arco extends Arma{
     }
 
     //METODOS
+    @Override
     public void usar(){
         this.flechas--;
     }

@@ -29,6 +29,7 @@ public class Baston extends Arma{
     }
     
     //METODOS
+    @Override
     public void usar(){
         this.magia--;
     }

@@ -5,6 +5,8 @@
  */
 package videojuegos.pec1;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Jorge
@@ -17,30 +19,28 @@ public class JuegazoPapa {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Arco arco1 = new Arco("Tirachinas de Bart", 5, 10);
-        Espada espada1 = new Espada("Palo de Selfie", 5, 20);
-        Baston baston1 = new Baston("Palillo de los Oidos", 5, 15);
+        Arco arco1 = new Arco("Tirachinas de Bart", 10, 10);
+        Espada espada1 = new Espada("Palo de Selfie", 10, 20);
+        Baston baston1 = new Baston("Palillo de los Oidos", 10, 15);
         
-        Arma baul[] = new Arma[3];
+        Personaje per1 = new Personaje(espada1, 100, "Personaje1", 15);
+        Personaje per2 = new Personaje(arco1, 100, "Personaje2", 15);
         
-        baul[0] = arco1;
-        baul[1] = espada1;
-        baul[2] = baston1;
+        ArrayList<Personaje> luchadores = new ArrayList<Personaje>();
+        luchadores.add(per1);
+        luchadores.add(per2);
         
-        arco1.usar();
-        espada1.usar();
-        baston1.usar();
-          
-        for(int i=0;i<baul.length;i++)
-        {
-            System.out.println(baul[i].toString());
-        }
-       
-        Personaje per1 = new Personaje(espada1, 50, "Juanito Calavera", 15);
-        Personaje per2 = new Personaje(arco1, 50, "Valde Derramas", 15);
-        per1.atacar(per2);
-        System.out.println(per1.toString());
-        System.out.println(per2.toString());
+        
+        System.out.println("¡¡COMBATE!!");
+        per1.combatir(luchadores);        
+        
+        System.out.println("¡¡RESULTADO DEL COMBATE!!");
+        System.out.println(luchadores.get(0).toString());
+        System.out.println("\n"+luchadores.get(0).getArma().toString());
+        System.out.println("\n"+luchadores.get(1).toString());
+        System.out.println("\n"+luchadores.get(1).getArma().toString());
+        
+        
         
        
     }

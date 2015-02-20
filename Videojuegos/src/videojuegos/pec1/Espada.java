@@ -29,6 +29,7 @@ public class Espada extends Arma{
     }
 
     //METODOS
+    @Override
     public void usar(){
         this.resistencia--;
     }

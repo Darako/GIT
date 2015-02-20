@@ -39,6 +39,10 @@ public class Arma {
         return this.estaDisponible();
     }
     
+    public void usar(){
+        this.usar();
+    }
+    
     
     @Override
     public String toString() {
