@@ -59,23 +59,26 @@ public class Personaje {
 
     public void combatir(){
     
-}
-    private void atacar(Personaje per1, Personaje per2){
+        
+        
+    }
+    
+    public void atacar(Personaje per2){
         int cantidad = 0;
-        if(per1.getArma().estaDisponible())
+        if(this.getArma().estaDisponible())
         {
-            cantidad=+per1.getArma().getDanyo();
+            cantidad=+this.getArma().getDanyo();
         }
-        if(per1.getDestreza()>0)
+        if(this.getDestreza()>0)
         {
-            cantidad=+per1.getDestreza();
+            cantidad=+this.getDestreza();
         }
         per2.setPv(per2.getPv()-cantidad);
     }
     
     @Override
     public String toString() {
-        return "Personaje{" + "arma=" + arma + ", pv=" + pv + ", nombre=" + nombre + ", destreza=" + destreza + '}';
+        return "\nPersonaje\nNombre: "+this.getNombre()+"\nPV: "+this.getPv()+"\nDestreza: "+this.getDestreza()+"\nArma: "+this.getArma().getNombre();
     }
     
     

@@ -36,7 +36,11 @@ public class JuegazoPapa {
             System.out.println(baul[i].toString());
         }
        
-        
+        Personaje per1 = new Personaje(espada1, 50, "Juanito Calavera", 15);
+        Personaje per2 = new Personaje(arco1, 50, "Valde Derramas", 15);
+        per1.atacar(per2);
+        System.out.println(per1.toString());
+        System.out.println(per2.toString());
         
        
     }
