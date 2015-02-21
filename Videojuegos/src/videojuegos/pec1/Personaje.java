@@ -59,14 +59,16 @@ public class Personaje {
         return this.pv <= 0;
     }
     
-    public void gastar()
+    public boolean estaExhausto()
     {
-        
+        return this.estaExhausto();
     }
+    
+    public void gastar(){}
 
     public void combatir(ArrayList<Personaje> luchadores){ 
         int i = 0;
-        while((luchadores.get(0).getPv() > 0) && (luchadores.get(1).getPv() > 0))
+        while((!luchadores.get(0).estaDerrotado()) || (!luchadores.get(1).estaDerrotado()))
         {
             if(i==0)
             {                
@@ -89,20 +91,18 @@ public class Personaje {
     
     private void atacar(Personaje per){
         int cantidad = 0;
-        if(this.getArma().estaDisponible()==true)
+        if(this.getArma().estaDisponible())
         {
             cantidad = cantidad + this.getArma().getDanyo();
             this.getArma().usar();
         }
-        if(this.getDestreza()>0)
+        if(this.estaExhausto())
         {
             cantidad = cantidad + this.getDestreza();
-            System.out.println("llegue");
             this.gastar();
         }
-        System.out.println("GASTE");
         per.setPv(per.getPv()-cantidad);
-        System.out.println("Pegaron a: "+per.getNombre()+"\nVida: "+per.getPv()+"\nDestreza restante: "+per.getDestreza()+"\n");
+        System.out.println("Pegaron a: "+per.getNombre()+" "+cantidad+" de daño.\nVida: "+per.getPv()+"\n");
     }
     
     @Override

@@ -40,6 +40,12 @@ public class Druida extends Personaje{
 
     //METODOS
     @Override
+    public boolean estaExhausto()
+    {
+        return (this.mana == 0) && (this.energia == 0);
+    }
+    
+    @Override
     public void gastar(){
         Random i = new Random();
         int eleccion = i.nextInt((2-1)+1) + 1;

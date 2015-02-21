@@ -19,9 +19,9 @@ public class JuegazoPapa {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Arco arco1 = new Arco("Arco1", 10, 2);
-        Espada espada1 = new Espada("Espada1", 10, 2);
-        Baston baston1 = new Baston("Baston1", 10, 2);
+        Arco arco1 = new Arco("Arco1", 10, 5);
+        Espada espada1 = new Espada("Espada1", 10, 5);
+        Baston baston1 = new Baston("Baston1", 10, 5);
         
         Kender personaje1 = new Kender("Personaje1", 100, 10, arco1, 2);
         Nigromante personaje2 = new Nigromante("Personaje2", 100, 10, baston1, 2);
@@ -35,10 +35,12 @@ public class JuegazoPapa {
         personaje1.combatir(luchadores);        
         
         System.out.println("¡¡RESULTADO DEL COMBATE!!");
-        System.out.println(luchadores.get(0).toString());
-        System.out.println("\n"+luchadores.get(0).getArma().toString());
-        System.out.println("\n"+luchadores.get(1).toString());
-        System.out.println("\n"+luchadores.get(1).getArma().toString());
+        System.out.println("Personaje 1:");
+        System.out.println(personaje1.toString());
+        System.out.println(personaje1.getArma().toString());
+        System.out.println("\nPersonaje 2:");
+        System.out.println(personaje2.toString());
+        System.out.println(personaje2.getArma().toString());
         
         /*
         Troll troll=new Troll("Escojondrio", 5, 35);

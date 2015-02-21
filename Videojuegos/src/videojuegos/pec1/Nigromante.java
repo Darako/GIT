@@ -30,6 +30,12 @@ public class Nigromante extends Personaje {
     
     //METODOS
     @Override
+    public boolean estaExhausto()
+    {
+        return this.mana == 0;
+    }
+    
+    @Override
     public void gastar(){
         this.mana--;
     }

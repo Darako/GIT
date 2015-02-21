@@ -30,6 +30,12 @@ public class Kender extends Personaje{
     
     //METODOS
     @Override
+    public boolean estaExhausto()
+    {
+        return this.energia == 0;
+    }    
+    
+    @Override
     public void gastar(){
         this.energia--;
     }
