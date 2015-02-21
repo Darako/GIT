@@ -13,20 +13,21 @@ import java.util.ArrayList;
  */
 public class Personaje {
     
+    //ATRIBUTOS
     private Arma arma;
     private int pv;
     private String nombre;
     private int destreza;
 
-    
-    public Personaje(Arma arma, int pv, String nombre, int destreza) {
-        this.arma = arma;
-        this.pv = pv;
-        this.nombre = nombre;
+    //CONSTRUCOR
+    public Personaje(String nombre, int pv, int destreza, Arma arma) {
+        this.nombre = nombre;        
+        this.pv = pv;        
         this.destreza = destreza;
+        this.arma = arma;
     } 
     
-    
+    //GETTER & SETTER
     public Arma getArma() {
         return arma;
     }
@@ -39,15 +40,13 @@ public class Personaje {
     }
     public void setPv(int pv) {
         this.pv = pv;
-    }        
-
+    }
     public String getNombre() {
         return nombre;
     }
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }  
-
+    }
     public int getDestreza() {
         return destreza;
     }
@@ -55,8 +54,14 @@ public class Personaje {
         this.destreza = destreza;
     }
 
+    //METODOS
     public boolean estaDerrotado(){
         return this.pv <= 0;
+    }
+    
+    public void gastar()
+    {
+        
     }
 
     public void combatir(ArrayList<Personaje> luchadores){ 
@@ -64,9 +69,9 @@ public class Personaje {
         while((luchadores.get(0).getPv() > 0) && (luchadores.get(1).getPv() > 0))
         {
             if(i==0)
-            {
+            {                
                 luchadores.get(i).atacar(luchadores.get(i+1));
-                if(luchadores.get(i+1).getPv()==0){
+                if(luchadores.get(i+1).estaDerrotado()){
                     break;
                 }
                 i++;
@@ -74,7 +79,7 @@ public class Personaje {
             if(i==1)
             {
                 luchadores.get(i).atacar(luchadores.get(i-1));
-                if(luchadores.get(i-1).getPv()==0){
+                if(luchadores.get(i-1).estaDerrotado()){
                     break;
                 }
                 i--;
@@ -92,9 +97,12 @@ public class Personaje {
         if(this.getDestreza()>0)
         {
             cantidad = cantidad + this.getDestreza();
+            System.out.println("llegue");
+            this.gastar();
         }
+        System.out.println("GASTE");
         per.setPv(per.getPv()-cantidad);
-        System.out.println("Pegaron a: "+per.getNombre()+"\nVida: "+per.getPv()+"\n");
+        System.out.println("Pegaron a: "+per.getNombre()+"\nVida: "+per.getPv()+"\nDestreza restante: "+per.getDestreza()+"\n");
     }
     
     @Override

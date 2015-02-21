@@ -15,8 +15,8 @@ public class Kender extends Personaje{
     private int energia;
 
     //CONSTRUCTOR
-    public Kender(int energia, Arma arma, int pv, String nombre, int destreza) {
-        super(arma, pv, nombre, destreza);
+    public Kender(String nombre, int pv, int destreza, Arma arma, int energia) {
+        super(nombre, pv, destreza, arma);
         this.energia = energia;
     }
 
@@ -27,7 +27,13 @@ public class Kender extends Personaje{
     public void setEnergia(int energia) {
         this.energia = energia;
     }
-
+    
+    //METODOS
+    @Override
+    public void gastar(){
+        this.energia--;
+    }
+    
     @Override
     public String toString() {
         return "Kender{" + " energia=" + energia + '}';

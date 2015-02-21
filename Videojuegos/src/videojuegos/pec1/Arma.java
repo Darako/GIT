@@ -41,8 +41,7 @@ public class Arma {
     
     public void usar(){
         this.usar();
-    }
-    
+    }    
     
     @Override
     public String toString() {

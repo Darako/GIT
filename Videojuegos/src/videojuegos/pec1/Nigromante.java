@@ -15,10 +15,9 @@ public class Nigromante extends Personaje {
     private int mana;
 
     //CONSTRUCTOR
-    public Nigromante(int ma, Arma arma, int pv, String nombre, int destreza) {
-        super(arma, pv, nombre, destreza);
-        this.mana = ma;
-        
+    public Nigromante(String nombre, int pv, int destreza, Arma arma, int mana) {
+        super(nombre, pv, destreza, arma);
+        this.mana = mana;        
     }
 
     //GETTER & SETTER
@@ -28,7 +27,13 @@ public class Nigromante extends Personaje {
     public void setPoder(int poder) {
         this.mana = mana;
     }
-
+    
+    //METODOS
+    @Override
+    public void gastar(){
+        this.mana--;
+    }
+    
     @Override
     public String toString() {
         return "Nigromante{" + "mana=" + mana + '}';

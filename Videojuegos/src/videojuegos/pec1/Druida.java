@@ -5,6 +5,8 @@
  */
 package videojuegos.pec1;
 
+import java.util.Random;
+
 /**
  *
  * @author Guillermo
@@ -16,8 +18,8 @@ public class Druida extends Personaje{
     private int mana;
     
     //CONSTRUCTOR
-    public Druida(int energia,int mana, Arma arma, int pv, String nombre, int destreza) {
-        super(arma, pv, nombre, destreza);
+    public Druida(String nombre, int pv, int destreza, Arma arma, int energia, int mana) {
+        super(nombre, pv, destreza, arma);
         this.energia = energia;
         this.mana = mana;
     }
@@ -28,8 +30,7 @@ public class Druida extends Personaje{
     }
     public void setEnergia(int energia) {
         this.energia = energia;
-    }
-    
+    }    
     public int getMana(){
         return mana;
     }   
@@ -37,6 +38,14 @@ public class Druida extends Personaje{
         this.mana = mana;
     }
 
+    //METODOS
+    @Override
+    public void gastar(){
+        Random i = new Random();
+        int eleccion = i.nextInt((2-1)+1) + 1;
+        if(eleccion==1){this.energia--;}else{this.mana--;}        
+    }
+    
     @Override
     public String toString() {
         return "Druida{" + "energia=" + energia + ", mana=" + mana + '}';

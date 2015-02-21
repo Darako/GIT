@@ -19,20 +19,20 @@ public class JuegazoPapa {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Arco arco1 = new Arco("Tirachinas de Bart", 10, 10);
-        Espada espada1 = new Espada("Palo de Selfie", 10, 20);
-        Baston baston1 = new Baston("Palillo de los Oidos", 10, 15);
+        Arco arco1 = new Arco("Arco1", 10, 2);
+        Espada espada1 = new Espada("Espada1", 10, 2);
+        Baston baston1 = new Baston("Baston1", 10, 2);
         
-        Personaje per1 = new Personaje(espada1, 100, "Personaje1", 15);
-        Personaje per2 = new Personaje(arco1, 100, "Personaje2", 15);
+        Kender personaje1 = new Kender("Personaje1", 100, 10, arco1, 2);
+        Nigromante personaje2 = new Nigromante("Personaje2", 100, 10, baston1, 2);
         
         ArrayList<Personaje> luchadores = new ArrayList<Personaje>();
-        luchadores.add(per1);
-        luchadores.add(per2);
+        luchadores.add(personaje1);
+        luchadores.add(personaje2);
         
         
         System.out.println("¡¡COMBATE!!");
-        per1.combatir(luchadores);        
+        personaje1.combatir(luchadores);        
         
         System.out.println("¡¡RESULTADO DEL COMBATE!!");
         System.out.println(luchadores.get(0).toString());
@@ -40,6 +40,7 @@ public class JuegazoPapa {
         System.out.println("\n"+luchadores.get(1).toString());
         System.out.println("\n"+luchadores.get(1).getArma().toString());
         
+        /*
         Troll troll=new Troll("Escojondrio", 5, 35);
         Treant treant=new Treant("tronco", 10, 50);
         Shadow shadow=new Shadow("Transparente", 15, 75);
@@ -55,6 +56,7 @@ public class JuegazoPapa {
         System.out.print(treant.toString());
         System.out.print(shadow.toString());
         System.out.print(kraken.toString());
+        */
         
         
         
