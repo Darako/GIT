@@ -5,6 +5,8 @@
  */
 package videojuegos.pec1;
 
+import java.util.Random;
+
 /**
  *
  * @author noesmoral
@@ -12,15 +14,18 @@ package videojuegos.pec1;
 public class Troll extends Enemigo{
     
     int especial;       //falla el ataque
+    Random r = new Random();
 
     public Troll(String nombre, int danyo, int vida) {
         super(nombre, danyo, vida);
         this.especial=0;
     }
     
-    //METODO GET
-    public int getEspecial(){
-        return especial;
+    //METODO 
+    public int atacar(){
+        int resultado=r.nextInt(11);
+        if(resultado>=7) return especial;
+        else return super.getDanyo();
     }
     
     @Override

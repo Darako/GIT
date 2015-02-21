@@ -15,6 +15,11 @@ public class Treant extends Enemigo{
         super(nombre, danyo, vida);
     }
     
+    //METODO 
+    public int atacar(){
+        return super.getDanyo();
+    }
+    
     @Override
     public String toString() {
         return "\nNombre: "+super.getNombre()+"\nDaño: "+super.getDanyo()+"\nVida: "+super.getVida();

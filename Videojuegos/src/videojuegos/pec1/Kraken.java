@@ -5,6 +5,8 @@
  */
 package videojuegos.pec1;
 
+import java.util.Random;
+
 /**
  *
  * @author noesmoral
@@ -15,6 +17,7 @@ public class Kraken extends Enemigo{
     int especial;       //falla el ataque
     int especial1;      //atque especial que hace mas daño que el basico
     int especial2;      //ataque que mata directamente
+    Random r = new Random();
 
     //CONSTRUCTOR
     public Kraken(String nombre, int danyo, int vida) {
@@ -24,17 +27,13 @@ public class Kraken extends Enemigo{
         this.especial2=9999;
     }
     
-    //METODOS GET
-    public int getEspecial(){
-        return especial;
-    }
-    
-    public int getEspecial1(){
-        return especial1;
-    }
-    
-    public int getEspecial2(){
-        return especial2;
+    //METODOS 
+    public int atacar(){
+        int resultado=r.nextInt(31);
+        if (resultado<=6 && resultado>=1) return especial;
+        else if(resultado>=20) return especial1;
+        else if(resultado==0) return especial2;
+        else return super.getDanyo();
     }
     
     @Override

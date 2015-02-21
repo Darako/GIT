@@ -6,6 +6,7 @@
 package videojuegos.pec1;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -18,6 +19,7 @@ public class JuegazoPapa {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
         
         Arco arco1 = new Arco("Arco1", 10, 5);
         Espada espada1 = new Espada("Espada1", 10, 5);
@@ -42,7 +44,7 @@ public class JuegazoPapa {
         System.out.println(personaje2.toString());
         System.out.println(personaje2.getArma().toString());
         
-        /*
+        /* //pruebas
         Troll troll=new Troll("Escojondrio", 5, 35);
         Treant treant=new Treant("tronco", 10, 50);
         Shadow shadow=new Shadow("Transparente", 15, 75);
@@ -60,7 +62,13 @@ public class JuegazoPapa {
         System.out.print(kraken.toString());
         */
         
+        /*
+        Kraken kraken=new Kraken("Tentacruel", 20, 130);
         
+        for (int i = 0; i < 30; i++) {
+            System.out.println(kraken.atacar());
+        }
+        */
         
         
        
