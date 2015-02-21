@@ -40,6 +40,23 @@ public class JuegazoPapa {
         System.out.println("\n"+luchadores.get(1).toString());
         System.out.println("\n"+luchadores.get(1).getArma().toString());
         
+        Troll troll=new Troll("Escojondrio", 5, 35);
+        Treant treant=new Treant("tronco", 10, 50);
+        Shadow shadow=new Shadow("Transparente", 15, 75);
+        Kraken kraken=new Kraken("Tentacruel", 20, 130);
+        
+        ArrayList<Enemigo> enemigo = new ArrayList<Enemigo>();
+        enemigo.add(troll);
+        enemigo.add(treant);
+        enemigo.add(treant);
+        enemigo.add(kraken);
+        
+        System.out.print(troll.toString());
+        System.out.print(treant.toString());
+        System.out.print(shadow.toString());
+        System.out.print(kraken.toString());
+        
+        
         
         
        
