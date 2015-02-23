@@ -42,7 +42,7 @@ public class Nigromante extends Personaje {
     
     @Override
     public String toString() {
-        return "Nigromante{" + "mana=" + mana + '}';
+        return "DRUIDA\n"+super.toString()+"\nMana: "+this.mana;
     }
 
     

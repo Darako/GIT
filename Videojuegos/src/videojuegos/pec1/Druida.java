@@ -54,7 +54,7 @@ public class Druida extends Personaje{
     
     @Override
     public String toString() {
-        return "Druida{" + "energia=" + energia + ", mana=" + mana + '}';
+        return "DRUIDA\n"+super.toString()+"\nMana: "+this.mana+"\nEnergia: "+this.energia;
     }
 
 }

@@ -42,7 +42,7 @@ public class Kender extends Personaje{
     
     @Override
     public String toString() {
-        return "Kender{" + " energia=" + energia + '}';
+        return "KENDER\n"+super.toString()+"\nEnergia: "+this.energia;
     }
 
     

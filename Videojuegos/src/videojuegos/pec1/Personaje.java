@@ -68,46 +68,52 @@ public class Personaje {
 
     public void combatir(ArrayList<Personaje> luchadores){ 
         int i = 0;
-        while((!luchadores.get(0).estaDerrotado()) || (!luchadores.get(1).estaDerrotado()))
+        int herida = 0;
+        while((!(luchadores.get(0).estaDerrotado())) || (!(luchadores.get(1).estaDerrotado())))
         {
             if(i==0)
-            {                
-                luchadores.get(i).atacar(luchadores.get(i+1));
-                if(luchadores.get(i+1).estaDerrotado()){
+            {   
+                herida = luchadores.get(i).atacar(luchadores.get(i+1));
+                if((luchadores.get(i).estaDerrotado()) || (luchadores.get(i+1).estaDerrotado()) || (herida==0)){
                     break;
                 }
+                luchadores.get(i+1).setPv((luchadores.get(i+1).getPv()) - herida);                
+                System.out.println("Pegaron a "+luchadores.get(i+1).getNombre()+", "+herida+" de daño.\nVida: "+luchadores.get(i+1).getPv()+"\n");
                 i++;
             }
             if(i==1)
             {
-                luchadores.get(i).atacar(luchadores.get(i-1));
-                if(luchadores.get(i-1).estaDerrotado()){
+                herida = luchadores.get(i).atacar(luchadores.get(i-1));                
+                if((luchadores.get(i).estaDerrotado()) || (luchadores.get(i-1).estaDerrotado())  || (herida==0) ){
                     break;
                 }
+                luchadores.get(i-1).setPv((luchadores.get(i-1).getPv()) - herida);                
+                System.out.println("Pegaron a "+luchadores.get(i-1).getNombre()+", "+herida+" de daño.\nVida: "+luchadores.get(i-1).getPv()+"\n");
                 i--;
-            }
+            }            
         }
     }
     
-    private void atacar(Personaje per){
+    private int atacar(Personaje per){
         int cantidad = 0;
         if(this.getArma().estaDisponible())
         {
             cantidad = cantidad + this.getArma().getDanyo();
             this.getArma().usar();
         }
-        if(this.estaExhausto())
+        if(!this.estaExhausto())
         {
             cantidad = cantidad + this.getDestreza();
             this.gastar();
         }
-        per.setPv(per.getPv()-cantidad);
-        System.out.println("Pegaron a: "+per.getNombre()+" "+cantidad+" de daño.\nVida: "+per.getPv()+"\n");
+        return cantidad;
+        
+        
     }
     
     @Override
     public String toString() {
-        return "\nPersonaje\nNombre: "+this.getNombre()+"\nPV: "+this.getPv()+"\nDestreza: "+this.getDestreza()+"\nArma: "+this.getArma().getNombre();
+        return "Nombre: "+this.getNombre()+"\nPV: "+this.getPv()+"\nDestreza: "+this.getDestreza()+"\nArma: "+this.getArma().getNombre();
     }
     
     

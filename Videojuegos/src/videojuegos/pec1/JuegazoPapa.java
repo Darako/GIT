@@ -25,8 +25,9 @@ public class JuegazoPapa {
         Espada espada1 = new Espada("Espada1", 10, 5);
         Baston baston1 = new Baston("Baston1", 10, 5);
         
-        Kender personaje1 = new Kender("Personaje1", 100, 10, arco1, 2);
-        Nigromante personaje2 = new Nigromante("Personaje2", 100, 10, baston1, 2);
+        Kender personaje1 = new Kender("Personaje1", 100, 10, arco1, 10);
+        Nigromante personaje2 = new Nigromante("Personaje2", 100, 10, baston1, 3);
+        Druida personaje3 = new Druida("Personaje3", 100, 10, espada1, 3, 3);
         
         ArrayList<Personaje> luchadores = new ArrayList<Personaje>();
         luchadores.add(personaje1);
@@ -43,6 +44,10 @@ public class JuegazoPapa {
         System.out.println("\nPersonaje 2:");
         System.out.println(personaje2.toString());
         System.out.println(personaje2.getArma().toString());
+        System.out.println("\nPersonaje 3:");
+        System.out.println(personaje3.toString());
+        System.out.println(personaje3.getArma().toString());
+        
         
         /* //pruebas
         Troll troll=new Troll("Escojondrio", 5, 35);
