@@ -5,6 +5,13 @@
  */
 package videojuegos.pec1;
 
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.function.Consumer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import videojuegos.pec1.armas.Arma;
+
 /**
  *
  * @author Jorge
@@ -13,11 +20,20 @@ public class CrearPersonaje extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearPersonaje
+     * @throws java.io.FileNotFoundException
      */
-    public CrearPersonaje() {
-        initComponents();
+    public CrearPersonaje() throws FileNotFoundException {
+        initComponents();     
+        String[] nombres = new String[juego.getArmas().size()];
+        System.out.println(nombres.toString());
+        for(int i=0;i<juego.getArmas().size();i++){
+            
+            nombres[i] = juego.getArmas().get(i).getNombre();
+        }
+        listNombreArma.setListData(nombres);
     }
-
+    Juego juego = new Juego();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,7 +64,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         comboTipoArma = new javax.swing.JComboBox();
         labelTipoArma = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrollListNombreArma = new javax.swing.JScrollPane();
         listNombreArma = new javax.swing.JList();
         labelNombreArma = new javax.swing.JLabel();
         labelRecurso = new javax.swing.JLabel();
@@ -126,11 +142,11 @@ public class CrearPersonaje extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(listNombreArma);
+        scrollListNombreArma.setViewportView(listNombreArma);
 
         labelNombreArma.setText("Nombre Arma:");
 
-        labelRecurso.setText("Magia:");
+        labelRecurso.setText("Recurso:");
 
         labelDanyo.setText("Daño: ");
 
@@ -154,22 +170,15 @@ public class CrearPersonaje extends javax.swing.JFrame {
                         .addComponent(jSeparator1)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(labelNombre)
-                                        .addComponent(labelPV)
-                                        .addComponent(labelDestreza))
-                                    .addGap(21, 21, 21))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(labelMana)
-                                    .addGap(35, 35, 35)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelEnergia)
-                                    .addComponent(labelRaza))
-                                .addGap(25, 25, 25)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelDestreza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelMana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelRaza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(labelPV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(labelEnergia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(textMana, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(textDestreza)
@@ -195,7 +204,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(scrollListNombreArma, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(comboTipoArma, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(textDanyo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
@@ -243,7 +252,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(comboTipoArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(scrollListNombreArma, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(textRecursoArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,9 +261,9 @@ public class CrearPersonaje extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(textDanyo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelDanyo))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addComponent(botonOK)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -355,7 +364,11 @@ public class CrearPersonaje extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CrearPersonaje().setVisible(true);
+                try {
+                    new CrearPersonaje().setVisible(true);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(CrearPersonaje.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -368,7 +381,6 @@ public class CrearPersonaje extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelDanyo;
     private javax.swing.JLabel labelDestreza;
@@ -382,6 +394,7 @@ public class CrearPersonaje extends javax.swing.JFrame {
     private javax.swing.JLabel labelRecurso;
     private javax.swing.JLabel labelTipoArma;
     private javax.swing.JList listNombreArma;
+    private javax.swing.JScrollPane scrollListNombreArma;
     private javax.swing.JTextField textDanyo;
     private javax.swing.JTextField textDestreza;
     private javax.swing.JTextField textEnergia;

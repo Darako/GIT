@@ -51,29 +51,17 @@
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="labelNombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="labelPV" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="labelDestreza" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelMana" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="labelDestreza" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelMana" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelRaza" alignment="0" max="32767" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="labelPV" alignment="0" max="32767" attributes="0"/>
+                              <Component id="labelNombre" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelEnergia" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelRaza" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="labelEnergia" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="textMana" alignment="1" max="32767" attributes="0"/>
                           <Component id="textDestreza" alignment="0" max="32767" attributes="0"/>
@@ -103,7 +91,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="scrollListNombreArma" alignment="1" max="32767" attributes="0"/>
                                       <Component id="comboTipoArma" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -168,7 +156,7 @@
                   <Group type="102" attributes="0">
                       <Component id="comboTipoArma" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="64" max="-2" attributes="0"/>
+                      <Component id="scrollListNombreArma" min="-2" pref="64" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="textRecursoArma" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -179,11 +167,11 @@
                           <Component id="textDanyo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelDanyo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                       <Component id="botonOK" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -291,7 +279,7 @@
         <Property name="text" type="java.lang.String" value="Tipo de Arma:"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JScrollPane" name="scrollListNombreArma">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
@@ -320,7 +308,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="labelRecurso">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Magia:"/>
+        <Property name="text" type="java.lang.String" value="Recurso:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelDanyo">
