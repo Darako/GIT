@@ -5,6 +5,7 @@
  */
 package videojuegos.pec1;
 
+import java.io.FileNotFoundException;
 import videojuegos.pec1.personajes.Personaje;
 import videojuegos.pec1.personajes.Kender;
 import videojuegos.pec1.personajes.Druida;
@@ -14,6 +15,7 @@ import videojuegos.pec1.armas.Baston;
 import videojuegos.pec1.armas.Espada;
 import java.util.ArrayList;
 import java.util.Iterator;
+import videojuegos.pec1.armas.Arma;
 
 /**
  *
@@ -24,7 +26,7 @@ public class JuegazoPapa {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         // TODO code application logic here
         
         
@@ -41,6 +43,21 @@ public class JuegazoPapa {
         luchadores.add(personaje2);
         
         
+        ArrayList<Arma> baul = new ArrayList<Arma>();
+        /*baul.add(arco1);
+        baul.add(espada1);
+        baul.add(baston1);*/
+        
+        Juego juego = new Juego();
+        //juego.setArmas(baul);
+        //juego.guardarDatos(baul, "armas");
+        //System.out.println(juego.getArmas().toString());
+        juego.cargarDatos(baul, "armas");
+        //System.out.println(juego.getArmas().toString());
+        System.out.println(baul.get(0).toString());
+        
+        
+        /*
         System.out.println("¡¡COMBATE!!");
         personaje1.combatir(luchadores);        
         
@@ -54,7 +71,7 @@ public class JuegazoPapa {
         System.out.println("\nPersonaje 3:");
         System.out.println(personaje3.toString());
         System.out.println(personaje3.getArma().toString());
-        
+        */
         
         /* //pruebas
         Troll troll=new Troll("Escojondrio", 5, 35);
