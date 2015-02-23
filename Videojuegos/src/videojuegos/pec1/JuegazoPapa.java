@@ -5,6 +5,13 @@
  */
 package videojuegos.pec1;
 
+import videojuegos.pec1.personajes.Personaje;
+import videojuegos.pec1.personajes.Kender;
+import videojuegos.pec1.personajes.Druida;
+import videojuegos.pec1.personajes.Nigromante;
+import videojuegos.pec1.armas.Arco;
+import videojuegos.pec1.armas.Baston;
+import videojuegos.pec1.armas.Espada;
 import java.util.ArrayList;
 import java.util.Iterator;
 
