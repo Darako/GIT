@@ -27,6 +27,12 @@ public class Personaje {
         this.destreza = destreza;
         this.arma = arma;
     } 
+
+    public Personaje(String nombre, int pv, int destreza) {
+        this.nombre = nombre;
+        this.pv = pv;        
+        this.destreza = destreza;
+    }
     
     //GETTER & SETTER
     public Arma getArma() {
