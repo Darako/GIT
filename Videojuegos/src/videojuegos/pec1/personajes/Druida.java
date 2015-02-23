@@ -25,6 +25,12 @@ public class Druida extends Personaje{
         this.mana = mana;
     }
 
+    public Druida(String nombre, int pv, int destreza, int energia, int mana ) {
+        super(nombre, pv, destreza);
+        this.energia = energia;
+        this.mana = mana;
+    }
+
     //GETTER & SETTER
     public int getEnergia() {
         return energia;

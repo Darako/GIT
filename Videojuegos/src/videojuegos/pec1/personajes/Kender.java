@@ -22,6 +22,11 @@ public class Kender extends Personaje{
         this.energia = energia;
     }
 
+    public Kender(String nombre, int pv, int destreza, int energia) {
+        super(nombre, pv, destreza);
+        this.energia = energia;
+    }
+
     //GETTER & SETTER
     public int getEnergia() {
         return energia;

@@ -22,6 +22,11 @@ public class Nigromante extends Personaje {
         this.mana = mana;        
     }
 
+    public Nigromante(String nombre, int pv, int destreza,int mana) {
+        super(nombre, pv, destreza);
+        this.mana = mana;
+    }
+
     //GETTER & SETTER
     public int getPoder() {
         return mana;
