@@ -5,6 +5,7 @@
  */
 package videojuegos.pec1.personajes;
 
+import java.io.Serializable;
 import videojuegos.pec1.armas.Arma;
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author Guillermo
  */
-public class Personaje {
+public class Personaje implements Serializable{
     
     //ATRIBUTOS
     private Arma arma;

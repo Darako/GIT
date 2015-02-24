@@ -5,12 +5,20 @@
  */
 package videojuegos.pec1;
 
+import java.awt.Component;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import videojuegos.pec1.armas.Arco;
 import videojuegos.pec1.armas.Arma;
+import videojuegos.pec1.armas.Baston;
+import videojuegos.pec1.armas.Espada;
+import videojuegos.pec1.personajes.Druida;
+import videojuegos.pec1.personajes.Kender;
+import videojuegos.pec1.personajes.Nigromante;
+import videojuegos.pec1.personajes.Personaje;
 
 /**
  *
@@ -23,16 +31,17 @@ public class CrearPersonaje extends javax.swing.JFrame {
      * @throws java.io.FileNotFoundException
      */
     public CrearPersonaje() throws FileNotFoundException {
-        initComponents();     
-        String[] nombres = new String[juego.getArmas().size()];
-        System.out.println(nombres.toString());
-        for(int i=0;i<juego.getArmas().size();i++){
-            
-            nombres[i] = juego.getArmas().get(i).getNombre();
-        }
-        listNombreArma.setListData(nombres);
+        initComponents();
+        comboRaza.setSelectedIndex(0);
+        juego.iniciarDatos();
+        armas = juego.getArmas();
+        personajes = juego.getPersonajes(); 
+        checkArma.doClick();
+        comboTipoArma.setSelectedItem("Bastón");
     }
-    Juego juego = new Juego();
+    Juego juego = new Juego();    
+    ArrayList<Arma> armas = new ArrayList<Arma>();
+    ArrayList<Personaje> personajes = new ArrayList<Personaje>();
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,16 +70,15 @@ public class CrearPersonaje extends javax.swing.JFrame {
         botonOK = new javax.swing.JButton();
         labelPersonaje = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
         comboTipoArma = new javax.swing.JComboBox();
         labelTipoArma = new javax.swing.JLabel();
-        scrollListNombreArma = new javax.swing.JScrollPane();
-        listNombreArma = new javax.swing.JList();
         labelNombreArma = new javax.swing.JLabel();
         labelRecurso = new javax.swing.JLabel();
         labelDanyo = new javax.swing.JLabel();
         textRecursoArma = new javax.swing.JTextField();
         textDanyo = new javax.swing.JTextField();
+        checkArma = new javax.swing.JCheckBox();
+        textNombreArma = new javax.swing.JTextField();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -126,8 +134,6 @@ public class CrearPersonaje extends javax.swing.JFrame {
 
         labelPersonaje.setText("PERSONAJE");
 
-        jLabel1.setText("ARMAMENTO");
-
         comboTipoArma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bastón", "Espada", "Arco" }));
         comboTipoArma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,27 +143,24 @@ public class CrearPersonaje extends javax.swing.JFrame {
 
         labelTipoArma.setText("Tipo de Arma:");
 
-        listNombreArma.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        scrollListNombreArma.setViewportView(listNombreArma);
-
         labelNombreArma.setText("Nombre Arma:");
 
         labelRecurso.setText("Recurso:");
 
         labelDanyo.setText("Daño: ");
 
-        textRecursoArma.setEditable(false);
         textRecursoArma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textRecursoArmaActionPerformed(evt);
             }
         });
 
-        textDanyo.setEditable(false);
+        checkArma.setText("Crear con Arma");
+        checkArma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkArmaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -166,17 +169,14 @@ public class CrearPersonaje extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSeparator1)
-                        .addContainerGap())
+                    .addComponent(jSeparator1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(labelDestreza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelMana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelRaza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(labelPV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(labelPV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(labelEnergia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -185,92 +185,179 @@ public class CrearPersonaje extends javax.swing.JFrame {
                             .addComponent(textNombre)
                             .addComponent(textPV)
                             .addComponent(comboRaza, javax.swing.GroupLayout.Alignment.TRAILING, 0, 119, Short.MAX_VALUE)
-                            .addComponent(textEnergia)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(labelPersonaje)))
+                            .addComponent(textEnergia))
+                        .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1)
-                                .addGap(90, 90, 90))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(labelTipoArma)
-                                    .addComponent(labelNombreArma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(labelRecurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(labelDanyo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(scrollListNombreArma, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(comboTipoArma, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(textDanyo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                                        .addComponent(textRecursoArma, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(labelRecurso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labelNombreArma, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                                    .addComponent(labelTipoArma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labelDanyo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(comboTipoArma, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(textNombreArma)
+                                    .addComponent(textRecursoArma)
+                                    .addComponent(textDanyo))
+                                .addGap(6, 6, 6))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(checkArma)
                                     .addComponent(botonOK))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(202, 202, 202)
+                .addComponent(labelPersonaje)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelPersonaje)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(1, 1, 1)
+                .addGap(6, 6, 6)
+                .addComponent(labelPersonaje)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNombre)
+                    .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkArma))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPV)
+                    .addComponent(textPV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTipoArma)
+                    .addComponent(comboTipoArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelDestreza)
+                    .addComponent(textDestreza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelNombreArma)
+                    .addComponent(textNombreArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelNombre)
-                            .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelTipoArma))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelPV)
-                            .addComponent(textPV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelNombreArma))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelDestreza)
-                            .addComponent(textDestreza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(comboRaza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelRaza))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelMana)
-                            .addComponent(textMana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelEnergia)
-                            .addComponent(textEnergia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(comboTipoArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(scrollListNombreArma, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textRecursoArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelRecurso))
-                        .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textDanyo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelDanyo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                        .addComponent(botonOK)))
-                .addContainerGap())
+                            .addComponent(labelRecurso)
+                            .addComponent(textRecursoArma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelMana)
+                    .addComponent(textMana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelDanyo)
+                    .addComponent(textDanyo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelEnergia)
+                    .addComponent(textEnergia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonOK))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonOKActionPerformed
-        // TODO add your handling code here:
+        String seleccion = (String) comboRaza.getSelectedItem();
+        String nombre = textNombre.getText();
+        int pv = Integer.parseInt(textPV.getText());
+        int destreza = Integer.parseInt(textDestreza.getText());
+        Arma arma = null;
+        if(checkArma.isSelected())
+        {       
+            String tipoArma = (String) comboTipoArma.getSelectedItem();
+            String nombreArma = textNombreArma.getText();
+            int danyo = Integer.parseInt(textDanyo.getText());
+            
+            switch(tipoArma){
+                case "Bastón":  {                                
+                                    int magia = Integer.parseInt(textRecursoArma.getText());
+                                    Baston armaAux = new Baston(nombreArma,danyo,magia);
+                                    arma=armaAux;
+                                    armas.add(armaAux);
+                                    juego.guardarObjeto(armas, "armas");                                    
+                                    break;
+                                }
+                case "Arco":    {
+                                    int flechas = Integer.parseInt(textRecursoArma.getText());
+                                    Arco armaAux = new Arco(nombreArma,danyo,flechas);
+                                    arma=armaAux;
+                                    armas.add(armaAux);
+                                    juego.guardarObjeto(armas, "armas");
+                                    break;
+                                }              
+                case "Espada":  {
+                                    int resistencia = Integer.parseInt(textRecursoArma.getText());
+                                    Espada armaAux = new Espada(nombreArma,danyo,resistencia);
+                                    arma=armaAux;
+                                    armas.add(armaAux);
+                                    juego.guardarObjeto(armas, "armas");
+                                    break;
+                                }                                
+            }                        
+            switch(seleccion){
+                case "Kender":  {                                
+                                    int energia = Integer.parseInt(textEnergia.getText());
+                                    Kender personajeAux = new Kender(nombre,pv,destreza,arma,energia);
+                                    personajes.add(personajeAux);
+                                    juego.guardarObjeto(personajes, "personajes");
+                                    break;
+                                }
+                case "Nigromante":  {
+                                        int mana = Integer.parseInt(textMana.getText());
+                                        Nigromante personajeAux = new Nigromante(nombre,pv,destreza,arma,mana);
+                                        personajes.add(personajeAux);
+                                        juego.guardarObjeto(personajes, "personajes");
+                                        break;
+                                    }              
+                case "Druida":  {
+                                    int energia = Integer.parseInt(textEnergia.getText());
+                                    int mana = Integer.parseInt(textMana.getText());
+                                    Druida personajeAux = new Druida(nombre,pv,destreza,arma,energia, mana);
+                                    personajes.add(personajeAux);
+                                    juego.guardarObjeto(personajes, "personajes");
+                                    break;
+                                }                                
+            }
+        }
+        else{
+            switch(seleccion){
+                case "Kender":  {                                
+                                    int energia = Integer.parseInt(textEnergia.getText());
+                                    Kender personajeAux = new Kender(nombre,pv,destreza,energia);
+                                    personajes.add(personajeAux);
+                                    juego.guardarObjeto(personajes, "personajes");
+                                    break;
+                                }
+                case "Nigromante":  {
+                                        int mana = Integer.parseInt(textMana.getText());
+                                        Nigromante personajeAux = new Nigromante(nombre,pv,destreza,mana);
+                                        personajes.add(personajeAux);
+                                        juego.guardarObjeto(personajes, "personajes");
+                                        break;
+                                    }              
+                case "Druida":  {
+                                    int energia = Integer.parseInt(textEnergia.getText());
+                                    int mana = Integer.parseInt(textMana.getText());
+                                    Druida personajeAux = new Druida(nombre,pv,destreza,energia, mana);
+                                    personajes.add(personajeAux);
+                                    juego.guardarObjeto(personajes, "personajes");
+                                    break;
+                                }                                
+            }
+        }
+        
+        
     }//GEN-LAST:event_botonOKActionPerformed
 
     private void textNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNombreActionPerformed
@@ -334,6 +421,22 @@ public class CrearPersonaje extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_comboTipoArmaActionPerformed
 
+    private void checkArmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkArmaActionPerformed
+        if(checkArma.isSelected())
+        {
+            comboTipoArma.setEnabled(true);
+            textNombreArma.setEnabled(true);
+            textDanyo.setEnabled(true);
+            textRecursoArma.setEnabled(true);
+        }
+        else{
+            comboTipoArma.setEnabled(false);
+            textNombreArma.setEnabled(false);
+            textDanyo.setEnabled(false);
+            textRecursoArma.setEnabled(false);
+        }
+    }//GEN-LAST:event_checkArmaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -375,9 +478,9 @@ public class CrearPersonaje extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonOK;
+    private javax.swing.JCheckBox checkArma;
     private javax.swing.JComboBox comboRaza;
     private javax.swing.JComboBox comboTipoArma;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -393,13 +496,12 @@ public class CrearPersonaje extends javax.swing.JFrame {
     private javax.swing.JLabel labelRaza;
     private javax.swing.JLabel labelRecurso;
     private javax.swing.JLabel labelTipoArma;
-    private javax.swing.JList listNombreArma;
-    private javax.swing.JScrollPane scrollListNombreArma;
     private javax.swing.JTextField textDanyo;
     private javax.swing.JTextField textDestreza;
     private javax.swing.JTextField textEnergia;
     private javax.swing.JTextField textMana;
     private javax.swing.JTextField textNombre;
+    private javax.swing.JTextField textNombreArma;
     private javax.swing.JTextField textPV;
     private javax.swing.JTextField textRecursoArma;
     // End of variables declaration//GEN-END:variables

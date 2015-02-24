@@ -29,7 +29,7 @@ public class JuegazoPapa {
     public static void main(String[] args) throws FileNotFoundException {
         // TODO code application logic here
         
-        
+        /*
         Arco arco1 = new Arco("Arco1", 10, 5);
         Espada espada1 = new Espada("Espada1", 10, 5);
         Baston baston1 = new Baston("Baston1", 10, 5);
@@ -38,24 +38,30 @@ public class JuegazoPapa {
         Nigromante personaje2 = new Nigromante("Personaje2", 100, 10, baston1, 3);
         Druida personaje3 = new Druida("Personaje3", 100, 10, espada1, 3, 3);
         
-        ArrayList<Personaje> luchadores = new ArrayList<Personaje>();
-        luchadores.add(personaje1);
-        luchadores.add(personaje2);
-        
+        ArrayList<Personaje> roster = new ArrayList<Personaje>();
+        roster.add(personaje1);
+        roster.add(personaje2);
+        roster.add(personaje3);        
         
         ArrayList<Arma> baul = new ArrayList<Arma>();
-        /*baul.add(arco1);
+        baul.add(arco1);
         baul.add(espada1);
-        baul.add(baston1);*/
-        
+        baul.add(baston1);
+        */
         Juego juego = new Juego();
-        //juego.setArmas(baul);
-        //juego.guardarDatos(baul, "armas");
-        //System.out.println(juego.getArmas().toString());
-        juego.cargarDatos(baul, "armas");
-        //System.out.println(juego.getArmas().toString());
-        System.out.println(baul.get(0).toString());
+        //juego.guardarObjeto(baul, "armas");
+        //juego.guardarObjeto(roster,"personajes");
+        juego.iniciarDatos();
         
+        ArrayList<Personaje> roster = new ArrayList<Personaje>();
+        roster=juego.getPersonajes();
+        
+        //System.out.println(juego.getArmas().get(0).getNombre());
+        System.out.println(roster.get(7).getArma().getNombre());
+        for(int i=0;i<roster.size();i++){
+            System.out.println(roster.get(i).getNombre());
+            //System.out.println(roster.get(i).getArma().getNombre());
+        }//System.out.println(baul.get(0).getNombre());
         
         /*
         System.out.println("¡¡COMBATE!!");
@@ -71,9 +77,7 @@ public class JuegazoPapa {
         System.out.println("\nPersonaje 3:");
         System.out.println(personaje3.toString());
         System.out.println(personaje3.getArma().toString());
-        */
         
-        /* //pruebas
         Troll troll=new Troll("Escojondrio", 5, 35);
         Treant treant=new Treant("tronco", 10, 50);
         Shadow shadow=new Shadow("Transparente", 15, 75);
@@ -89,9 +93,7 @@ public class JuegazoPapa {
         System.out.print(treant.toString());
         System.out.print(shadow.toString());
         System.out.print(kraken.toString());
-        */
         
-        /*
         Kraken kraken=new Kraken("Tentacruel", 20, 130);
         
         for (int i = 0; i < 30; i++) {

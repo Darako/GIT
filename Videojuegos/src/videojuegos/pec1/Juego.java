@@ -7,10 +7,12 @@ package videojuegos.pec1;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -34,10 +36,7 @@ public class Juego {
     
     //CONSTRUCTOR
     public Juego() throws FileNotFoundException {
-        this.personajes = cargarDatos(personajes, "personajes");
-        this.armas = cargarDatos(armas, "armas");
-        //this.armaduras = cargarDatos(personajes);
-        //this.enemigos = cargarDatos(personajes);     
+             
     }
     
     //GETTER & SETTER
@@ -64,29 +63,50 @@ public class Juego {
     }    
     public void iniciarJuego(){
         
-    }    
-    public ArrayList cargarDatos(ArrayList datos, String nombre) throws FileNotFoundException{
-        Scanner sc = new Scanner(new File(nombre+".dat"));	    
-        int i = 0;
-        while(sc.hasNextLine()) 
-        {
-            datos.add(i, sc.nextLine());
-            i++;
-        }
-        sc.close();
-        return datos;
-    }    
-    public void guardarDatos(ArrayList datos, String nombre) {
-
-        try {
-            PrintWriter fichero = new PrintWriter(new BufferedWriter(new FileWriter(nombre+".dat")));
-            for(int i=0;i<datos.size();i++)
-            {
-            	fichero.println(datos.get(i));
-            }
-            fichero.close();
-        } catch (IOException ioe) {
+    }   
+    public void iniciarDatos() throws FileNotFoundException{
+        this.cargarPersonajes("personajes");
+        this.cargarArmas("armas");
+        //this.armaduras = cargarDatos(personajes);
+        //this.enemigos = cargarDatos(personajes);
+    } 
+        
+    public void guardarObjeto(ArrayList datos, String nombre) {
+        try{
+            ObjectOutputStream ficheroSalida = new ObjectOutputStream(new FileOutputStream(nombre+".dat"));
+            ficheroSalida.writeObject(datos);
+            ficheroSalida.flush();
+            ficheroSalida.close();
+        }catch (IOException ioe) {
             System.out.println("Error IO: " + ioe.toString());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString());
+        }
+    }
+    
+    public void cargarArmas(String nombre){
+        try{
+            ObjectInputStream ficheroEntrada = new ObjectInputStream(new FileInputStream(nombre+".dat"));
+            armas = (ArrayList) ficheroEntrada.readObject();
+            ficheroEntrada.close();            
+        } catch (ClassNotFoundException cnfe) {
+            System.out.println("Error de clase no encontrada:" + cnfe.toString());
+        }catch (IOException ioe) {
+            System.out.println("Error IO:" + ioe.toString());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString());
+        }
+    }
+    
+    public void cargarPersonajes(String nombre){
+        try{
+            ObjectInputStream ficheroEntrada = new ObjectInputStream(new FileInputStream(nombre+".dat"));
+            personajes = (ArrayList) ficheroEntrada.readObject();
+            ficheroEntrada.close();            
+        } catch (ClassNotFoundException cnfe) {
+            System.out.println("Error de clase no encontrada:" + cnfe.toString());
+        }catch (IOException ioe) {
+            System.out.println("Error IO:" + ioe.toString());
         } catch (Exception e) {
             System.out.println("Error: " + e.toString());
         }

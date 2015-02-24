@@ -5,11 +5,13 @@
  */
 package videojuegos.pec1.armas;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jorge
  */
-public class Arma {
+public class Arma implements Serializable{
     //ATRIBUTOS
     private String nombre;        
     private int danyo;

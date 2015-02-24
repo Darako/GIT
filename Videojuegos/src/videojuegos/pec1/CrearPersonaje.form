@@ -46,19 +46,14 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jSeparator1" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jSeparator1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="labelDestreza" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelMana" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelRaza" alignment="0" max="32767" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="labelPV" alignment="0" max="32767" attributes="0"/>
-                              <Component id="labelNombre" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="labelPV" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelNombre" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelEnergia" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -69,109 +64,105 @@
                           <Component id="textPV" alignment="0" max="32767" attributes="0"/>
                           <Component id="comboRaza" alignment="1" pref="119" max="32767" attributes="0"/>
                           <Component id="textEnergia" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                              <Component id="labelPersonaje" min="-2" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
+                      <EmptySpace min="49" pref="49" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="labelTipoArma" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelNombreArma" max="32767" attributes="0"/>
-                                  <Component id="labelRecurso" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="labelDanyo" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="scrollListNombreArma" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="comboTipoArma" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="textDanyo" alignment="0" pref="50" max="32767" attributes="0"/>
-                                      <Component id="textRecursoArma" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="botonOK" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelRecurso" max="32767" attributes="0"/>
+                                  <Component id="labelNombreArma" pref="84" max="32767" attributes="0"/>
+                                  <Component id="labelTipoArma" max="32767" attributes="0"/>
+                                  <Component id="labelDanyo" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="comboTipoArma" min="-2" pref="123" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="textNombreArma" max="32767" attributes="0"/>
+                                  <Component id="textRecursoArma" max="32767" attributes="0"/>
+                                  <Component id="textDanyo" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="checkArma" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="botonOK" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
+              <Component id="labelPersonaje" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelPersonaje" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+              <Component id="labelPersonaje" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="checkArma" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelPV" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textPV" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelTipoArma" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboTipoArma" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelDestreza" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textDestreza" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelNombreArma" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textNombreArma" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelTipoArma" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelPV" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textPV" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelNombreArma" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelDestreza" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textDestreza" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="comboRaza" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelRaza" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelMana" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textMana" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelEnergia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textEnergia" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="comboTipoArma" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scrollListNombreArma" min="-2" pref="64" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="textRecursoArma" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelRecurso" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textRecursoArma" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="textDanyo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelDanyo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="18" max="32767" attributes="0"/>
-                      <Component id="botonOK" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelMana" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textMana" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelDanyo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textDanyo" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelEnergia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textEnergia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="botonOK" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -255,11 +246,6 @@
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ARMAMENTO"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JComboBox" name="comboTipoArma">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -279,28 +265,6 @@
         <Property name="text" type="java.lang.String" value="Tipo de Arma:"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="scrollListNombreArma">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JList" name="listNombreArma">
-          <Properties>
-            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-              <StringArray count="5">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-                <StringItem index="4" value="Item 5"/>
-              </StringArray>
-            </Property>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
     <Component class="javax.swing.JLabel" name="labelNombreArma">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre Arma:"/>
@@ -317,17 +281,21 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textRecursoArma">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textRecursoArmaActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="textDanyo">
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkArma">
       <Properties>
-        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="Crear con Arma"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkArmaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textNombreArma">
     </Component>
   </SubComponents>
 </Form>
