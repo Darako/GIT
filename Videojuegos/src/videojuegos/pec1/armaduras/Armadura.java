@@ -13,23 +13,50 @@ public class Armadura {
     
     //ATRIBUTOS
     private String nombre;
-    private int defensa;    
     private int durabilidad;
-    
+    private int pv;
+    private int pm;
+    private int defensa;
+    private int defensa_magica;
+
     //CONSTRUCTOR
-    public Armadura(String nombre, int defensa, int durabilidad) {
+    public Armadura(String nombre, int durabilidad, int pv, int pm, int defensa, int defensa_magica) {
         this.nombre = nombre;
-        this.defensa = defensa;
         this.durabilidad = durabilidad;
+        this.pv = pv;
+        this.pm = pm;
+        this.defensa = defensa;
+        this.defensa_magica = defensa_magica;
+    }
+    
+    //GETTER & SETTER
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    //GETTER & SETTER
     public int getDurabilidad() {
         return durabilidad;
     }
     public void setDurabilidad(int durabilidad) {
         this.durabilidad = durabilidad;
+    }  
+
+    public int getPv() {
+        return pv;
     }
+    public void setPv(int pv) {
+        this.pv = pv;
+    }       
+
+    public int getPm() {
+        return pm;
+    }
+    public void setPm(int pm) {
+        this.pm = pm;
+    }     
 
     public int getDefensa() {
         return defensa;
@@ -37,12 +64,12 @@ public class Armadura {
     public void setDefensa(int defensa) {
         this.defensa = defensa;
     }
+        
+    public int getDefensa_magica() {
+        return defensa_magica;
+    }
+    public void setDefensa_magica(int defensa_magica) {
+        this.defensa_magica = defensa_magica;
+    }
 
-    public String getNombre() {
-        return nombre;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    
 }

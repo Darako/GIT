@@ -5,6 +5,7 @@
  */
 package videojuegos.pec1.personajes;
 
+import java.io.Serializable;
 import videojuegos.pec1.armas.Arma;
 import videojuegos.pec1.armaduras.Armadura;
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  *
  * @author Guillermo
  */
-public class Pjs {
+public class Pjs implements Serializable{
     
     //ATRIBUTOS
     private String nombre;
@@ -25,13 +26,13 @@ public class Pjs {
     private int defensa_magica;
     private int nivel;
     private int exp;
-    private int exp_sig_nivel;
-    private Habilidad habilidad;
+    //private int exp_sig_nivel;
+    //private Habilidad habilidad;
     private Arma arma;
     private Armadura armadura;
 
     //CONSTRUCTOR
-    public Pjs(String nombre, int pv, int pm, int ataque, int ataque_magico, int defensa, int defensa_magica, int nivel, int exp, int exp_sig_nivel, Habilidad habilidad, Arma arma, Armadura armadura) {
+    public Pjs(String nombre, int pv, int pm, int ataque, int ataque_magico, int defensa, int defensa_magica, int nivel, int exp,/** int exp_sig_nivel, Habilidad habilidad,**/ Arma arma, Armadura armadura) {
         this.nombre = nombre;
         this.pv = pv;
         this.pm = pm;
@@ -41,8 +42,8 @@ public class Pjs {
         this.defensa_magica = defensa_magica;
         this.nivel = nivel;
         this.exp = exp;
-        this.exp_sig_nivel = exp_sig_nivel;
-        this.habilidad = habilidad;
+        //this.exp_sig_nivel = exp_sig_nivel;
+        //this.habilidad = habilidad;
         this.arma = arma;
         this.armadura = armadura;
     }
@@ -110,7 +111,7 @@ public class Pjs {
     public void setExp(int exp) {
         this.exp = exp;
     }       
-
+    /**
     public int getExp_sig_nivel() {
         return exp_sig_nivel;
     }
@@ -124,7 +125,7 @@ public class Pjs {
     public void setHabilidad(Habilidad habilidad) {
         this.habilidad = habilidad;
     }        
-
+    **/
     public Arma getArma() {
         return arma;
     }
