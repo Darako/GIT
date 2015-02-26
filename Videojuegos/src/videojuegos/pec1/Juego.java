@@ -5,6 +5,7 @@
  */
 package videojuegos.pec1;
 
+import habilidades.Habilidad;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,8 +31,9 @@ public class Juego {
     //LISTAS
     public static ArrayList<Personaje> personajes = new ArrayList<Personaje>();
     public static ArrayList<Arma> armas = new ArrayList<Arma>();
-    //public static ArrayList<Armadura> armaduras = new ArrayList<Armadura>();
-    //public static ArrayList<Enemigo> enemigos = new ArrayList<Enemigo>();
+    public static ArrayList<Armadura> armaduras = new ArrayList<Armadura>();
+    public static ArrayList<Enemigo> enemigos = new ArrayList<Enemigo>();
+    public static ArrayList<Habilidad> habilidades = new ArrayList<Habilidad>();
        
     
     //CONSTRUCTOR
@@ -45,15 +47,32 @@ public class Juego {
     }
     public void setPersonas(ArrayList<Personaje> personajes) {
         Juego.personajes = personajes;
-    }
+    }    
     public ArrayList<Arma> getArmas() {
         return armas;
     }
     public void setArmas(ArrayList<Arma> armas) {
         Juego.armas = armas;
+    }    
+    public  ArrayList<Personaje> getArmadura() {
+        return personajes;
     }
-    
-    
+    public void setArmadura(ArrayList<Armadura> armadura) {
+        Juego.armaduras = armaduras;
+    }    
+    public ArrayList<Enemigo> getEnemigos() {
+        return enemigos;
+    }
+    public void setEnemigos(ArrayList<Enemigo> enemigos) {
+        Juego.enemigos = enemigos;
+    }    
+    public ArrayList<Habilidad> getHabilidades() {
+        return habilidades;
+    }
+    public void setHabilidades(ArrayList<Habilidad> habilidades) {
+        Juego.habilidades = habilidades;
+    }
+        
     //METODOS
     public void nuevaPartida(){
         
@@ -65,10 +84,11 @@ public class Juego {
         
     }   
     public void iniciarDatos() throws FileNotFoundException{
-        this.cargarPersonajes("personajes");
+        this.cargarPersonajes(personajes, "personajes");
         this.cargarArmas("armas");
-        //this.armaduras = cargarDatos(personajes);
-        //this.enemigos = cargarDatos(personajes);
+        //this.armaduras = cargarDatos("armaduras");
+        //this.enemigos = cargarDatos("enemigos");
+        //this.habilidades = cargarDatos("habilidades");
     } 
         
     public void guardarObjeto(ArrayList datos, String nombre) {
@@ -98,10 +118,10 @@ public class Juego {
         }
     }
     
-    public void cargarPersonajes(String nombre){
+    public void cargarPersonajes(ArrayList clase, String nombre){
         try{
             ObjectInputStream ficheroEntrada = new ObjectInputStream(new FileInputStream(nombre+".dat"));
-            personajes = (ArrayList) ficheroEntrada.readObject();
+            clase = (ArrayList) ficheroEntrada.readObject();
             ficheroEntrada.close();            
         } catch (ClassNotFoundException cnfe) {
             System.out.println("Error de clase no encontrada:" + cnfe.toString());

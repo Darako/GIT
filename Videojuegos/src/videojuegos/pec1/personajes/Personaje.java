@@ -5,6 +5,7 @@
  */
 package videojuegos.pec1.personajes;
 
+import habilidades.Habilidad;
 import java.io.Serializable;
 import videojuegos.pec1.armas.Arma;
 import java.util.ArrayList;
@@ -17,23 +18,24 @@ public class Personaje implements Serializable{
     
     //ATRIBUTOS
     private Arma arma;
+    private Habilidad habilidad;
     private int pv;
     private String nombre;
     private int destreza;
 
     //CONSTRUCOR
-    public Personaje(String nombre, int pv, int destreza, Arma arma) {
+    public Personaje(String nombre, int pv, int destreza, Arma arma, Habilidad habilidad) {
         this.nombre = nombre;        
         this.pv = pv;        
         this.destreza = destreza;
         this.arma = arma;
+        this.habilidad = habilidad;
     } 
 
     public Personaje(String nombre, int pv, int destreza) {
         this.nombre = nombre;
         this.pv = pv;        
         this.destreza = destreza;
-        this.arma = null;
     }
     
     //GETTER & SETTER
@@ -43,7 +45,12 @@ public class Personaje implements Serializable{
     public void setArma(Arma arma) {
         this.arma = arma;
     } 
-
+    public Arma getHabilidad() {
+        return arma;
+    }
+    public void setHabilidad(Habilidad habilidad) {
+        this.habilidad = habilidad;
+    } 
     public int getPv() {
         return pv;
     }
@@ -74,6 +81,11 @@ public class Personaje implements Serializable{
     }
     
     public void gastar(){}
+    
+    public void usarHabilidad(Habilidad habilidad, Personaje personaje){
+        int danyo = habilidad.getEfecto();
+        personaje.setPv(personaje.getPv()+danyo);
+    }
 
     public void combatir(ArrayList<Personaje> luchadores){ 
         int i = 0;

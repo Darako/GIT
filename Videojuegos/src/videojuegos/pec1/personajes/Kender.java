@@ -5,6 +5,7 @@
  */
 package videojuegos.pec1.personajes;
 
+import habilidades.Habilidad;
 import videojuegos.pec1.armas.Arma;
 
 /**
@@ -17,8 +18,8 @@ public class Kender extends Personaje{
     private int energia;
 
     //CONSTRUCTOR
-    public Kender(String nombre, int pv, int destreza, Arma arma, int energia) {
-        super(nombre, pv, destreza, arma);
+    public Kender(String nombre, int pv, int destreza, Arma arma, Habilidad habilidades, int energia) {
+        super(nombre, pv, destreza, arma, habilidades);
         this.energia = energia;
     }
 

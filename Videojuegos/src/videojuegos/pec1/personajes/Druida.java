@@ -5,6 +5,7 @@
  */
 package videojuegos.pec1.personajes;
 
+import habilidades.Habilidad;
 import videojuegos.pec1.armas.Arma;
 import java.util.Random;
 
@@ -19,8 +20,8 @@ public class Druida extends Personaje{
     private int mana;
     
     //CONSTRUCTOR
-    public Druida(String nombre, int pv, int destreza, Arma arma, int energia, int mana) {
-        super(nombre, pv, destreza, arma);
+    public Druida(String nombre, int pv, int destreza, Arma arma, Habilidad habilidades, int energia, int mana) {
+        super(nombre, pv, destreza, arma, habilidades);
         this.energia = energia;
         this.mana = mana;
     }

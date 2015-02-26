@@ -5,6 +5,7 @@
  */
 package videojuegos.pec1.personajes;
 
+import habilidades.Habilidad;
 import videojuegos.pec1.armas.Arma;
 
 /**
@@ -17,8 +18,8 @@ public class Nigromante extends Personaje {
     private int mana;
 
     //CONSTRUCTOR
-    public Nigromante(String nombre, int pv, int destreza, Arma arma, int mana) {
-        super(nombre, pv, destreza, arma);
+    public Nigromante(String nombre, int pv, int destreza, Arma arma, Habilidad habilidades, int mana) {
+        super(nombre, pv, destreza, arma, habilidades);
         this.mana = mana;        
     }
 
