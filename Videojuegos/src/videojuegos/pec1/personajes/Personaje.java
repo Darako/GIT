@@ -33,6 +33,7 @@ public class Personaje implements Serializable{
         this.nombre = nombre;
         this.pv = pv;        
         this.destreza = destreza;
+        this.arma = null;
     }
     
     //GETTER & SETTER

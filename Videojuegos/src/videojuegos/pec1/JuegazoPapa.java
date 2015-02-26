@@ -56,12 +56,17 @@ public class JuegazoPapa {
         ArrayList<Personaje> roster = new ArrayList<Personaje>();
         roster=juego.getPersonajes();
         
+        
         //System.out.println(juego.getArmas().get(0).getNombre());
-        System.out.println(roster.get(7).getArma().getNombre());
+        //System.out.println(roster.get(7).getArma().getNombre());
         for(int i=0;i<roster.size();i++){
             System.out.println(roster.get(i).getNombre());
-            //System.out.println(roster.get(i).getArma().getNombre());
-        }//System.out.println(baul.get(0).getNombre());
+            if(roster.get(i).getArma().getNombre() != null)
+            {
+                System.out.println(roster.get(i).getArma().getNombre());
+            }
+            
+        }//System.out.println(baul.get(0).getNombre());System.out.println(roster.get(i).getArma().getNombre());
         
         /*
         System.out.println("¡¡COMBATE!!");
