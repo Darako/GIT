@@ -35,7 +35,7 @@ public class PantallaCrearPersonaje extends javax.swing.JFrame {
     public PantallaCrearPersonaje(JFrame pantallaAnterior, Juego juego) throws FileNotFoundException {
         initComponents();
         anterior = pantallaAnterior;
-        //anterior.setVisible(false);
+        anterior.setVisible(false);
         this.setVisible(true);
         juego.iniciarDatos();
         armas = juego.getArmas();
@@ -91,7 +91,7 @@ public class PantallaCrearPersonaje extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);

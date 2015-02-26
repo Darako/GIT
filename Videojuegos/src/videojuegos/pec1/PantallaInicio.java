@@ -98,7 +98,7 @@ public class PantallaInicio extends javax.swing.JFrame {
 
     private void buttonCrearPersonajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCrearPersonajeActionPerformed
         try {
-            PantallaCrearPersonaje pantalla = new PantallaCrearPersonaje(this, juego);
+            PantallaCrearPersonaje crearPersonaje = new PantallaCrearPersonaje(this, juego);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(PantallaInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
