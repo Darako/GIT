@@ -150,15 +150,15 @@ public class Pjs implements Serializable{
     public void equiparArmadura(Armadura armadura){
         Armadura armaduraAux = this.armadura;
         
-        int pvNoEquip = this.pv - armaduraAux.getPv();
-        int pmNoEquip = this.pm - armaduraAux.getPm();
-        int defensaNoEquip = this.defensa - armaduraAux.getDefensa();
-        int defensaMNoEquip = this.defensa_magica - armaduraAux.getDefensa_magica();
+        int pvBase = this.pv - armaduraAux.getPv();
+        int pmBase = this.pm - armaduraAux.getPm();
+        int defensaBase = this.defensa - armaduraAux.getDefensa();
+        int defensaMBase = this.defensa_magica - armaduraAux.getDefensa_magica();
         
-        int pvEquipado = pvNoEquip + armadura.getPv();
-        int pmEquipado = pmNoEquip + armadura.getPm();
-        int defensaEquipado = defensaNoEquip + armadura.getDefensa();
-        int defensaMEquipado = defensaMNoEquip + armadura.getDefensa_magica();
+        int pvEquipado = pvBase + armadura.getPv();
+        int pmEquipado = pmBase + armadura.getPm();
+        int defensaEquipado = defensaBase + armadura.getDefensa();
+        int defensaMEquipado = defensaMBase + armadura.getDefensa_magica();
         
         this.setArmadura(armadura);
         this.setPv(pvEquipado);
@@ -173,4 +173,27 @@ public class Pjs implements Serializable{
         
     }
     
+    public void equiparCasco(Armadura casco){
+        Armadura armaduraAux = this.armadura;
+        
+        int pvBase = this.pv - armaduraAux.getCasco().getPv();
+        int pmBase = this.pm - armaduraAux.getCasco().getPm();
+        int defensaBase = this.defensa - armaduraAux.getCasco().getDefensa();
+        int defensaMBase = this.defensa_magica - armaduraAux.getCasco().getDefensa_magica();
+        
+        int pvEquipado = pvBase + armadura.getCasco().getPv();
+        int pmEquipado = pmBase + armadura.getCasco().getPm();
+        int defensaEquipado = defensaBase + armadura.getCasco().getDefensa();
+        int defensaMEquipado = defensaMBase + armadura.getCasco().getDefensa_magica();
+        
+        this.setArmadura(casco);
+        this.setPv(pvEquipado);
+        this.setPm(pmEquipado);
+        this.setDefensa(defensaEquipado);
+        this.setDefensa_magica(defensaMEquipado);
+        
+        System.out.println("Armadura equipada: " + (armadura.getCasco().getNombre()));
+
+        
+    }
 }

@@ -33,6 +33,11 @@ public class Armadura {
         this.pechera = pechera;
             
     }
+
+    public Armadura(Casco casco) {
+        this.casco = casco;
+    }
+    
     
     //GETTER & SETTER
 
