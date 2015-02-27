@@ -148,16 +148,29 @@ public class Pjs implements Serializable{
     }
     
     public void equiparArmadura(Armadura armadura){
-        int pvEquipado = this.pv + armadura.getPv();
-        int pmEquipado = this.pm + armadura.getPm();
-        int defensaEquipado = this.defensa + armadura.getDefensa();
-        int defensaMEquipado = this.defensa_magica + armadura.getDefensa_magica();
+        Armadura armaduraAux = this.armadura;
+        
+        int pvNoEquip = this.pv - armaduraAux.getPv();
+        int pmNoEquip = this.pm - armaduraAux.getPm();
+        int defensaNoEquip = this.defensa - armaduraAux.getDefensa();
+        int defensaMNoEquip = this.defensa_magica - armaduraAux.getDefensa_magica();
+        
+        int pvEquipado = pvNoEquip + armadura.getPv();
+        int pmEquipado = pmNoEquip + armadura.getPm();
+        int defensaEquipado = defensaNoEquip + armadura.getDefensa();
+        int defensaMEquipado = defensaMNoEquip + armadura.getDefensa_magica();
         
         this.setArmadura(armadura);
         this.setPv(pvEquipado);
         this.setPm(pmEquipado);
         this.setDefensa(defensaEquipado);
         this.setDefensa_magica(defensaMEquipado);
+        
+        System.out.println("Armadura equipada: " + (armadura.getBotas().getNombre()));
+        System.out.println("Armadura equipada: " + (armadura.getCasco().getNombre()));
+        System.out.println("Armadura equipada: " + (armadura.getGuantes().getNombre()));
+        System.out.println("Armadura equipada: " + (armadura.getPechera().getNombre()));
+        
     }
     
 }
