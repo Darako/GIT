@@ -39,7 +39,7 @@ public class SphinxMain {
         Armadura armadura0 = new Armadura(botas0, casco0, guantes0, pechera0);
         Armadura armadura1 = new Armadura(botas1, casco1, guantes1, pechera1);
         Armadura armadura2 = new Armadura(botas2, casco2, guantes2, pechera2);
-        Armadura armadura3 = new Armadura(casco2);
+        //Armadura armadura3 = new Armadura(casco2);
         System.out.println(armadura0.toString());
         System.out.println(armadura1.toString());
         Arco arco1 = new Arco("Arco del cerdo", 10, 1000);
@@ -48,13 +48,17 @@ public class SphinxMain {
         nuevo.setArmadura(armadura0);
         nuevo.setArma(arco1);
         System.out.println(nuevo.toString());
-        nuevo.equiparArmadura(armadura1);
+        //nuevo.equiparArmadura(armadura1);
+        //System.out.println(nuevo.toString());
+        //nuevo.equiparArmadura(armadura2);
+        //System.out.println(nuevo.toString());
+        //nuevo.equiparArmadura(armadura0);
+        //System.out.println(nuevo.toString());
+        //nuevo.equiparCasco(armadura3);
+        //System.out.println(nuevo.toString());
+        nuevo.actualizarArmadura(casco2);
         System.out.println(nuevo.toString());
-        nuevo.equiparArmadura(armadura2);
-        System.out.println(nuevo.toString());
-        nuevo.equiparArmadura(armadura0);
-        System.out.println(nuevo.toString());
-        nuevo.equiparCasco(armadura3);
+        nuevo.actualizarArmadura(botas1);
         System.out.println(nuevo.toString());
     }
     

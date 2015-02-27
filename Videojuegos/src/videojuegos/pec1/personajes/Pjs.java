@@ -9,6 +9,10 @@ import java.io.Serializable;
 import videojuegos.pec1.armas.Arma;
 import videojuegos.pec1.armaduras.Armadura;
 import java.util.ArrayList;
+import videojuegos.pec1.armaduras.Casco;
+import videojuegos.pec1.armaduras.Guantes;
+import videojuegos.pec1.armaduras.Pechera;
+import videojuegos.pec1.armaduras.Botas;
 
 /**
  *
@@ -141,12 +145,8 @@ public class Pjs implements Serializable{
     }
 
     //MÉTODOS
-
-    @Override
-    public String toString() {
-        return "Pjs{" + "nombre=" + nombre + ", pv=" + pv + ", pm=" + pm + ", ataque=" + ataque + ", ataque_magico=" + ataque_magico + ", defensa=" + defensa + ", defensa_magica=" + defensa_magica + ", nivel=" + nivel + ", exp=" + exp + ", arma=" + arma + ", armadura=" + armadura + '}';
-    }
     
+    /**
     public void equiparArmadura(Armadura armadura){
         Armadura armaduraAux = this.armadura;
         
@@ -173,27 +173,66 @@ public class Pjs implements Serializable{
         
     }
     
-    public void equiparCasco(Armadura casco){
-        Armadura armaduraAux = this.armadura;
+    **/
+    
+    public void actualizarArmadura(Casco pieza){
+        Casco piezaAux = this.getArmadura().getCasco();
         
-        int pvBase = this.pv - armaduraAux.getCasco().getPv();
-        int pmBase = this.pm - armaduraAux.getCasco().getPm();
-        int defensaBase = this.defensa - armaduraAux.getCasco().getDefensa();
-        int defensaMBase = this.defensa_magica - armaduraAux.getCasco().getDefensa_magica();
+        this.setPv(getPv() - piezaAux.getPv());
+        this.setPm(getPm() - piezaAux.getPm());
+        this.setDefensa(getDefensa() - piezaAux.getDefensa());
+        this.setDefensa_magica(getDefensa_magica() - piezaAux.getDefensa_magica());
+        this.getArmadura().setCasco(pieza);
+        this.setPv(getPv() + piezaAux.getPv());
+        this.setPm(getPm() + piezaAux.getPm());
+        this.setDefensa(getDefensa() + piezaAux.getDefensa());
+        this.setDefensa_magica(getDefensa_magica() + piezaAux.getDefensa_magica());
+    }
+    
+    public void actualizarArmadura(Guantes pieza){
+        Casco piezaAux = this.getArmadura().getCasco();
         
-        int pvEquipado = pvBase + armadura.getCasco().getPv();
-        int pmEquipado = pmBase + armadura.getCasco().getPm();
-        int defensaEquipado = defensaBase + armadura.getCasco().getDefensa();
-        int defensaMEquipado = defensaMBase + armadura.getCasco().getDefensa_magica();
+        this.setPv(getPv() - piezaAux.getPv());
+        this.setPm(getPm() - piezaAux.getPm());
+        this.setDefensa(getDefensa() - piezaAux.getDefensa());
+        this.setDefensa_magica(getDefensa_magica() - piezaAux.getDefensa_magica());
+        this.getArmadura().setGuantes(pieza);
+        this.setPv(getPv() + piezaAux.getPv());
+        this.setPm(getPm() + piezaAux.getPm());
+        this.setDefensa(getDefensa() + piezaAux.getDefensa());
+        this.setDefensa_magica(getDefensa_magica() + piezaAux.getDefensa_magica());
+    }
+    
+    public void actualizarArmadura(Pechera pieza){
+        Casco piezaAux = this.getArmadura().getCasco();
         
-        this.setArmadura(casco);
-        this.setPv(pvEquipado);
-        this.setPm(pmEquipado);
-        this.setDefensa(defensaEquipado);
-        this.setDefensa_magica(defensaMEquipado);
+        this.setPv(getPv() - piezaAux.getPv());
+        this.setPm(getPm() - piezaAux.getPm());
+        this.setDefensa(getDefensa() - piezaAux.getDefensa());
+        this.setDefensa_magica(getDefensa_magica() - piezaAux.getDefensa_magica());
+        this.getArmadura().setPechera(pieza);
+        this.setPv(getPv() + piezaAux.getPv());
+        this.setPm(getPm() + piezaAux.getPm());
+        this.setDefensa(getDefensa() + piezaAux.getDefensa());
+        this.setDefensa_magica(getDefensa_magica() + piezaAux.getDefensa_magica());
+    }
+    
+    public void actualizarArmadura(Botas pieza){
+        Casco piezaAux = this.getArmadura().getCasco();
         
-        System.out.println("Armadura equipada: " + (armadura.getCasco().getNombre()));
-
-        
+        this.setPv(getPv() - piezaAux.getPv());
+        this.setPm(getPm() - piezaAux.getPm());
+        this.setDefensa(getDefensa() - piezaAux.getDefensa());
+        this.setDefensa_magica(getDefensa_magica() - piezaAux.getDefensa_magica());
+        this.getArmadura().setBotas(pieza);
+        this.setPv(getPv() + piezaAux.getPv());
+        this.setPm(getPm() + piezaAux.getPm());
+        this.setDefensa(getDefensa() + piezaAux.getDefensa());
+        this.setDefensa_magica(getDefensa_magica() + piezaAux.getDefensa_magica());
+    }
+    
+    @Override
+    public String toString() {
+        return "Pjs{" + "nombre=" + nombre + ", pv=" + pv + ", pm=" + pm + ", ataque=" + ataque + ", ataque_magico=" + ataque_magico + ", defensa=" + defensa + ", defensa_magica=" + defensa_magica + ", nivel=" + nivel + ", exp=" + exp + ", arma=" + arma + ", armadura=" + armadura + '}';
     }
 }
