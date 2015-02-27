@@ -12,37 +12,29 @@ package videojuegos.pec1.armaduras;
 public class Armadura {
     
     //ATRIBUTOS
-    private String nombre;
-    private int durabilidad;
     private int pv;
     private int pm;
     private int defensa;
     private int defensa_magica;
+    private Botas botas;
+    private Casco casco;
+    private Guantes guantes;
+    private Pechera pechera;
 
     //CONSTRUCTOR
-    public Armadura(String nombre, int durabilidad, int pv, int pm, int defensa, int defensa_magica) {
-        this.nombre = nombre;
-        this.durabilidad = durabilidad;
-        this.pv = pv;
-        this.pm = pm;
-        this.defensa = defensa;
-        this.defensa_magica = defensa_magica;
+    public Armadura(Botas botas, Casco casco, Guantes guantes, Pechera pechera) {
+        this.pv = botas.getPv() + casco.getPv() + guantes.getPv() + pechera.getPv();
+        this.pm = botas.getPm() + casco.getPm() + guantes.getPm() + pechera.getPm();
+        this.defensa = botas.getDefensa() + casco.getDefensa() + guantes.getDefensa() + pechera.getDefensa();
+        this.defensa_magica = botas.getDefensa_magica() + casco.getDefensa_magica() + guantes.getDefensa_magica() + pechera.getDefensa_magica();
+        this.botas = botas;
+        this.casco = casco;
+        this.guantes = guantes;
+        this.pechera = pechera;
+            
     }
     
     //GETTER & SETTER
-    public String getNombre() {
-        return nombre;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getDurabilidad() {
-        return durabilidad;
-    }
-    public void setDurabilidad(int durabilidad) {
-        this.durabilidad = durabilidad;
-    }  
 
     public int getPv() {
         return pv;
@@ -71,5 +63,44 @@ public class Armadura {
     public void setDefensa_magica(int defensa_magica) {
         this.defensa_magica = defensa_magica;
     }
+
+    public Botas getBotas() {
+        return botas;
+    }
+    public void setBotas(Botas botas) {
+        this.botas = botas;
+    }
+
+    public Casco getCasco() {
+        return casco;
+    }
+    public void setCasco(Casco casco) {
+        this.casco = casco;
+    }
+
+    public Guantes getGuantes() {
+        return guantes;
+    }
+    public void setGuantes(Guantes guantes) {
+        this.guantes = guantes;
+    }
+
+    public Pechera getPechera() {
+        return pechera;
+    }
+    public void setPechera(Pechera pechera) {
+        this.pechera = pechera;
+    }
+
+    
+    //MÉTODOS
+
+    @Override
+    public String toString() {
+        return "Armadura{" + "pv=" + pv + ", pm=" + pm + ", defensa=" + defensa + ", defensa_magica=" + defensa_magica + ", botas=" + botas + ", casco=" + casco + ", guantes=" + guantes + ", pechera=" + pechera + '}';
+    }
+    
+    
+    
 
 }

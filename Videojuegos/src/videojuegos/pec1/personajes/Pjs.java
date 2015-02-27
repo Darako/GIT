@@ -32,7 +32,7 @@ public class Pjs implements Serializable{
     private Armadura armadura;
 
     //CONSTRUCTOR
-    public Pjs(String nombre, int pv, int pm, int ataque, int ataque_magico, int defensa, int defensa_magica, int nivel, int exp,/** int exp_sig_nivel, Habilidad habilidad,**/ Arma arma, Armadura armadura) {
+    public Pjs(String nombre, int pv, int pm, int ataque, int ataque_magico, int defensa, int defensa_magica, int nivel, int exp/** int exp_sig_nivel, Habilidad habilidad, Arma arma, Armadura armadura**/) {
         this.nombre = nombre;
         this.pv = pv;
         this.pm = pm;
@@ -44,8 +44,8 @@ public class Pjs implements Serializable{
         this.exp = exp;
         //this.exp_sig_nivel = exp_sig_nivel;
         //this.habilidad = habilidad;
-        this.arma = arma;
-        this.armadura = armadura;
+        //this.arma = arma;
+        //this.armadura = armadura;
     }
     
     //GETTER & SETTER
@@ -140,4 +140,24 @@ public class Pjs implements Serializable{
         this.armadura = armadura;
     }
 
+    //MÉTODOS
+
+    @Override
+    public String toString() {
+        return "Pjs{" + "nombre=" + nombre + ", pv=" + pv + ", pm=" + pm + ", ataque=" + ataque + ", ataque_magico=" + ataque_magico + ", defensa=" + defensa + ", defensa_magica=" + defensa_magica + ", nivel=" + nivel + ", exp=" + exp + ", arma=" + arma + ", armadura=" + armadura + '}';
+    }
+    
+    public void equiparArmadura(Armadura armadura){
+        int pvEquipado = this.pv + armadura.getPv();
+        int pmEquipado = this.pm + armadura.getPm();
+        int defensaEquipado = this.defensa + armadura.getDefensa();
+        int defensaMEquipado = this.defensa_magica + armadura.getDefensa_magica();
+        
+        this.setArmadura(armadura);
+        this.setPv(pvEquipado);
+        this.setPm(pmEquipado);
+        this.setDefensa(defensaEquipado);
+        this.setDefensa_magica(defensaMEquipado);
+    }
+    
 }
