@@ -13,6 +13,11 @@ import videojuegos.pec1.armaduras.Casco;
 import videojuegos.pec1.armaduras.Guantes;
 import videojuegos.pec1.armaduras.Pechera;
 import videojuegos.pec1.armaduras.Botas;
+import videojuegos.pec1.armas.Armaca;
+import videojuegos.pec1.armas.Bastonaco;
+import videojuegos.pec1.armas.Dagon;
+import videojuegos.pec1.armas.Espadaca;
+
 
 /**
  *
@@ -32,7 +37,7 @@ public class Pjs implements Serializable{
     private int exp;
     //private int exp_sig_nivel;
     //private Habilidad habilidad;
-    private Arma arma;
+    private Armaca arma;
     private Armadura armadura;
 
     //CONSTRUCTOR
@@ -129,11 +134,12 @@ public class Pjs implements Serializable{
     public void setHabilidad(Habilidad habilidad) {
         this.habilidad = habilidad;
     }        
+     * @return 
     **/
-    public Arma getArma() {
+    public Armaca getArmaca() {
         return arma;
     }
-    public void setArma(Arma arma) {
+    public void setArmaca(Armaca arma) {
         this.arma = arma;
     }
 
@@ -172,7 +178,7 @@ public class Pjs implements Serializable{
         System.out.println("Armadura equipada: " + (armadura.getPechera().getNombre()));
         
     }
-    
+     * @param pieza    
     **/
     
     public void actualizarArmadura(Casco pieza){
@@ -190,7 +196,7 @@ public class Pjs implements Serializable{
     }
     
     public void actualizarArmadura(Guantes pieza){
-        Casco piezaAux = this.getArmadura().getCasco();
+        Guantes piezaAux = this.getArmadura().getGuantes();
         
         this.setPv(getPv() - piezaAux.getPv());
         this.setPm(getPm() - piezaAux.getPm());
@@ -204,7 +210,7 @@ public class Pjs implements Serializable{
     }
     
     public void actualizarArmadura(Pechera pieza){
-        Casco piezaAux = this.getArmadura().getCasco();
+        Pechera piezaAux = this.getArmadura().getPechera();
         
         this.setPv(getPv() - piezaAux.getPv());
         this.setPm(getPm() - piezaAux.getPm());
@@ -218,7 +224,7 @@ public class Pjs implements Serializable{
     }
     
     public void actualizarArmadura(Botas pieza){
-        Casco piezaAux = this.getArmadura().getCasco();
+        Botas piezaAux = this.getArmadura().getBotas();
         
         this.setPv(getPv() - piezaAux.getPv());
         this.setPm(getPm() - piezaAux.getPm());
@@ -231,6 +237,36 @@ public class Pjs implements Serializable{
         this.setDefensa_magica(getDefensa_magica() + piezaAux.getDefensa_magica());
     }
     
+   public void actualizarArma(Bastonaco pieza){
+        Bastonaco piezaAux = this.getArmaca().getBastonaco();
+        
+        this.setAtaque(getAtaque() - piezaAux.getAtaque());
+        this.setAtaque_magico(getAtaque_magico() - piezaAux.getAtaque_magico());
+        this.getArmaca().setBastonaco(pieza);
+        this.setAtaque(getAtaque() + piezaAux.getAtaque());
+        this.setAtaque_magico(getAtaque_magico() + piezaAux.getAtaque_magico());        
+   }
+   
+   public void actualizarArma(Dagon pieza){
+        Dagon piezaAux = this.getArmaca().getDagon();
+        
+        this.setAtaque(getAtaque() - piezaAux.getAtaque());
+        this.setAtaque_magico(getAtaque_magico() - piezaAux.getAtaque_magico());
+        this.getArmaca().setDagon(pieza);
+        this.setAtaque(getAtaque() + piezaAux.getAtaque());
+        this.setAtaque_magico(getAtaque_magico() + piezaAux.getAtaque_magico());        
+   }
+   
+   public void actualizarArma(Espadaca pieza){
+        Dagon piezaAux = this.getArmaca().getDagon();
+        
+        this.setAtaque(getAtaque() - piezaAux.getAtaque());
+        this.setAtaque_magico(getAtaque_magico() - piezaAux.getAtaque_magico());
+        this.getArmaca().setEspadaca(pieza);
+        this.setAtaque(getAtaque() + piezaAux.getAtaque());
+        this.setAtaque_magico(getAtaque_magico() + piezaAux.getAtaque_magico());        
+   }
+   
     @Override
     public String toString() {
         return "Pjs{" + "nombre=" + nombre + ", pv=" + pv + ", pm=" + pm + ", ataque=" + ataque + ", ataque_magico=" + ataque_magico + ", defensa=" + defensa + ", defensa_magica=" + defensa_magica + ", nivel=" + nivel + ", exp=" + exp + ", arma=" + arma + ", armadura=" + armadura + '}';
