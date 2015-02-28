@@ -5,7 +5,7 @@
  */
 package videojuegos.pec1.personajes;
 
-import habilidades.Habilidad;
+import videojuegos.pec1.habilidades.Habilidad;
 import videojuegos.pec1.armas.Arma;
 import java.util.Random;
 

@@ -5,7 +5,7 @@
  */
 package videojuegos.pec1;
 
-import habilidades.Habilidad;
+import videojuegos.pec1.habilidades.Habilidad;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
