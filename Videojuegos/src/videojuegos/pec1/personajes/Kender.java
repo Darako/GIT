@@ -18,9 +18,10 @@ public class Kender extends Personaje{
     private int energia;
 
     //CONSTRUCTOR
-    public Kender(String nombre, int pv, int pm, int ataque, int ataque_magico, int defensa, int defensa_magica, int nivel, int exp) {
-        super(nombre, pv, pm, ataque, ataque_magico, defensa, defensa_magica, nivel, exp);
-    }    
+    public Kender(String nombre, int pvMax, int pmMax, int ataqueFisico, int ataqueMagico, int defensaFisica, int defensaMagica, int energia) {
+        super(nombre, pvMax, pmMax, ataqueFisico, ataqueMagico, defensaFisica, defensaMagica);
+        this.energia = energia;
+    }       
 
     //GETTER & SETTER
     public int getEnergia() {

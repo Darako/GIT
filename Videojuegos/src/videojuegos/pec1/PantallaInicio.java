@@ -45,6 +45,7 @@ public class PantallaInicio extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         labelTitulo = new javax.swing.JLabel();
         buttonCrearPersonaje = new javax.swing.JButton();
+        buttonCrearArmadura = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -53,6 +54,7 @@ public class PantallaInicio extends javax.swing.JFrame {
             }
         });
 
+        labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTitulo.setText("INICIO");
 
         buttonCrearPersonaje.setText("Crear Personaje");
@@ -62,24 +64,25 @@ public class PantallaInicio extends javax.swing.JFrame {
             }
         });
 
+        buttonCrearArmadura.setText("Crear Armadura");
+        buttonCrearArmadura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCrearArmaduraActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(labelTitulo)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonCrearPersonaje, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                    .addComponent(buttonCrearArmadura, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(226, 226, 226)
-                .addComponent(buttonCrearPersonaje)
-                .addContainerGap(249, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,9 +91,11 @@ public class PantallaInicio extends javax.swing.JFrame {
                 .addComponent(labelTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonCrearPersonaje)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonCrearArmadura)
+                .addContainerGap(245, Short.MAX_VALUE))
         );
 
         pack();
@@ -109,6 +114,15 @@ public class PantallaInicio extends javax.swing.JFrame {
         juego.guardarObjeto(armas, "armas");
         juego.guardarObjeto(personajes, "personajes");
     }//GEN-LAST:event_formWindowClosing
+
+    private void buttonCrearArmaduraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCrearArmaduraActionPerformed
+        try {
+            PantallaCrearArmadura crearArmadura = new PantallaCrearArmadura(this, juego);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(PantallaInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.setVisible(false);
+    }//GEN-LAST:event_buttonCrearArmaduraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,6 +164,7 @@ public class PantallaInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonCrearArmadura;
     private javax.swing.JButton buttonCrearPersonaje;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelTitulo;

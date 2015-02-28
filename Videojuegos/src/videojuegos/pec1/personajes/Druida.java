@@ -20,9 +20,12 @@ public class Druida extends Personaje{
     private int mana;
     
     //CONSTRUCTOR
-    public Druida(String nombre, int pv, int pm, int ataque, int ataque_magico, int defensa, int defensa_magica, int nivel, int exp) {
-        super(nombre, pv, pm, ataque, ataque_magico, defensa, defensa_magica, nivel, exp);
-    }    
+    public Druida(String nombre, int pvMax, int pmMax, int ataqueFisico, int ataqueMagico, int defensaFisica, int defensaMagica, int mana, int energia) {
+        super(nombre, pvMax, pmMax, ataqueFisico, ataqueMagico, defensaFisica, defensaMagica);
+        this.energia = energia;
+        this.mana = mana;
+    }
+    
     
     //GETTER & SETTER
     public int getEnergia() {

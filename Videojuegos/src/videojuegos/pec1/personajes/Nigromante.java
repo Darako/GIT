@@ -12,15 +12,16 @@ import videojuegos.pec1.armas.Arma;
  *
  * @author Guillermo
  */
-public class Nigromante extends Personaje {
+public class Nigromante extends Personaje{
     
     //ATRIBUTOS
     private int mana;
 
     //CONSTRUCTOR
-    public Nigromante(String nombre, int pv, int pm, int ataque, int ataque_magico, int defensa, int defensa_magica, int nivel, int exp) {
-        super(nombre, pv, pm, ataque, ataque_magico, defensa, defensa_magica, nivel, exp);
-    }    
+    public Nigromante(String nombre, int pvMax, int pmMax, int ataqueFisico, int ataqueMagico, int defensaFisica, int defensaMagica, int mana) {
+        super(nombre, pvMax, pmMax, ataqueFisico, ataqueMagico, defensaFisica, defensaMagica);
+        this.mana = mana;
+    }
 
     //GETTER & SETTER
     public int getPoder() {

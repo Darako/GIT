@@ -5,6 +5,17 @@
  */
 package videojuegos.pec1;
 
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import videojuegos.pec1.armaduras.Armadura;
+import videojuegos.pec1.armaduras.Botas;
+import videojuegos.pec1.armaduras.Casco;
+import videojuegos.pec1.armaduras.Guantes;
+import videojuegos.pec1.armaduras.Pechera;
+import videojuegos.pec1.armas.Arma;
+import videojuegos.pec1.personajes.Personaje;
+
 /**
  *
  * @author Jorge
@@ -14,10 +25,22 @@ public class PantallaCrearArmadura extends javax.swing.JDialog {
     /**
      * Creates new form PantallaCrearArmadura
      */
-    public PantallaCrearArmadura(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    JFrame anterior;
+    public PantallaCrearArmadura(JFrame pantallaAnterior, Juego juego) throws FileNotFoundException {
         initComponents();
+        anterior = pantallaAnterior;
+        anterior.setVisible(false);
+        this.setVisible(true);
+        juego.iniciarDatos();
+        armas = juego.getArmas();
+        personajes = juego.getPersonajes();
+        //armaduras = juego.getArmadura();
+        comboTipo.setSelectedIndex(0);
     }
+    Juego juego = new Juego();    
+    ArrayList<Arma> armas = new ArrayList<Arma>();
+    ArrayList<Personaje> personajes = new ArrayList<Personaje>();
+    ArrayList<Armadura> armaduras = new ArrayList<Armadura>();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,64 +51,261 @@ public class PantallaCrearArmadura extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        textDefMag = new javax.swing.JTextField();
+        botonOK = new javax.swing.JButton();
+        labelTitulo = new javax.swing.JLabel();
+        separador = new javax.swing.JSeparator();
+        comboTipo = new javax.swing.JComboBox();
+        labelRaza = new javax.swing.JLabel();
+        labelNombre = new javax.swing.JLabel();
+        textNombre = new javax.swing.JTextField();
+        labelPV = new javax.swing.JLabel();
+        labelPM = new javax.swing.JLabel();
+        textPV = new javax.swing.JTextField();
+        textPM = new javax.swing.JTextField();
+        textDefFis = new javax.swing.JTextField();
+        labelDefMag = new javax.swing.JLabel();
+        labelDefFis = new javax.swing.JLabel();
+        textDurabilidad = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
+
+        botonOK.setText("OK");
+        botonOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonOKActionPerformed(evt);
+            }
+        });
+
+        labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo.setText("ARMADURA");
+
+        comboTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Casco", "Pechera", "Guantes", "Botas" }));
+        comboTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTipoActionPerformed(evt);
+            }
+        });
+
+        labelRaza.setText("Tipo:");
+
+        labelNombre.setText("Nombre: ");
+
+        textNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNombreActionPerformed(evt);
+            }
+        });
+
+        labelPV.setText("PV: ");
+
+        labelPM.setText("PM:");
+
+        textPV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textPVActionPerformed(evt);
+            }
+        });
+
+        textDefFis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textDefFisActionPerformed(evt);
+            }
+        });
+
+        labelDefMag.setText("Def. Mágica:");
+
+        labelDefFis.setText("Def. Física:");
+
+        textDurabilidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textDurabilidadActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Durabilidad:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(labelDefFis, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(textDefFis))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(labelDefMag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelRaza, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textDefMag)
+                            .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(separador, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(labelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGap(10, 10, 10)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(textDurabilidad)
+                                        .addComponent(textNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(labelPV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(labelPM, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(10, 10, 10)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(textPV, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                        .addComponent(textPM)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(77, 77, 77)
+                                    .addComponent(botonOK))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(labelTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(separador, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelNombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textDurabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPV)
+                    .addComponent(textPV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPM)
+                    .addComponent(textPM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textDefFis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelDefFis))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textDefMag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelDefMag))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelRaza))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botonOK)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonOKActionPerformed
+        String seleccion = (String) comboTipo.getSelectedItem();
+        String nombre = textNombre.getText();
+        int durabilidad = Integer.parseInt(textDurabilidad.getText());
+        int pv = Integer.parseInt(textPV.getText());
+        int pm = Integer.parseInt(textPM.getText());        
+        int defFis = Integer.parseInt(textPM.getText());
+        int defMag = Integer.parseInt(textPM.getText());
+        switch(seleccion){
+            case "Casco":  {
+                Casco pieza = new Casco(nombre, durabilidad, pv, pm, defFis, defMag);
+                /*personajes.add(pieza);
+                juego.guardarObjeto(pieza, "personajes");*/
+                break;
+            }
+            case "Pechera":  {
+                Pechera pieza = new Pechera(nombre, durabilidad, pv, pm, defFis, defMag);
+                /*personajes.add(pieza);
+                juego.guardarObjeto(pieza, "personajes");*/
+                break;
+            }
+            case "Guantes":  {
+                Guantes pieza = new Guantes(nombre, durabilidad, pv, pm, defFis, defMag);
+                /*personajes.add(pieza);
+                juego.guardarObjeto(personajes, "personajes");*/
+                break;
+            }
+            case "Botas":  {                
+                Botas pieza = new Botas(nombre, durabilidad, pv, pm, defFis, defMag);
+               /* personajes.add(pieza);
+                juego.guardarObjeto(personajes, "personajes");*/
+                break;
+            }
+        }
+    }//GEN-LAST:event_botonOKActionPerformed
+
+    private void comboTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTipoActionPerformed
+        
+    }//GEN-LAST:event_comboTipoActionPerformed
+
+    private void textNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNombreActionPerformed
+
+    private void textPVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textPVActionPerformed
+
+    private void textDefFisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDefFisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textDefFisActionPerformed
+
+    private void textDurabilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDurabilidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textDurabilidadActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        juego.guardarObjeto(armas, "armas");
+        juego.guardarObjeto(personajes, "personajes");
+        this.setVisible(false);
+        anterior.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaCrearArmadura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaCrearArmadura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaCrearArmadura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaCrearArmadura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                PantallaCrearArmadura dialog = new PantallaCrearArmadura(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonOK;
+    private javax.swing.JComboBox comboTipo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel labelDefFis;
+    private javax.swing.JLabel labelDefMag;
+    private javax.swing.JLabel labelNombre;
+    private javax.swing.JLabel labelPM;
+    private javax.swing.JLabel labelPV;
+    private javax.swing.JLabel labelRaza;
+    private javax.swing.JLabel labelTitulo;
+    private javax.swing.JSeparator separador;
+    private javax.swing.JTextField textDefFis;
+    private javax.swing.JTextField textDefMag;
+    private javax.swing.JTextField textDurabilidad;
+    private javax.swing.JTextField textNombre;
+    private javax.swing.JTextField textPM;
+    private javax.swing.JTextField textPV;
     // End of variables declaration//GEN-END:variables
 }

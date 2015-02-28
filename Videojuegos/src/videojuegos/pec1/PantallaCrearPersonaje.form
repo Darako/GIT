@@ -47,60 +47,57 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="separador" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="labelNombre" max="32767" attributes="0"/>
-                                          <Component id="labelPV" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="labelPM" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="labelDefFis" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="textDefFis" alignment="0" pref="120" max="32767" attributes="0"/>
-                                      <Component id="textAtqMag" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="textNombre" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="textPV" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="textPM" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="textAtqFis" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="labelAtqFis" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="labelAtqMag" alignment="0" pref="75" max="32767" attributes="0"/>
-                                      <Component id="labelDefMag" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="labelRaza" max="32767" attributes="0"/>
-                                      <Component id="labelMana" max="32767" attributes="0"/>
-                                      <Component id="labelEnergia" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="textDefMag" max="32767" attributes="0"/>
-                                      <Component id="comboRaza" pref="120" max="32767" attributes="0"/>
-                                      <Component id="textMana" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="textEnergia" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="labelNombre" max="32767" attributes="0"/>
+                                      <Component id="labelPV" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="labelPM" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="labelDefFis" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                                  <Component id="botonOK" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="textDefFis" alignment="0" pref="120" max="32767" attributes="0"/>
+                                  <Component id="textAtqMag" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textNombre" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textPV" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textPM" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textAtqFis" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="labelAtqFis" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labelAtqMag" alignment="0" pref="75" max="32767" attributes="0"/>
+                                  <Component id="labelDefMag" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="labelRaza" max="32767" attributes="0"/>
+                                  <Component id="labelMana" max="32767" attributes="0"/>
+                                  <Component id="labelEnergia" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="textDefMag" max="32767" attributes="0"/>
+                                  <Component id="comboRaza" pref="120" max="32767" attributes="0"/>
+                                  <Component id="textMana" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textEnergia" alignment="1" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                      <Component id="labelTitulo" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="labelTitulo" alignment="1" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+              <Component id="botonOK" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -245,6 +242,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="labelTitulo">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="PERSONAJE"/>
       </Properties>
     </Component>
