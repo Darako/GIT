@@ -15,10 +15,12 @@ public class Baston extends Arma{
     private int magia;
 
     //CONSTRUCTOR
-    public Baston(String nombre, int danyo, int magia) {
-        super(nombre, danyo);
+
+    public Baston(int magia, String nombre, int durabilidad, int ataque, int ataque_magico) {
+        super(nombre, durabilidad, ataque, ataque_magico);
         this.magia = magia;
     }
+    
 
     //GETTER & SETTER
     public int getMagia() {
@@ -39,11 +41,13 @@ public class Baston extends Arma{
         int restante = this.magia;
         return restante != 0;
     }
-    
+
     @Override
     public String toString() {
-        return "\nNombre: "+super.getNombre()+"\nDaño: "+super.getDanyo()+"\nMagia: "+magia;
+        return "Baston{" + "magia=" + magia + '}';
     }
+    
+    
 
     
     

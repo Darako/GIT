@@ -15,10 +15,10 @@ public class Daga extends Arma{
     private int resistencia;
 
     //CONSTRUCTOR
-    public Daga(int resistencia, String nombre, int danyo) {
-        super(nombre, danyo);
+    public Daga(int resistencia, String nombre, int durabilidad, int ataque, int ataque_magico) {
+        super(nombre, durabilidad, ataque, ataque_magico);
         this.resistencia = resistencia;
-    }
+    }   
 
     //GETTER & SETTER
     public int getResistencia() {
@@ -40,7 +40,9 @@ public class Daga extends Arma{
 
     @Override
     public String toString() {
-        return "\nNombre: "+super.getNombre()+"\nDaño: "+super.getDanyo()+"\nResistencia: "+resistencia;
+        return "Daga{" + "resistencia=" + resistencia + '}';
     }
+
+    
     
 }

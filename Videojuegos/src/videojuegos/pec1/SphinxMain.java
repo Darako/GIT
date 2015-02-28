@@ -14,7 +14,7 @@ import videojuegos.pec1.armas.Armaca;
 import videojuegos.pec1.armas.Bastonaco;
 import videojuegos.pec1.armas.Dagon;
 import videojuegos.pec1.armas.Espadaca;
-import videojuegos.pec1.personajes.Pjs;
+import videojuegos.pec1.personajes.Personaje;
 
 /**
  *
@@ -66,7 +66,7 @@ public class SphinxMain {
         //System.out.println(armadura1.toString());
         
         System.out.println("POLLAS COMO PANES");
-        Pjs nuevo = new Pjs("Rober Moraletti", 500, 100, 20, 10, 20, 15, 1, 0/** int exp_sig_nivel, Habilidad habilidad, arco1, armadura**/);
+        Personaje nuevo = new Personaje("Rober Moraletti", 500, 100, 20, 10, 20, 15, 1, 0/** int exp_sig_nivel, Habilidad habilidad, arco1, armadura**/);
         nuevo.setArmadura(armadura0);
         //nuevo.setArmaca(arma1); //marca el tipo de arma, hay que mirarlo
         System.out.println(nuevo.toString());

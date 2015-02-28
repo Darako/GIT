@@ -13,22 +13,22 @@ import java.io.Serializable;
  */
 public class Arma implements Serializable{
     //ATRIBUTOS
-    private String nombre;        
-    private int danyo;
+    private String nombre;
+    private int durabilidad;   
+    private int ataque;
+    private int ataque_magico;
     
+
     //CONSTRUCTOR
-    public Arma(String nombre, int danyo) {
+    
+    public Arma(String nombre, int durabilidad, int ataque, int ataque_magico) {
         this.nombre = nombre;
-        this.danyo = danyo;
-    }   
+        this.durabilidad = durabilidad;
+        this.ataque = ataque;
+        this.ataque_magico = ataque_magico;
+    }
 
     //GETTER & SETTER
-    public int getDanyo() {
-        return danyo;
-    }
-    public void setDanyo(int danyo) {
-        this.danyo = danyo;
-    }
     public String getNombre() {
         return nombre;
     }
@@ -36,6 +36,26 @@ public class Arma implements Serializable{
         this.nombre = nombre;
     }
 
+    public int getDurabilidad() {
+        return durabilidad;
+    }
+    public void setDurabilidad(int durabilidad) {
+        this.durabilidad = durabilidad;
+    }
+    
+    public int getAtaque() {
+        return ataque;
+    }
+    public void setAtaque(int ataque) {
+        this.ataque = ataque;
+    }
+    
+    public int getAtaque_magico() {
+        return ataque_magico;
+    }
+    public void setAtaque_magico(int ataque_magico) {
+        this.ataque_magico = ataque_magico;
+    }
     //METODOS
     public boolean estaDisponible(){
         return this.estaDisponible();
@@ -44,10 +64,13 @@ public class Arma implements Serializable{
     public void usar(){
         this.usar();
     }    
-    
+
     @Override
     public String toString() {
-        return "\nArma: "+nombre+"\nDaño: "+danyo;
-    }    
+        return "Arma{" + "nombre=" + nombre + ", durabilidad=" + durabilidad + ", ataque=" + ataque + ", ataque_magico=" + ataque_magico + '}';
+    }
     
-}
+    
+}    
+    
+

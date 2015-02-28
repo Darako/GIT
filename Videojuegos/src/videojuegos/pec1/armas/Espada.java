@@ -15,10 +15,10 @@ public class Espada extends Arma{
     private int resistencia;
 
     //CONSTRUCTOR
-    public Espada(String nombre, int danyo, int resistencia) {
-        super(nombre, danyo);
+    public Espada(int resistencia, String nombre, int durabilidad, int ataque, int ataque_magico) {
+        super(nombre, durabilidad, ataque, ataque_magico);
         this.resistencia = resistencia;
-    }
+    }    
 
     //GETTER & SETTER
     public int getResistencia() {
@@ -39,11 +39,13 @@ public class Espada extends Arma{
         int restante = this.resistencia;
         return restante != 0;
     }
-    
+
     @Override
     public String toString() {
-        return "\nNombre: "+super.getNombre()+"\nDaño: "+super.getDanyo()+"\nResistencia: "+resistencia;
+        return "Espada{" + "resistencia=" + resistencia + '}';
     }
+    
+    
 
     
     

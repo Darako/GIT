@@ -15,10 +15,10 @@ public class Arco extends Arma{
     private int flechas;
 
     //CONSTRUCTOR
-    public Arco(String nombre, int danyo, int flechas) {
-        super(nombre, danyo);
+    public Arco(int flechas, String nombre, int durabilidad, int ataque, int ataque_magico) {
+        super(nombre, durabilidad, ataque, ataque_magico);
         this.flechas = flechas;
-    }    
+    }  
     
     //GETTER & SETTER
     public int getFlechas() {
@@ -39,11 +39,13 @@ public class Arco extends Arma{
         int restante = this.flechas;
         return restante != 0;
     }
-    
-    
+
     @Override
     public String toString() {
-        return "\nNombre: "+super.getNombre()+"\nDaño: "+super.getDanyo()+"\nNúmero de flechas: "+flechas;
+        return "Arco{" + "flechas=" + flechas + '}';
     }
+    
+    
+    
     
 }
