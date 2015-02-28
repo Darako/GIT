@@ -5,7 +5,7 @@
  */
 package videojuegos.pec1;
 
-import habilidades.Habilidad;
+import videojuegos.pec1.habilidades.Habilidad;
 import java.io.FileNotFoundException;
 import videojuegos.pec1.personajes.Personaje;
 import videojuegos.pec1.personajes.Kender;
@@ -53,6 +53,8 @@ public class JuegazoPapa {
         
         personaje1.usarHabilidad(magia1, personaje2);
         System.out.println(personaje2.toString());
+        personaje2.usarHabilidad(magia2, personaje1);
+        System.out.println(personaje1.toString());
         /*for(int i=0;i<roster.size();i++){
             System.out.println(roster.get(i).getNombre());
             if(roster.get(i).getArma().getNombre() != null)
