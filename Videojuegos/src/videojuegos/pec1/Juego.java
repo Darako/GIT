@@ -17,8 +17,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 import videojuegos.pec1.armaduras.Armadura;
+import videojuegos.pec1.armaduras.Botas;
+import videojuegos.pec1.armaduras.Casco;
+import videojuegos.pec1.armaduras.Guantes;
+import videojuegos.pec1.armaduras.Pechera;
 import videojuegos.pec1.armas.Arma;
 import videojuegos.pec1.enemigos.Enemigo;
 import videojuegos.pec1.personajes.Personaje;
@@ -28,73 +33,92 @@ import videojuegos.pec1.personajes.Personaje;
  * @author Jorge
  */
 public class Juego { 
+    
     //LISTAS
-    public static ArrayList<Personaje> personajes = new ArrayList<Personaje>();
-    public static ArrayList<Arma> armas = new ArrayList<Arma>();
-    public static ArrayList<Armadura> armaduras = new ArrayList<Armadura>();
-    public static ArrayList<Enemigo> enemigos = new ArrayList<Enemigo>();
-    public static ArrayList<Habilidad> habilidades = new ArrayList<Habilidad>();
-       
+    public static HashMap<String, Personaje> personajes = new HashMap<>();
+    public static HashMap<String, Habilidad> habilidades = new HashMap<>();
+    public static HashMap<String, Arma> armas = new HashMap<>();
+    public static HashMap<String, Casco> cascos = new HashMap<>();
+    public static HashMap<String, Pechera> pecheras = new HashMap<>();
+    public static HashMap<String, Botas> botas = new HashMap<>();
+    public static HashMap<String, Guantes> guantes = new HashMap<>();
+    public static HashMap<String, Enemigo> enemigos = new HashMap<>();
     
     //CONSTRUCTOR
-    public Juego() throws FileNotFoundException {
-             
-    }
+    public Juego() throws FileNotFoundException {}
     
     //GETTER & SETTER
-    public  ArrayList<Personaje> getPersonajes() {
+    public  HashMap<String, Personaje> getPersonajes() {
         return personajes;
     }
-    public void setPersonas(ArrayList<Personaje> personajes) {
+    public void setPersonas(HashMap<String, Personaje> personajes) {
         Juego.personajes = personajes;
     }    
-    public ArrayList<Arma> getArmas() {
+    public HashMap<String, Arma> getArmas() {
         return armas;
     }
-    public void setArmas(ArrayList<Arma> armas) {
+    public void setArmas(HashMap<String, Arma> armas) {
         Juego.armas = armas;
     }    
-    public  ArrayList<Personaje> getArmadura() {
-        return personajes;
+    public static HashMap<String, Casco> getCascos() {
+        return cascos;
     }
-    public void setArmadura(ArrayList<Armadura> armadura) {
-        Juego.armaduras = armaduras;
-    }    
-    public ArrayList<Enemigo> getEnemigos() {
+    public static void setCascos(HashMap<String, Casco> cascos) {
+        Juego.cascos = cascos;
+    }
+    public static HashMap<String, Pechera> getPecheras() {
+        return pecheras;
+    }
+    public static void setPecheras(HashMap<String, Pechera> pecheras) {
+        Juego.pecheras = pecheras;
+    }
+    public static HashMap<String, Botas> getBotas() {
+        return botas;
+    }
+    public static void setBotas(HashMap<String, Botas> botas) {
+        Juego.botas = botas;
+    }
+    public static HashMap<String, Guantes> getGuantes() {
+        return guantes;
+    }
+    public static void setGuantes(HashMap<String, Guantes> guantes) {
+        Juego.guantes = guantes;
+    } 
+    public HashMap<String, Enemigo> getEnemigos() {
         return enemigos;
     }
-    public void setEnemigos(ArrayList<Enemigo> enemigos) {
+    public void setEnemigos(HashMap<String, Enemigo> enemigos) {
         Juego.enemigos = enemigos;
     }    
-    public ArrayList<Habilidad> getHabilidades() {
+    public HashMap<String, Habilidad> getHabilidades() {
         return habilidades;
     }
-    public void setHabilidades(ArrayList<Habilidad> habilidades) {
+    public void setHabilidades(HashMap<String, Habilidad> habilidades) {
         Juego.habilidades = habilidades;
     }
         
     //METODOS
-    public void nuevaPartida(){
-        
-    }    
-    public void reiniciar(){
-        
-    }    
-    public void iniciarJuego(){
-        
-    }   
+    public void nuevaPartida(){}    
+    
+    public void reiniciar(){}    
+    
+    public void iniciarJuego(){}   
+    
     public void iniciarDatos() throws FileNotFoundException{
-        this.cargarPersonajes(personajes, "personajes");
-        this.cargarArmas("armas");
-        //this.armaduras = cargarDatos("armaduras");
-        //this.enemigos = cargarDatos("enemigos");
-        //this.habilidades = cargarDatos("habilidades");
+        this.cargarDatos(personajes, "personajes");
+        this.cargarDatos(armas, "armas");
+        this.cargarDatos(cascos, "cascos");
+        this.cargarDatos(pecheras, "pecheras");
+        this.cargarDatos(botas, "botas");
+        this.cargarDatos(guantes, "guantes");
+        //this.cargarDatos(enemigos, "enemigos");
+        //this.cargarDatos(habilidades, "habilidades");
     } 
         
-    public void guardarObjeto(ArrayList datos, String nombre) {
+    public void guardarDatos(HashMap clase, String nombre) {
         try{
             ObjectOutputStream ficheroSalida = new ObjectOutputStream(new FileOutputStream(nombre+".dat"));
-            ficheroSalida.writeObject(datos);
+            ficheroSalida.writeObject(clase);
             ficheroSalida.flush();
             ficheroSalida.close();
         }catch (IOException ioe) {
@@ -104,10 +128,10 @@ public class Juego {
         }
     }
     
-    public void cargarArmas(String nombre){
+    public void cargarDatos(HashMap clase, String nombre){
         try{
             ObjectInputStream ficheroEntrada = new ObjectInputStream(new FileInputStream(nombre+".dat"));
-            armas = (ArrayList) ficheroEntrada.readObject();
+            clase = (HashMap) ficheroEntrada.readObject();
             ficheroEntrada.close();            
         } catch (ClassNotFoundException cnfe) {
             System.out.println("Error de clase no encontrada:" + cnfe.toString());
@@ -117,19 +141,4 @@ public class Juego {
             System.out.println("Error: " + e.toString());
         }
     }
-    
-    public void cargarPersonajes(ArrayList clase, String nombre){
-        try{
-            ObjectInputStream ficheroEntrada = new ObjectInputStream(new FileInputStream(nombre+".dat"));
-            clase = (ArrayList) ficheroEntrada.readObject();
-            ficheroEntrada.close();            
-        } catch (ClassNotFoundException cnfe) {
-            System.out.println("Error de clase no encontrada:" + cnfe.toString());
-        }catch (IOException ioe) {
-            System.out.println("Error IO:" + ioe.toString());
-        } catch (Exception e) {
-            System.out.println("Error: " + e.toString());
-        }
-    }
-    
 }

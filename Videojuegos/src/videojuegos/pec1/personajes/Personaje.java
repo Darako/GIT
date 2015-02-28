@@ -237,11 +237,11 @@ public class Personaje implements Serializable{
     public void actualizarArma(Arma pieza){
         Arma piezaAux = this.getArma();
         
-        this.setAtaqueFisico(this.getAtaqueFisico() - piezaAux.getAtaque());
-        this.setAtaqueMagico(this.getAtaqueMagico() - piezaAux.getAtaque_magico());
+        this.setAtaqueFisico(this.getAtaqueFisico() - piezaAux.getAtaqueFisico());
+        this.setAtaqueMagico(this.getAtaqueMagico() - piezaAux.getAtaqueMagico());
         this.setArma(pieza);
-        this.setAtaqueFisico(this.getAtaqueFisico() + piezaAux.getAtaque());
-        this.setAtaqueMagico(this.getAtaqueMagico() + piezaAux.getAtaque_magico());        
+        this.setAtaqueFisico(this.getAtaqueFisico() + piezaAux.getAtaqueFisico());
+        this.setAtaqueMagico(this.getAtaqueMagico() + piezaAux.getAtaqueMagico());        
     }
    
    

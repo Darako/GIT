@@ -15,8 +15,8 @@ public class Arco extends Arma{
     private int flechas;
 
     //CONSTRUCTOR
-    public Arco(int flechas, String nombre, int durabilidad, int ataque, int ataque_magico) {
-        super(nombre, durabilidad, ataque, ataque_magico);
+    public Arco(String nombre, int durabilidad, int ataqueFisico, int ataqueMagico, int flechas) {
+        super(nombre, durabilidad, ataqueFisico, ataqueMagico);
         this.flechas = flechas;
     }  
     

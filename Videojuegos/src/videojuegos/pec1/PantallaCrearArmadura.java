@@ -7,6 +7,7 @@ package videojuegos.pec1;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.JFrame;
 import videojuegos.pec1.armaduras.Armadura;
 import videojuegos.pec1.armaduras.Botas;
@@ -32,15 +33,17 @@ public class PantallaCrearArmadura extends javax.swing.JDialog {
         anterior.setVisible(false);
         this.setVisible(true);
         juego.iniciarDatos();
-        armas = juego.getArmas();
-        personajes = juego.getPersonajes();
-        //armaduras = juego.getArmadura();
+        cascos = juego.getCascos();
+        pecheras = juego.getPecheras();
+        botas = juego.getBotas();
+        guantes = juego.getGuantes();
         comboTipo.setSelectedIndex(0);
     }
     Juego juego = new Juego();    
-    ArrayList<Arma> armas = new ArrayList<Arma>();
-    ArrayList<Personaje> personajes = new ArrayList<Personaje>();
-    ArrayList<Armadura> armaduras = new ArrayList<Armadura>();
+    HashMap<String, Casco> cascos = new HashMap<>();
+    HashMap<String, Pechera> pecheras = new HashMap<>();
+    HashMap<String, Botas> botas = new HashMap<>();
+    HashMap<String, Guantes> guantes = new HashMap<>();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -232,26 +235,26 @@ public class PantallaCrearArmadura extends javax.swing.JDialog {
         switch(seleccion){
             case "Casco":  {
                 Casco pieza = new Casco(nombre, durabilidad, pv, pm, defFis, defMag);
-                /*personajes.add(pieza);
-                juego.guardarObjeto(pieza, "personajes");*/
+                cascos.put(nombre, pieza);
+                juego.guardarDatos(cascos, "cascos");
                 break;
             }
             case "Pechera":  {
                 Pechera pieza = new Pechera(nombre, durabilidad, pv, pm, defFis, defMag);
-                /*personajes.add(pieza);
-                juego.guardarObjeto(pieza, "personajes");*/
+                pecheras.put(nombre, pieza);
+                juego.guardarDatos(pecheras, "pecheras");
                 break;
             }
             case "Guantes":  {
                 Guantes pieza = new Guantes(nombre, durabilidad, pv, pm, defFis, defMag);
-                /*personajes.add(pieza);
-                juego.guardarObjeto(personajes, "personajes");*/
+                guantes.put(nombre, pieza);
+                juego.guardarDatos(guantes, "guantes");
                 break;
             }
             case "Botas":  {                
                 Botas pieza = new Botas(nombre, durabilidad, pv, pm, defFis, defMag);
-               /* personajes.add(pieza);
-                juego.guardarObjeto(personajes, "personajes");*/
+                botas.put(nombre, pieza);
+                juego.guardarDatos(botas, "botas");
                 break;
             }
         }
@@ -278,8 +281,10 @@ public class PantallaCrearArmadura extends javax.swing.JDialog {
     }//GEN-LAST:event_textDurabilidadActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        juego.guardarObjeto(armas, "armas");
-        juego.guardarObjeto(personajes, "personajes");
+        juego.guardarDatos(cascos, "cascos");
+        juego.guardarDatos(pecheras, "pecheras");
+        juego.guardarDatos(guantes, "guantes");
+        juego.guardarDatos(botas, "botas");
         this.setVisible(false);
         anterior.setVisible(true);
     }//GEN-LAST:event_formWindowClosing

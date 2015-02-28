@@ -5,17 +5,10 @@
  */
 package videojuegos.pec1;
 
-import java.awt.Component;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.function.Consumer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.HashMap;
 import javax.swing.JFrame;
-import videojuegos.pec1.armas.Arco;
 import videojuegos.pec1.armas.Arma;
-import videojuegos.pec1.armas.Baston;
-import videojuegos.pec1.armas.Espada;
 import videojuegos.pec1.personajes.Druida;
 import videojuegos.pec1.personajes.Kender;
 import videojuegos.pec1.personajes.Nigromante;
@@ -38,13 +31,11 @@ public class PantallaCrearPersonaje extends javax.swing.JFrame {
         anterior.setVisible(false);
         this.setVisible(true);
         juego.iniciarDatos();
-        armas = juego.getArmas();
         personajes = juego.getPersonajes();
         comboRaza.setSelectedIndex(0);
     }
-    Juego juego = new Juego();    
-    ArrayList<Arma> armas = new ArrayList<Arma>();
-    ArrayList<Personaje> personajes = new ArrayList<Personaje>();
+    Juego juego = new Juego(); 
+    HashMap<String, Personaje> personajes = new HashMap<>();
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -299,8 +290,7 @@ public class PantallaCrearPersonaje extends javax.swing.JFrame {
     }//GEN-LAST:event_comboRazaActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        juego.guardarObjeto(armas, "armas");
-        juego.guardarObjeto(personajes, "personajes");
+        juego.guardarDatos(personajes, "personajes");
         this.setVisible(false);
         anterior.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
@@ -317,24 +307,24 @@ public class PantallaCrearPersonaje extends javax.swing.JFrame {
         switch(seleccion){
             case "Kender":  {
                 int energia = Integer.parseInt(textEnergia.getText());
-                Kender personajeAux = new Kender(nombre, pvMax, pmMax, atqFis, atqMag, defFis, defMag, energia);
-                personajes.add(personajeAux);
-                juego.guardarObjeto(personajes, "personajes");
+                Kender personaje = new Kender(nombre, pvMax, pmMax, atqFis, atqMag, defFis, defMag, energia);
+                personajes.put(nombre, personaje);
+                juego.guardarDatos(personajes, "personajes");
                 break;
             }
             case "Nigromante":  {
                 int mana = Integer.parseInt(textMana.getText());
-                Nigromante personajeAux = new Nigromante(nombre, pvMax, pmMax, atqFis, atqMag, defFis, defMag, mana);
-                personajes.add(personajeAux);
-                juego.guardarObjeto(personajes, "personajes");
+                Nigromante personaje = new Nigromante(nombre, pvMax, pmMax, atqFis, atqMag, defFis, defMag, mana);
+                personajes.put(nombre, personaje);
+                juego.guardarDatos(personajes, "personajes");
                 break;
             }
             case "Druida":  {
                 int energia = Integer.parseInt(textEnergia.getText());
                 int mana = Integer.parseInt(textMana.getText());
-                Druida personajeAux = new Druida(nombre, pvMax, pmMax, atqFis, atqMag, defFis, defMag, energia, mana);
-                personajes.add(personajeAux);
-                juego.guardarObjeto(personajes, "personajes");
+                Druida personaje = new Druida(nombre, pvMax, pmMax, atqFis, atqMag, defFis, defMag, energia, mana);
+                personajes.put(nombre, personaje);
+                juego.guardarDatos(personajes, "personajes");
                 break;
             }
         }        

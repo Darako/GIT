@@ -25,13 +25,10 @@ public class PantallaInicio extends javax.swing.JFrame {
     public PantallaInicio() throws FileNotFoundException {
         initComponents();
         juego.iniciarDatos();
-        armas = juego.getArmas();
-        personajes = juego.getPersonajes();
         
     }
     Juego juego = new Juego();  
-    ArrayList<Arma> armas = new ArrayList<Arma>();
-    ArrayList<Personaje> personajes = new ArrayList<Personaje>();
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,6 +43,7 @@ public class PantallaInicio extends javax.swing.JFrame {
         labelTitulo = new javax.swing.JLabel();
         buttonCrearPersonaje = new javax.swing.JButton();
         buttonCrearArmadura = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -71,17 +69,25 @@ public class PantallaInicio extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Crear Arma");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonCrearPersonaje, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
-                    .addComponent(buttonCrearArmadura, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonCrearPersonaje, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                    .addComponent(buttonCrearArmadura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -95,7 +101,9 @@ public class PantallaInicio extends javax.swing.JFrame {
                 .addComponent(buttonCrearPersonaje)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonCrearArmadura)
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
         pack();
@@ -111,8 +119,7 @@ public class PantallaInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCrearPersonajeActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        juego.guardarObjeto(armas, "armas");
-        juego.guardarObjeto(personajes, "personajes");
+        
     }//GEN-LAST:event_formWindowClosing
 
     private void buttonCrearArmaduraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCrearArmaduraActionPerformed
@@ -123,6 +130,15 @@ public class PantallaInicio extends javax.swing.JFrame {
         }
         this.setVisible(false);
     }//GEN-LAST:event_buttonCrearArmaduraActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            PantallaCrearArma crearArma = new PantallaCrearArma(this, juego);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(PantallaInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,6 +182,7 @@ public class PantallaInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCrearArmadura;
     private javax.swing.JButton buttonCrearPersonaje;
+    private javax.swing.JButton jButton1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelTitulo;
     // End of variables declaration//GEN-END:variables

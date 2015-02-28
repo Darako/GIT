@@ -15,12 +15,10 @@ public class Baston extends Arma{
     private int magia;
 
     //CONSTRUCTOR
-
-    public Baston(int magia, String nombre, int durabilidad, int ataque, int ataque_magico) {
-        super(nombre, durabilidad, ataque, ataque_magico);
+    public Baston(String nombre, int durabilidad, int ataqueFisico, int ataqueMagico, int magia) {
+        super(nombre, durabilidad, ataqueFisico, ataqueMagico);
         this.magia = magia;
-    }
-    
+    }    
 
     //GETTER & SETTER
     public int getMagia() {

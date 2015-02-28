@@ -12,37 +12,36 @@ package videojuegos.pec1.armas;
 public class Espada extends Arma{
     
     //ATRIBUTOS
-    private int resistencia;
+    private int stamina;
 
     //CONSTRUCTOR
-    public Espada(int resistencia, String nombre, int durabilidad, int ataque, int ataque_magico) {
-        super(nombre, durabilidad, ataque, ataque_magico);
-        this.resistencia = resistencia;
+    public Espada(String nombre, int durabilidad, int ataqueFisico, int ataqueMagico, int stamina) {
+        super(nombre, durabilidad, ataqueFisico, ataqueMagico);
+        this.stamina = this.stamina;
     }    
 
     //GETTER & SETTER
-    public int getResistencia() {
-        return resistencia;
+    public int getStamina() {
+        return stamina;
     }
-    public void setResistencia(int resistencia) {
-        this.resistencia = resistencia;
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
     }
 
     //METODOS
     @Override
     public void usar(){
-        this.resistencia--;
+        this.stamina--;
     }
     
     @Override
     public boolean estaDisponible(){
-        int restante = this.resistencia;
-        return restante != 0;
+        return this.stamina != 0;
     }
 
     @Override
     public String toString() {
-        return "Espada{" + "resistencia=" + resistencia + '}';
+        return "Espada{" + "stamina=" + stamina + '}';
     }
     
     

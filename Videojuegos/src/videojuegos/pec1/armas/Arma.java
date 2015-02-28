@@ -15,17 +15,17 @@ public class Arma implements Serializable{
     //ATRIBUTOS
     private String nombre;
     private int durabilidad;   
-    private int ataque;
-    private int ataque_magico;
-    
+    private int ataqueFisico;
+    private int ataqueMagico;
+    //private boolean enUso; 
 
     //CONSTRUCTOR
     
-    public Arma(String nombre, int durabilidad, int ataque, int ataque_magico) {
+    public Arma(String nombre, int durabilidad, int ataque, int ataqueMagico) {
         this.nombre = nombre;
         this.durabilidad = durabilidad;
-        this.ataque = ataque;
-        this.ataque_magico = ataque_magico;
+        this.ataqueFisico = ataqueFisico;
+        this.ataqueMagico = ataqueMagico;
     }
 
     //GETTER & SETTER
@@ -35,27 +35,26 @@ public class Arma implements Serializable{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public int getDurabilidad() {
         return durabilidad;
     }
     public void setDurabilidad(int durabilidad) {
         this.durabilidad = durabilidad;
+    }    
+    public int getAtaqueFisico() {
+        return ataqueFisico;
+    }
+    public void setAtaqueFisico(int ataqueFisico) {
+        this.ataqueFisico = ataqueFisico;
+    }    
+    public int getAtaqueMagico() {
+        return ataqueMagico;
+    }
+    public void setAtaqueMagico(int ataqueMagico) {
+        this.ataqueMagico = ataqueMagico;
     }
     
-    public int getAtaque() {
-        return ataque;
-    }
-    public void setAtaque(int ataque) {
-        this.ataque = ataque;
-    }
     
-    public int getAtaque_magico() {
-        return ataque_magico;
-    }
-    public void setAtaque_magico(int ataque_magico) {
-        this.ataque_magico = ataque_magico;
-    }
     //METODOS
     public boolean estaDisponible(){
         return this.estaDisponible();
@@ -67,7 +66,7 @@ public class Arma implements Serializable{
 
     @Override
     public String toString() {
-        return "Arma{" + "nombre=" + nombre + ", durabilidad=" + durabilidad + ", ataque=" + ataque + ", ataque_magico=" + ataque_magico + '}';
+        return "Arma{" + "nombre=" + nombre + ", durabilidad=" + durabilidad + ", ataque=" + ataqueFisico + ", ataqueMagico=" + ataqueMagico + '}';
     }
     
     
