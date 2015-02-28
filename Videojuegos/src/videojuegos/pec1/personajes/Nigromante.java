@@ -18,9 +18,15 @@ public class Nigromante extends Personaje {
     private int mana;
 
     //CONSTRUCTOR
-    public Nigromante(String nombre, int pv, int pm, int ataque, int ataque_magico, int defensa, int defensa_magica, int nivel, int exp) {
-        super(nombre, pv, pm, ataque, ataque_magico, defensa, defensa_magica, nivel, exp);
-    }    
+    public Nigromante(String nombre, int pv, int destreza, Arma arma, Habilidad habilidades, int mana) {
+        super(nombre, pv, destreza, arma, habilidades);
+        this.mana = mana;        
+    }
+
+    public Nigromante(String nombre, int pv, int destreza,int mana) {
+        super(nombre, pv, destreza);
+        this.mana = mana;
+    }
 
     //GETTER & SETTER
     public int getPoder() {
