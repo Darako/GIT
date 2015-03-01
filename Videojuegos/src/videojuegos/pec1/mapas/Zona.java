@@ -9,21 +9,24 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author pedro
+ * @author noesmoral
  */
-public class Pueblo extends Terreno{
+public class Zona extends Terreno{
+    
+    private int provabilidad;
 
-    public Pueblo(String nombre, int lvl, ImageIcon imagen) {
+    public Zona(String nombre, int lvl, ImageIcon imagen, int provabilidad) {
         super(nombre, lvl, imagen);
+        this.provabilidad=provabilidad;
     }
 
-
     
-    public void getContenido(){
-        //aqui iria el menu del pueblo
+    
+    public int getProvabilidad(){
+        return this.provabilidad;
     }
     
-    public String toString(){
-        return "Nombre: "+super.getNombre();
-    }
+    
+    
+    
 }

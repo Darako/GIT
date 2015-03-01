@@ -9,21 +9,11 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author pedro
+ * @author noesmoral
  */
-public class Pueblo extends Terreno{
+public class Ncamino extends Terreno{
 
-    public Pueblo(String nombre, int lvl, ImageIcon imagen) {
+    public Ncamino(String nombre, int lvl, ImageIcon imagen) {
         super(nombre, lvl, imagen);
-    }
-
-
-    
-    public void getContenido(){
-        //aqui iria el menu del pueblo
-    }
-    
-    public String toString(){
-        return "Nombre: "+super.getNombre();
-    }
+    }  
 }

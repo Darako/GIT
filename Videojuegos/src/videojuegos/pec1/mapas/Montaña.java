@@ -9,11 +9,11 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author pedro
+ * @author noesmoral
  */
-public class Llano extends Zona{
+public class Montaña extends Zona{
 
-    public Llano(String nombre, int lvl, ImageIcon imagen, int provabilidad) {
+    public Montaña(String nombre, int lvl, ImageIcon imagen, int provabilidad) {
         super(nombre, lvl, imagen, provabilidad);
     }
 

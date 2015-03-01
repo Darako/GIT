@@ -19,9 +19,6 @@ public class PruebaMapa {
         
       Mapa mapa=new Mapa();
       
-      mapa.generarMapa();
-      mapa.mostrarMapa();
-      System.out.println(mapa.mostrarContenido(1, 3));
     }
     
 }
