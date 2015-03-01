@@ -10,6 +10,8 @@ import java.io.Serializable;
 import videojuegos.pec1.armas.Arma;
 import videojuegos.pec1.armaduras.Armadura;
 import java.util.ArrayList;
+import static videojuegos.pec1.Juego.botas;
+import static videojuegos.pec1.Juego.guantes;
 import videojuegos.pec1.armaduras.Casco;
 import videojuegos.pec1.armaduras.Guantes;
 import videojuegos.pec1.armaduras.Pechera;
@@ -37,7 +39,11 @@ public class Personaje implements Serializable{
     private int exp;
     private Habilidad habilidad;
     private Arma arma;
-    private Armadura armadura;
+    private Casco casco;
+    private Pechera pechera;
+    private Botas botas;
+    private Guantes guantes;
+    //private Armadura armadura;
 
     //CONSTRUCTOR
 
@@ -52,6 +58,8 @@ public class Personaje implements Serializable{
         this.nivel = 0;
         this.exp = 0;
     }
+
+    
     
     
     //GETTER & SETTER
@@ -78,8 +86,7 @@ public class Personaje implements Serializable{
     }
     public void setAtaqueFisico(int ataqueFisico) {
         this.ataqueFisico = ataqueFisico;
-    }     
-
+    } 
     public int getAtaqueMagico() {
         return ataqueMagico;
     }
@@ -122,12 +129,37 @@ public class Personaje implements Serializable{
     public void setArma(Arma arma) {
         this.arma = arma;
     }
+    public Casco getCasco() {
+        return casco;
+    }
+    public void setCasco(Casco casco) {
+        this.casco = casco;
+    }
+    public Pechera getPechera() {
+        return pechera;
+    }
+    public void setPechera(Pechera pechera) {
+        this.pechera = pechera;
+    }
+    public Botas getBotas() {
+        return botas;
+    }
+    public void setBotas(Botas botas) {
+        this.botas = botas;
+    }
+    public Guantes getGuantes() {
+        return guantes;
+    }
+    public void setGuantes(Guantes guantes) {
+        this.guantes = guantes;
+    }
+    /*
     public Armadura getArmadura() {
         return armadura;
     }
     public void setArmadura(Armadura armadura) {
         this.armadura = armadura;
-    }
+    }*/
     
     //MÉTODOS    
     public boolean estaDerrotado(){
@@ -247,6 +279,6 @@ public class Personaje implements Serializable{
    
     @Override
     public String toString() {
-        return "Pjs{" + "nombre=" + nombre + ", pv=" + pvMax + ", pm=" + pmMax + ", ataque=" + ataqueFisico + ", ataque_magico=" + ataqueMagico + ", defensa=" + defensaFisica + ", defensa_magica=" + defensaMagica + ", nivel=" + nivel + ", exp=" + exp + ", arma=" + arma + ", armadura=" + armadura + '}';
+        return "Pjs{" + "nombre=" + nombre + ", pv=" + pvMax + ", pm=" + pmMax + ", ataque=" + ataqueFisico + ", ataque_magico=" + ataqueMagico + ", defensa=" + defensaFisica + ", defensa_magica=" + defensaMagica + ", nivel=" + nivel + ", exp=" + exp;
     }
 }

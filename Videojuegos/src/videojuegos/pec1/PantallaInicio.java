@@ -44,6 +44,7 @@ public class PantallaInicio extends javax.swing.JFrame {
         buttonCrearPersonaje = new javax.swing.JButton();
         buttonCrearArmadura = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        botonEquiparPersonaje = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -76,6 +77,13 @@ public class PantallaInicio extends javax.swing.JFrame {
             }
         });
 
+        botonEquiparPersonaje.setText("Equipar Personaje");
+        botonEquiparPersonaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEquiparPersonajeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,7 +95,8 @@ public class PantallaInicio extends javax.swing.JFrame {
                     .addComponent(buttonCrearArmadura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator1)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonEquiparPersonaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -103,7 +112,9 @@ public class PantallaInicio extends javax.swing.JFrame {
                 .addComponent(buttonCrearArmadura)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonEquiparPersonaje)
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,6 +150,15 @@ public class PantallaInicio extends javax.swing.JFrame {
         }
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void botonEquiparPersonajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEquiparPersonajeActionPerformed
+        try {
+            PantallaEquiparPersonaje equiparPersonaje = new PantallaEquiparPersonaje(this, juego);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(PantallaInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.setVisible(false);
+    }//GEN-LAST:event_botonEquiparPersonajeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,6 +200,7 @@ public class PantallaInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonEquiparPersonaje;
     private javax.swing.JButton buttonCrearArmadura;
     private javax.swing.JButton buttonCrearPersonaje;
     private javax.swing.JButton jButton1;

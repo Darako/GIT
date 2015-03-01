@@ -5,19 +5,76 @@
  */
 package videojuegos.pec1;
 
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Iterator;
+import javax.swing.JFrame;
+import videojuegos.pec1.armaduras.Botas;
+import videojuegos.pec1.armaduras.Casco;
+import videojuegos.pec1.armaduras.Guantes;
+import videojuegos.pec1.armaduras.Pechera;
+import videojuegos.pec1.armas.Arma;
+import videojuegos.pec1.personajes.Personaje;
+
 /**
  *
  * @author Jorge
  */
 public class PantallaEquiparPersonaje extends javax.swing.JDialog {
 
-    /**
-     * Creates new form PantallaEquiparPersonaje
-     */
-    public PantallaEquiparPersonaje(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    JFrame anterior;
+    public PantallaEquiparPersonaje(JFrame pantallaAnterior, Juego juego) throws FileNotFoundException{
         initComponents();
+        anterior = pantallaAnterior;
+        anterior.setVisible(false);
+        this.setVisible(true);
+        juego.iniciarDatos();
+        personajes = juego.getPersonajes();
+        armas = juego.getArmas();
+        cascos = juego.getCascos();
+        pecheras = juego.getPecheras();
+        botas = juego.getBotas();
+        guantes = juego.getGuantes();        
+        iterator = personajes.keySet().iterator();
+        while(iterator.hasNext()){
+            String nombre = iterator.next();
+            comboPersonajes.addItem(nombre);
+        }        
+        iterator = armas.keySet().iterator();
+        while(iterator.hasNext()){
+            String nombre = iterator.next();
+            comboArmas.addItem(nombre);
+        }        
+        iterator = cascos.keySet().iterator();
+        while(iterator.hasNext()){
+            String nombre = iterator.next();
+            comboCascos.addItem(nombre);
+        }        
+        iterator = pecheras.keySet().iterator();
+        while(iterator.hasNext()){
+            String nombre = iterator.next();
+            comboPecheras.addItem(nombre);
+        }        
+        iterator = botas.keySet().iterator();
+        while(iterator.hasNext()){
+            String nombre = iterator.next();
+            comboBotas.addItem(nombre);
+        }        
+        iterator = guantes.keySet().iterator();
+        while(iterator.hasNext()){
+            String nombre = iterator.next();
+            comboGuantes.addItem(nombre);
+        }        
     }
+    Juego juego = new Juego();    
+    HashMap<String, Personaje> personajes = new HashMap<>();
+    HashMap<String, Arma> armas = new HashMap<>();
+    HashMap<String, Casco> cascos = new HashMap<>();
+    HashMap<String, Pechera> pecheras = new HashMap<>();
+    HashMap<String, Botas> botas = new HashMap<>();
+    HashMap<String, Guantes> guantes = new HashMap<>();
+    Iterator<String> iterator;    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,48 +86,60 @@ public class PantallaEquiparPersonaje extends javax.swing.JDialog {
     private void initComponents() {
 
         separador = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
-        jComboBox3 = new javax.swing.JComboBox();
-        jComboBox4 = new javax.swing.JComboBox();
-        jComboBox5 = new javax.swing.JComboBox();
-        jComboBox6 = new javax.swing.JComboBox();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        labelTitulo = new javax.swing.JLabel();
+        comboPersonajes = new javax.swing.JComboBox();
+        labelPersonaje = new javax.swing.JLabel();
+        labelArma = new javax.swing.JLabel();
+        comboArmas = new javax.swing.JComboBox();
+        comboCascos = new javax.swing.JComboBox();
+        comboPecheras = new javax.swing.JComboBox();
+        comboBotas = new javax.swing.JComboBox();
+        comboGuantes = new javax.swing.JComboBox();
+        labelCasco = new javax.swing.JLabel();
+        labelPechera = new javax.swing.JLabel();
+        labelBotas = new javax.swing.JLabel();
+        labelGuantes = new javax.swing.JLabel();
+        checkArma = new javax.swing.JCheckBox();
+        checkCasco = new javax.swing.JCheckBox();
+        checkPechera = new javax.swing.JCheckBox();
+        checkBotas = new javax.swing.JCheckBox();
+        checkGuantes = new javax.swing.JCheckBox();
+        botonOk = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("EQUIPAR PERSONAJE");
+        labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitulo.setText("EQUIPAR PERSONAJE");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        labelPersonaje.setText("Elegir Personaje:");
 
-        jLabel2.setText("Elegir Personaje:");
+        labelArma.setText("Elegir Arma:");
 
-        jLabel3.setText("Elegir Arma:");
+        labelCasco.setText("Elegir Casco:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        labelPechera.setText("Elegir Pechera:");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        labelBotas.setText("Elegir Botas:");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        labelGuantes.setText("Elegir Guantes:");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        checkArma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkArmaActionPerformed(evt);
+            }
+        });
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel4.setText("Elegir Casco:");
-
-        jLabel5.setText("Elegir Pechera:");
-
-        jLabel6.setText("Elegir Botas:");
-
-        jLabel7.setText("Elegir Guantes:");
+        botonOk.setText("Ok");
+        botonOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonOkActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,24 +148,34 @@ public class PantallaEquiparPersonaje extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(separador)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(labelPersonaje, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(labelArma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelCasco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelPechera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelBotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelGuantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox6, 0, 150, Short.MAX_VALUE)
-                            .addComponent(jComboBox5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botonOk)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(comboGuantes, 0, 150, Short.MAX_VALUE)
+                                    .addComponent(comboBotas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(comboPecheras, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(comboCascos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(comboPersonajes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(comboArmas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(checkArma)
+                                    .addComponent(checkCasco)
+                                    .addComponent(checkPechera)
+                                    .addComponent(checkBotas)
+                                    .addComponent(checkGuantes))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -104,95 +183,90 @@ public class PantallaEquiparPersonaje extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(labelTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separador, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(comboPersonajes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPersonaje))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelArma)
+                        .addComponent(comboArmas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(checkArma))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCascos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCasco)
+                    .addComponent(checkCasco))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(comboPecheras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPechera)
+                    .addComponent(checkPechera))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(comboBotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelBotas)
+                    .addComponent(checkBotas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addContainerGap(103, Short.MAX_VALUE))
+                    .addComponent(comboGuantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelGuantes)
+                    .addComponent(checkGuantes))
+                .addGap(18, 18, 18)
+                .addComponent(botonOk)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaEquiparPersonaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaEquiparPersonaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaEquiparPersonaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaEquiparPersonaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void checkArmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkArmaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkArmaActionPerformed
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                PantallaEquiparPersonaje dialog = new PantallaEquiparPersonaje(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        juego.guardarDatos(personajes,"personajes");        
+        this.setVisible(false);
+        anterior.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
+
+    private void botonOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonOkActionPerformed
+        Personaje personajeAux = personajes.get(comboPersonajes.getSelectedItem().toString());
+        if(checkArma.isSelected()){personajeAux.setArma(armas.get(comboArmas.getSelectedItem().toString()));}
+        if(checkCasco.isSelected()){personajeAux.setCasco(cascos.get(comboCascos.getSelectedItem().toString()));}
+        if(checkPechera.isSelected()){personajeAux.setPechera(pecheras.get(comboPecheras.getSelectedItem().toString()));}
+        if(checkBotas.isSelected()){personajeAux.setBotas(botas.get(comboBotas.getSelectedItem().toString()));}
+        if(checkGuantes.isSelected()){personajeAux.setGuantes(guantes.get(comboGuantes.getSelectedItem().toString()));}
+        personajes.replace(personajeAux.getNombre(), personajeAux);
+        juego.guardarDatos(personajes, "personajes");
+    }//GEN-LAST:event_botonOkActionPerformed
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox4;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JButton botonOk;
+    private javax.swing.JCheckBox checkArma;
+    private javax.swing.JCheckBox checkBotas;
+    private javax.swing.JCheckBox checkCasco;
+    private javax.swing.JCheckBox checkGuantes;
+    private javax.swing.JCheckBox checkPechera;
+    private javax.swing.JComboBox comboArmas;
+    private javax.swing.JComboBox comboBotas;
+    private javax.swing.JComboBox comboCascos;
+    private javax.swing.JComboBox comboGuantes;
+    private javax.swing.JComboBox comboPecheras;
+    private javax.swing.JComboBox comboPersonajes;
+    private javax.swing.JLabel labelArma;
+    private javax.swing.JLabel labelBotas;
+    private javax.swing.JLabel labelCasco;
+    private javax.swing.JLabel labelGuantes;
+    private javax.swing.JLabel labelPechera;
+    private javax.swing.JLabel labelPersonaje;
+    private javax.swing.JLabel labelTitulo;
     private javax.swing.JSeparator separador;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,11 +5,13 @@
  */
 package videojuegos.pec1.armaduras;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jorge
  */
-public class Pechera {
+public class Pechera implements Serializable{
     
     //ATRIBUTOS
     String nombre;

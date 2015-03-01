@@ -5,11 +5,13 @@
  */
 package videojuegos.pec1.armaduras;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jorge
  */
-public class Casco {
+public class Casco implements Serializable{
     
     //ATRIBUTOS
     String nombre;

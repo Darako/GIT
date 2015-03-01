@@ -105,14 +105,14 @@ public class Juego {
     public void iniciarJuego(){}   
     
     public void iniciarDatos() throws FileNotFoundException{
-        this.cargarDatos(personajes, "personajes");
-        this.cargarDatos(armas, "armas");
-        this.cargarDatos(cascos, "cascos");
-        this.cargarDatos(pecheras, "pecheras");
-        this.cargarDatos(botas, "botas");
-        this.cargarDatos(guantes, "guantes");
-        //this.cargarDatos(enemigos, "enemigos");
-        //this.cargarDatos(habilidades, "habilidades");
+        this.cargarPersonajes("personajes");
+        this.cargarArmas("armas");
+        this.cargarCascos("cascos");
+        this.cargarPecheras("pecheras");
+        this.cargarBotas("botas");
+        this.cargarGuantes("guantes");
+        /*this.cargarDatos("enemigos");
+        this.cargarDatos("habilidades");*/
     } 
         
     public void guardarDatos(HashMap clase, String nombre) {
@@ -128,10 +128,75 @@ public class Juego {
         }
     }
     
-    public void cargarDatos(HashMap clase, String nombre){
+    public void cargarPersonajes(String nombre){
         try{
             ObjectInputStream ficheroEntrada = new ObjectInputStream(new FileInputStream(nombre+".dat"));
-            clase = (HashMap) ficheroEntrada.readObject();
+            personajes = (HashMap) ficheroEntrada.readObject();
+            ficheroEntrada.close();            
+        } catch (ClassNotFoundException cnfe) {
+            System.out.println("Error de clase no encontrada:" + cnfe.toString());
+        }catch (IOException ioe) {
+            System.out.println("Error IO:" + ioe.toString());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString());
+        }
+    }
+    public void cargarArmas(String nombre){
+        try{
+            ObjectInputStream ficheroEntrada = new ObjectInputStream(new FileInputStream(nombre+".dat"));
+            armas = (HashMap) ficheroEntrada.readObject();
+            ficheroEntrada.close();            
+        } catch (ClassNotFoundException cnfe) {
+            System.out.println("Error de clase no encontrada:" + cnfe.toString());
+        }catch (IOException ioe) {
+            System.out.println("Error IO:" + ioe.toString());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString());
+        }
+    }
+    public void cargarCascos(String nombre){
+        try{
+            ObjectInputStream ficheroEntrada = new ObjectInputStream(new FileInputStream(nombre+".dat"));
+            cascos = (HashMap) ficheroEntrada.readObject();
+            ficheroEntrada.close();            
+        } catch (ClassNotFoundException cnfe) {
+            System.out.println("Error de clase no encontrada:" + cnfe.toString());
+        }catch (IOException ioe) {
+            System.out.println("Error IO:" + ioe.toString());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString());
+        }
+    }
+    public void cargarPecheras(String nombre){
+        try{
+            ObjectInputStream ficheroEntrada = new ObjectInputStream(new FileInputStream(nombre+".dat"));
+            pecheras = (HashMap) ficheroEntrada.readObject();
+            ficheroEntrada.close();            
+        } catch (ClassNotFoundException cnfe) {
+            System.out.println("Error de clase no encontrada:" + cnfe.toString());
+        }catch (IOException ioe) {
+            System.out.println("Error IO:" + ioe.toString());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString());
+        }
+    }
+    public void cargarBotas(String nombre){
+        try{
+            ObjectInputStream ficheroEntrada = new ObjectInputStream(new FileInputStream(nombre+".dat"));
+            botas = (HashMap) ficheroEntrada.readObject();
+            ficheroEntrada.close();            
+        } catch (ClassNotFoundException cnfe) {
+            System.out.println("Error de clase no encontrada:" + cnfe.toString());
+        }catch (IOException ioe) {
+            System.out.println("Error IO:" + ioe.toString());
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString());
+        }
+    }
+    public void cargarGuantes(String nombre){
+        try{
+            ObjectInputStream ficheroEntrada = new ObjectInputStream(new FileInputStream(nombre+".dat"));
+            guantes = (HashMap) ficheroEntrada.readObject();
             ficheroEntrada.close();            
         } catch (ClassNotFoundException cnfe) {
             System.out.println("Error de clase no encontrada:" + cnfe.toString());

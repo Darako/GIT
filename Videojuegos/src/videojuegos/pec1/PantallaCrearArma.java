@@ -32,6 +32,7 @@ public class PantallaCrearArma extends javax.swing.JDialog {
         this.setVisible(true);
         juego.iniciarDatos();
         armas = juego.getArmas();
+        comboTipo.setSelectedIndex(0);
     }
     Juego juego = new Juego();    
     HashMap<String, Arma> armas = new HashMap<>();
