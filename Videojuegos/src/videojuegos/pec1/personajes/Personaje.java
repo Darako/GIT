@@ -44,8 +44,8 @@ public class Personaje implements Serializable{
 
     public Personaje(String nombre, int pvMax, int pmMax, int ataqueFisico, int ataqueMagico, int defensaFisica, int defensaMagica) {
         this.nombre = nombre;
-        this.pv = pv;
-        this.pm = pm;
+        this.pv = pvMax;
+        this.pm = pmMax;
         this.pvMax = pvMax;
         this.pmMax = pmMax;
         this.ataqueFisico = ataqueFisico;
@@ -74,6 +74,18 @@ public class Personaje implements Serializable{
     }
     public void setPmMax(int pmMax) {
         this.pmMax = pmMax;
+    }
+    public int getPv() {
+        return pv;
+    }
+    public void setPv(int pv) {
+        this.pv = pv;
+    }       
+    public int getPm() {
+        return pm;
+    }
+    public void setPm(int pm) {
+        this.pm = pm;
     }
     public int getAtaqueFisico() {
         return ataqueFisico;
@@ -158,109 +170,144 @@ public class Personaje implements Serializable{
         return this.estaExhausto();
     }
     
-    public void gastar(){}
+    public void gastar(){} 
+    
+    public void combatir(String accion, Personaje personaje){ 
+        switch(accion){
+            case "Atacar":  {
+                                this.atacar(personaje);
+                                break;
+                            }
+            case "Habilidades": {
+                                    this.usarHabilidad(habilidad, personaje);
+                                    break;
+                                }
+            case "Huir":{
+                            this.huir();
+                            break;
+                        }
+        }
+        
+    }
+    
+    private void atacar(Personaje personaje){
+        personaje.setPv(personaje.getPv() - this.ataqueFisico);
+    }
     
     public void usarHabilidad(Habilidad habilidad, Personaje personaje){
         int danyo = habilidad.getEfecto();
         personaje.setPvMax(personaje.getPvMax()+danyo);
     }
-    /*
-    public void combatir(ArrayList<Personaje> luchadores){ 
-        int i = 0;
-        int herida = 0;
-        while((!(luchadores.get(0).estaDerrotado())) || (!(luchadores.get(1).estaDerrotado())))
-        {
-            if(i==0)
-            {   
-                herida = luchadores.get(i).atacar(luchadores.get(i+1));
-                if((luchadores.get(i).estaDerrotado()) || (luchadores.get(i+1).estaDerrotado()) || (herida==0)){
-                    break;
-                }
-                luchadores.get(i+1).setPv((luchadores.get(i+1).getPv()) - herida);                
-                System.out.println("Pegaron a "+luchadores.get(i+1).getNombre()+", "+herida+" de daño.\nVida: "+luchadores.get(i+1).getPv()+"\n");
-                i++;
-            }
-            if(i==1)
-            {
-                herida = luchadores.get(i).atacar(luchadores.get(i-1));                
-                if((luchadores.get(i).estaDerrotado()) || (luchadores.get(i-1).estaDerrotado())  || (herida==0) ){
-                    break;
-                }
-                luchadores.get(i-1).setPv((luchadores.get(i-1).getPv()) - herida);                
-                System.out.println("Pegaron a "+luchadores.get(i-1).getNombre()+", "+herida+" de daño.\nVida: "+luchadores.get(i-1).getPv()+"\n");
-                i--;
-            }            
+    
+    private void huir() {
+        
+    }
+        
+    public void actualizarArmadura(Casco pieza){
+        if(this.casco != null){
+            Casco piezaAux = this.getCasco();        
+            this.setPvMax(this.getPvMax() - piezaAux.getPv());
+            this.setPmMax(this.getPmMax() - piezaAux.getPm());
+            this.setPv(this.getPv() - piezaAux.getPv());
+            this.setPm(this.getPm() - piezaAux.getPm());
+            this.setDefensaFisica(this.getDefensaFisica() - piezaAux.getDefensaFisica());
+            this.setDefensaMagica(this.getDefensaMagica() - piezaAux.getDefensaMagica());
+            this.setCasco(pieza);
+            this.setPvMax(this.getPvMax() + pieza.getPv());
+            this.setPmMax(this.getPmMax() + pieza.getPm());
+            this.setDefensaFisica(this.getDefensaFisica() + pieza.getDefensaFisica());
+            this.setDefensaMagica(this.getDefensaMagica() + pieza.getDefensaMagica());
+        }else{
+            this.setCasco(pieza);
+            this.setPvMax(this.getPvMax() + pieza.getPv());
+            this.setPmMax(this.getPmMax() + pieza.getPm());
+            this.setDefensaFisica(this.getDefensaFisica() + pieza.getDefensaFisica());
+            this.setDefensaMagica(this.getDefensaMagica() + pieza.getDefensaMagica());
         }
     }
     
-    private int atacar(Personaje per){
-        
-    }*/
-        
-    public void actualizarArmadura(Casco pieza){
-        Casco piezaAux = this.getCasco();
-        
-        this.setPvMax(this.getPvMax() - piezaAux.getPv());
-        this.setPmMax(this.getPmMax() - piezaAux.getPm());
-        this.setDefensaFisica(this.getDefensaFisica() - piezaAux.getDefensaFisica());
-        this.setDefensaMagica(this.getDefensaMagica() - piezaAux.getDefensaMagica());
-        this.setCasco(pieza);
-        this.setPvMax(this.getPvMax() + piezaAux.getPv());
-        this.setPmMax(this.getPmMax() + piezaAux.getPm());
-        this.setDefensaFisica(this.getDefensaFisica() + piezaAux.getDefensaFisica());
-        this.setDefensaMagica(this.getDefensaMagica() + piezaAux.getDefensaMagica());
-    }
-    
     public void actualizarArmadura(Guantes pieza){
-        Guantes piezaAux = this.getGuantes();
-        
-        this.setPvMax(this.getPvMax() - piezaAux.getPv());
-        this.setPmMax(this.getPmMax() - piezaAux.getPm());
-        this.setDefensaFisica(this.getDefensaFisica() - piezaAux.getDefensaFisica());
-        this.setDefensaMagica(this.getDefensaMagica() - piezaAux.getDefensaMagica());
-        this.setGuantes(pieza);
-        this.setPvMax(this.getPvMax() + piezaAux.getPv());
-        this.setPmMax(this.getPmMax() + piezaAux.getPm());
-        this.setDefensaFisica(this.getDefensaFisica() + piezaAux.getDefensaFisica());
-        this.setDefensaMagica(this.getDefensaMagica() + piezaAux.getDefensaMagica());
+        if(this.guantes != null){
+            Guantes piezaAux = this.getGuantes();        
+            this.setPvMax(this.getPvMax() - piezaAux.getPv());
+            this.setPmMax(this.getPmMax() - piezaAux.getPm());
+            this.setPv(this.getPv() - piezaAux.getPv());
+            this.setPm(this.getPm() - piezaAux.getPm());
+            this.setDefensaFisica(this.getDefensaFisica() - piezaAux.getDefensaFisica());
+            this.setDefensaMagica(this.getDefensaMagica() - piezaAux.getDefensaMagica());
+            this.setGuantes(pieza);
+            this.setPvMax(this.getPvMax() + pieza.getPv());
+            this.setPmMax(this.getPmMax() + pieza.getPm());
+            this.setDefensaFisica(this.getDefensaFisica() + pieza.getDefensaFisica());
+            this.setDefensaMagica(this.getDefensaMagica() + pieza.getDefensaMagica());
+        }else{
+            this.setGuantes(pieza);
+            this.setPvMax(this.getPvMax() + pieza.getPv());
+            this.setPmMax(this.getPmMax() + pieza.getPm());
+            this.setDefensaFisica(this.getDefensaFisica() + pieza.getDefensaFisica());
+            this.setDefensaMagica(this.getDefensaMagica() + pieza.getDefensaMagica());
+        }
     }
     
     public void actualizarArmadura(Pechera pieza){
-        Pechera piezaAux = this.getPechera();
-        
-        this.setPvMax(this.getPvMax() - piezaAux.getPv());
-        this.setPmMax(this.getPmMax() - piezaAux.getPm());
-        this.setDefensaFisica(this.getDefensaFisica() - piezaAux.getDefensaFisica());
-        this.setDefensaMagica(this.getDefensaMagica() - piezaAux.getDefensaMagica());
-        this.setPechera(pieza);
-        this.setPvMax(this.getPvMax() + piezaAux.getPv());
-        this.setPmMax(this.getPmMax() + piezaAux.getPm());
-        this.setDefensaFisica(this.getDefensaFisica() + piezaAux.getDefensaFisica());
-        this.setDefensaMagica(this.getDefensaMagica() + piezaAux.getDefensaMagica());
+        if(this.pechera != null){
+            Pechera piezaAux = this.getPechera();        
+            this.setPvMax(this.getPvMax() - piezaAux.getPv());
+            this.setPmMax(this.getPmMax() - piezaAux.getPm());
+            this.setPv(this.getPv() - piezaAux.getPv());
+            this.setPm(this.getPm() - piezaAux.getPm());
+            this.setDefensaFisica(this.getDefensaFisica() - piezaAux.getDefensaFisica());
+            this.setDefensaMagica(this.getDefensaMagica() - piezaAux.getDefensaMagica());
+            this.setPechera(pieza);
+            this.setPvMax(this.getPvMax() + piezaAux.getPv());
+            this.setPmMax(this.getPmMax() + piezaAux.getPm());
+            this.setDefensaFisica(this.getDefensaFisica() + pieza.getDefensaFisica());
+            this.setDefensaMagica(this.getDefensaMagica() + pieza.getDefensaMagica());
+        }else{
+            this.setPechera(pieza);
+            this.setPvMax(this.getPvMax() + pieza.getPv());
+            this.setPmMax(this.getPmMax() + pieza.getPm());
+            this.setDefensaFisica(this.getDefensaFisica() + pieza.getDefensaFisica());
+            this.setDefensaMagica(this.getDefensaMagica() + pieza.getDefensaMagica());    
+        }
     }
     
     public void actualizarArmadura(Botas pieza){
-        Botas piezaAux = this.getBotas();
-        
-        this.setPvMax(this.getPvMax() - piezaAux.getPv());
-        this.setPmMax(this.getPmMax() - piezaAux.getPm());
-        this.setDefensaFisica(this.getDefensaFisica() - piezaAux.getDefensaFisica());
-        this.setDefensaMagica(this.getDefensaMagica() - piezaAux.getDefensaMagica());
-        this.setBotas(pieza);
-        this.setPvMax(this.getPvMax() + piezaAux.getPv());
-        this.setPmMax(this.getPmMax() + piezaAux.getPm());
-        this.setDefensaFisica(this.getDefensaFisica() + piezaAux.getDefensaFisica());
-        this.setDefensaMagica(this.getDefensaMagica() + piezaAux.getDefensaMagica());
+        if(this.botas != null){
+            Botas piezaAux = this.getBotas();        
+            this.setPvMax(this.getPvMax() - piezaAux.getPv());
+            this.setPmMax(this.getPmMax() - piezaAux.getPm());
+            this.setPv(this.getPv() - piezaAux.getPv());
+            this.setPm(this.getPm() - piezaAux.getPm());
+            this.setDefensaFisica(this.getDefensaFisica() - piezaAux.getDefensaFisica());
+            this.setDefensaMagica(this.getDefensaMagica() - piezaAux.getDefensaMagica());
+            this.setBotas(pieza);
+            this.setPvMax(this.getPvMax() + piezaAux.getPv());
+            this.setPmMax(this.getPmMax() + piezaAux.getPm());
+            this.setDefensaFisica(this.getDefensaFisica() + pieza.getDefensaFisica());
+            this.setDefensaMagica(this.getDefensaMagica() + pieza.getDefensaMagica());
+        }else{
+            this.setBotas(pieza);
+            this.setPvMax(this.getPvMax() + pieza.getPv());
+            this.setPmMax(this.getPmMax() + pieza.getPm());
+            this.setDefensaFisica(this.getDefensaFisica() + pieza.getDefensaFisica());
+            this.setDefensaMagica(this.getDefensaMagica() + pieza.getDefensaMagica());    
+        }
     }
     
     public void actualizarArma(Arma pieza){
-        Arma piezaAux = this.getArma();
-        
-        this.setAtaqueFisico(this.getAtaqueFisico() - piezaAux.getAtaqueFisico());
-        this.setAtaqueMagico(this.getAtaqueMagico() - piezaAux.getAtaqueMagico());
-        this.setArma(pieza);
-        this.setAtaqueFisico(this.getAtaqueFisico() + piezaAux.getAtaqueFisico());
-        this.setAtaqueMagico(this.getAtaqueMagico() + piezaAux.getAtaqueMagico());        
+        if(this.arma != null){
+            Arma piezaAux = this.getArma();        
+            this.setAtaqueFisico(this.getAtaqueFisico() - piezaAux.getAtaqueFisico());
+            this.setAtaqueMagico(this.getAtaqueMagico() - piezaAux.getAtaqueMagico());
+            this.setArma(pieza);
+            this.setAtaqueFisico(this.getAtaqueFisico() + pieza.getAtaqueFisico());
+            this.setAtaqueMagico(this.getAtaqueMagico() + pieza.getAtaqueMagico()); 
+        }else{
+            this.setArma(pieza);
+            this.setAtaqueFisico(this.getAtaqueFisico() + pieza.getAtaqueFisico());
+            this.setAtaqueMagico(this.getAtaqueMagico() + pieza.getAtaqueMagico());    
+        }
     }
    
    

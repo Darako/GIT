@@ -45,7 +45,13 @@ public class Nigromante extends Personaje{
     
     @Override
     public String toString() {
-        return "DRUIDA\n"+super.toString()+"\nMana: "+this.mana;
+        StringBuilder equipo = new StringBuilder();
+        if(this.getArma()!=null){equipo.append(this.getArma().toString());}
+        if(this.getCasco()!=null){equipo.append(this.getCasco().toString());}
+        if(this.getPechera()!=null){equipo.append(this.getPechera().toString());}
+        if(this.getBotas()!=null){equipo.append(this.getBotas().toString());}
+        if(this.getGuantes()!=null){equipo.append(this.getGuantes().toString());}
+        return "NIGROMANTE\n"+super.toString()+"\nMana: "+this.mana+"\n\nEQUIPO:\n"+equipo;
     }
 
     

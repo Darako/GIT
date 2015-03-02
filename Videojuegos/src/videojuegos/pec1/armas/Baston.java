@@ -42,7 +42,7 @@ public class Baston extends Arma{
 
     @Override
     public String toString() {
-        return "BASTÓN\n"+super.toString()+"\nMagia: "+this.magia;
+        return " - BASTÓN\n"+super.toString()+"\nMagia: "+this.magia+"\n";
     }
     
     

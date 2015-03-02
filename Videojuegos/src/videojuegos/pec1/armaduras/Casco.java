@@ -72,7 +72,7 @@ public class Casco implements Serializable{
     //MÉTODOS
     @Override
     public String toString() {
-        return "CASCO\nNombre: "+this.nombre+"\nDurabilidad: "+this.durabilidad+"\nPV: "+this.pv+"\nPM: "+this.pm+"\nDefensa Física: "+this.defensaFisica+"\nDefensa Mágica: "+this.defensaMagica;
+        return " - CASCO\nNombre: "+this.nombre+"\nDurabilidad: "+this.durabilidad+"\nPV: "+this.pv+"\nPM: "+this.pm+"\nDefensa Física: "+this.defensaFisica+"\nDefensa Mágica: "+this.defensaMagica+"\n";
     }
         
     

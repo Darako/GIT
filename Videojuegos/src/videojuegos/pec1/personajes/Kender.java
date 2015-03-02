@@ -45,7 +45,13 @@ public class Kender extends Personaje{
     
     @Override
     public String toString() {
-        return "KENDER\n"+super.toString()+"\nEnergia: "+this.energia;
+        StringBuilder equipo = new StringBuilder();
+        if(this.getArma()!=null){equipo.append(this.getArma().toString());}
+        if(this.getCasco()!=null){equipo.append(this.getCasco().toString());}
+        if(this.getPechera()!=null){equipo.append(this.getPechera().toString());}
+        if(this.getBotas()!=null){equipo.append(this.getBotas().toString());}
+        if(this.getGuantes()!=null){equipo.append(this.getGuantes().toString());}
+        return "KENDER\n"+super.toString()+"\nEnergia: "+this.energia+"\n\nEQUIPO:\n"+equipo;
     }
 
     

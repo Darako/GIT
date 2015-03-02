@@ -42,7 +42,7 @@ public class Arco extends Arma{
 
     @Override
     public String toString() {
-        return "ARCO\n"+super.toString()+"\nNº Flechas: "+this.flechas;
+        return " - ARCO\n"+super.toString()+"\nNº Flechas: "+this.flechas+"\n";
     }
     
     

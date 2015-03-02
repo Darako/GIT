@@ -41,7 +41,7 @@ public class Espada extends Arma{
 
     @Override
     public String toString() {
-        return "ESPADA\n"+super.toString()+"\nStamina: "+this.stamina;
+        return " - ESPADA\n"+super.toString()+"\nStamina: "+this.stamina+"\n";
     }
     
     

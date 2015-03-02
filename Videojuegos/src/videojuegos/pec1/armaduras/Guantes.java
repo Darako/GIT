@@ -72,7 +72,7 @@ public class Guantes implements Serializable{
     //MÉTODOS
     @Override
     public String toString() {
-        return "GUANTES\nNombre: "+this.nombre+"\nDurabilidad: "+this.durabilidad+"\nPV: "+this.pv+"\nPM: "+this.pm+"\nDefensa Física: "+this.defensaFisica+"\nDefensa Mágica: "+this.defensaMagica;
+        return " - GUANTES\nNombre: "+this.nombre+"\nDurabilidad: "+this.durabilidad+"\nPV: "+this.pv+"\nPM: "+this.pm+"\nDefensa Física: "+this.defensaFisica+"\nDefensa Mágica: "+this.defensaMagica+"\n";
     }
         
 }  
