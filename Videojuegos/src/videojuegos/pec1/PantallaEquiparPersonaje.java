@@ -251,11 +251,11 @@ public class PantallaEquiparPersonaje extends javax.swing.JDialog {
 
     private void botonOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonOkActionPerformed
         Personaje personajeAux = personajes.get(comboPersonajes.getSelectedItem().toString());
-        if(checkArma.isSelected()){personajeAux.setArma(armas.get(comboArmas.getSelectedItem().toString()));}
-        if(checkCasco.isSelected()){personajeAux.setCasco(cascos.get(comboCascos.getSelectedItem().toString()));}
-        if(checkPechera.isSelected()){personajeAux.setPechera(pecheras.get(comboPecheras.getSelectedItem().toString()));}
-        if(checkBotas.isSelected()){personajeAux.setBotas(botas.get(comboBotas.getSelectedItem().toString()));}
-        if(checkGuantes.isSelected()){personajeAux.setGuantes(guantes.get(comboGuantes.getSelectedItem().toString()));}
+        if(checkArma.isSelected()){personajeAux.actualizarArma(armas.get(comboArmas.getSelectedItem().toString()));}
+        if(checkCasco.isSelected()){personajeAux.actualizarArmadura(cascos.get(comboCascos.getSelectedItem().toString()));}
+        if(checkPechera.isSelected()){personajeAux.actualizarArmadura(pecheras.get(comboPecheras.getSelectedItem().toString()));}
+        if(checkBotas.isSelected()){personajeAux.actualizarArmadura(botas.get(comboBotas.getSelectedItem().toString()));}
+        if(checkGuantes.isSelected()){personajeAux.actualizarArmadura(guantes.get(comboGuantes.getSelectedItem().toString()));}
         personajes.replace(personajeAux.getNombre(), personajeAux);
         juego.guardarDatos(personajes, "personajes");
         JOptionPane.showMessageDialog(null, personajeAux.toString(), "Ver Personaje", JOptionPane.INFORMATION_MESSAGE);
