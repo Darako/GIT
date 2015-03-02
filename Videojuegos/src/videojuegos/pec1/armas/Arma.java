@@ -66,7 +66,7 @@ public class Arma implements Serializable{
 
     @Override
     public String toString() {
-        return "Arma{" + "nombre=" + nombre + ", durabilidad=" + durabilidad + ", ataque=" + ataqueFisico + ", ataqueMagico=" + ataqueMagico + '}';
+        return "Nombre: "+this.nombre+"\nDurabilidad: "+this.durabilidad+"\nAtaque Físico: "+this.ataqueFisico+"\nAtaque Mágico: "+this.ataqueMagico;
     }
     
     

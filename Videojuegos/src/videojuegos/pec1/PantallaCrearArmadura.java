@@ -6,16 +6,12 @@
 package videojuegos.pec1;
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JFrame;
-import videojuegos.pec1.armaduras.Armadura;
 import videojuegos.pec1.armaduras.Botas;
 import videojuegos.pec1.armaduras.Casco;
 import videojuegos.pec1.armaduras.Guantes;
 import videojuegos.pec1.armaduras.Pechera;
-import videojuegos.pec1.armas.Arma;
-import videojuegos.pec1.personajes.Personaje;
 
 /**
  *

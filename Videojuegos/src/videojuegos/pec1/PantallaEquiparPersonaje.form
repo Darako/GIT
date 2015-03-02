@@ -42,8 +42,8 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="botonOk" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
+                          <Component id="botonOk" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="comboGuantes" pref="150" max="32767" attributes="0"/>
                                   <Component id="comboBotas" max="32767" attributes="0"/>
@@ -53,12 +53,13 @@
                                   <Component id="comboArmas" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="checkArma" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkCasco" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkPechera" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkBotas" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkGuantes" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="checkArma" max="32767" attributes="0"/>
+                                  <Component id="checkCasco" max="32767" attributes="0"/>
+                                  <Component id="checkPechera" max="32767" attributes="0"/>
+                                  <Component id="checkBotas" max="32767" attributes="0"/>
+                                  <Component id="checkGuantes" max="32767" attributes="0"/>
+                                  <Component id="botonVerPersonaje" alignment="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -80,6 +81,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="comboPersonajes" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="labelPersonaje" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="botonVerPersonaje" alignment="1" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -90,32 +92,40 @@
                   <Component id="checkArma" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="comboCascos" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelCasco" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="checkCasco" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="checkCasco" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="comboCascos" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelCasco" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="comboPecheras" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelPechera" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="checkPechera" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="checkPechera" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="comboPecheras" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelPechera" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="comboBotas" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelBotas" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="checkBotas" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="checkBotas" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="comboBotas" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelBotas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="comboGuantes" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelGuantes" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="checkGuantes" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="checkGuantes" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="comboGuantes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelGuantes" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="botonOk" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -220,6 +230,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonOkActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="botonVerPersonaje">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="O"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonVerPersonajeActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -211,13 +211,13 @@ public class Personaje implements Serializable{
     }*/
         
     public void actualizarArmadura(Casco pieza){
-        Casco piezaAux = this.getArmadura().getCasco();
+        Casco piezaAux = this.getCasco();
         
         this.setPvMax(this.getPvMax() - piezaAux.getPv());
         this.setPmMax(this.getPmMax() - piezaAux.getPm());
         this.setDefensaFisica(this.getDefensaFisica() - piezaAux.getDefensa());
         this.setDefensaMagica(this.getDefensaMagica() - piezaAux.getDefensa_magica());
-        this.getArmadura().setCasco(pieza);
+        this.setCasco(pieza);
         this.setPvMax(this.getPvMax() + piezaAux.getPv());
         this.setPmMax(this.getPmMax() + piezaAux.getPm());
         this.setDefensaFisica(this.getDefensaFisica() + piezaAux.getDefensa());
@@ -225,27 +225,27 @@ public class Personaje implements Serializable{
     }
     
     public void actualizarArmadura(Guantes pieza){
-        Guantes piezaAux = this.getArmadura().getGuantes();
+        Guantes piezaAux = this.getGuantes();
         
         this.setPvMax(this.getPvMax() - piezaAux.getPv());
         this.setPmMax(this.getPmMax() - piezaAux.getPm());
-        this.setDefensaFisica(this.getDefensaFisica() - piezaAux.getDefensa());
-        this.setDefensaMagica(this.getDefensaMagica() - piezaAux.getDefensa_magica());
-        this.getArmadura().setGuantes(pieza);
+        this.setDefensaFisica(this.getDefensaFisica() - piezaAux.getDefensaFisica());
+        this.setDefensaMagica(this.getDefensaMagica() - piezaAux.getDefensaMagica());
+        this.setGuantes(pieza);
         this.setPvMax(this.getPvMax() + piezaAux.getPv());
         this.setPmMax(this.getPmMax() + piezaAux.getPm());
-        this.setDefensaFisica(this.getDefensaFisica() + piezaAux.getDefensa());
-        this.setDefensaMagica(this.getDefensaMagica() + piezaAux.getDefensa_magica());
+        this.setDefensaFisica(this.getDefensaFisica() + piezaAux.getDefensaFisica());
+        this.setDefensaMagica(this.getDefensaMagica() + piezaAux.getDefensaMagica());
     }
     
     public void actualizarArmadura(Pechera pieza){
-        Pechera piezaAux = this.getArmadura().getPechera();
+        Pechera piezaAux = this.getPechera();
         
         this.setPvMax(this.getPvMax() - piezaAux.getPv());
         this.setPmMax(this.getPmMax() - piezaAux.getPm());
         this.setDefensaFisica(this.getDefensaFisica() - piezaAux.getDefensa());
         this.setDefensaMagica(this.getDefensaMagica() - piezaAux.getDefensa_magica());
-        this.getArmadura().setPechera(pieza);
+        this.setPechera(pieza);
         this.setPvMax(this.getPvMax() + piezaAux.getPv());
         this.setPmMax(this.getPmMax() + piezaAux.getPm());
         this.setDefensaFisica(this.getDefensaFisica() + piezaAux.getDefensa());
@@ -253,13 +253,13 @@ public class Personaje implements Serializable{
     }
     
     public void actualizarArmadura(Botas pieza){
-        Botas piezaAux = this.getArmadura().getBotas();
+        Botas piezaAux = this.getBotas();
         
         this.setPvMax(this.getPvMax() - piezaAux.getPv());
         this.setPmMax(this.getPmMax() - piezaAux.getPm());
         this.setDefensaFisica(this.getDefensaFisica() - piezaAux.getDefensa());
         this.setDefensaMagica(this.getDefensaMagica() - piezaAux.getDefensa_magica());
-        this.getArmadura().setBotas(pieza);
+        this.setBotas(pieza);
         this.setPvMax(this.getPvMax() + piezaAux.getPv());
         this.setPmMax(this.getPmMax() + piezaAux.getPm());
         this.setDefensaFisica(this.getDefensaFisica() + piezaAux.getDefensa());
@@ -279,6 +279,8 @@ public class Personaje implements Serializable{
    
     @Override
     public String toString() {
-        return "Pjs{" + "nombre=" + nombre + ", pv=" + pvMax + ", pm=" + pmMax + ", ataque=" + ataqueFisico + ", ataque_magico=" + ataqueMagico + ", defensa=" + defensaFisica + ", defensa_magica=" + defensaMagica + ", nivel=" + nivel + ", exp=" + exp;
+        return "Nombre: "+this.nombre+"\nNivel: "+this.nivel+"\nExperiencia: "+this.exp
+              +"\nPV: "+this.pv+"/"+this.pvMax+"\nPM: "+this.pm+"/"+this.pmMax
+              +"\nAtaque Físico: "+this.ataqueFisico+"\nAtaque Mágico: "+this.ataqueMagico+"\nDefensa Física: "+this.defensaFisica+"\nDefensa Mágica: "+this.defensaMagica;
     }
 }

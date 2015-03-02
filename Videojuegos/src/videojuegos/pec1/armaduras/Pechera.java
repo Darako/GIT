@@ -18,17 +18,17 @@ public class Pechera implements Serializable{
     int durabilidad;
     int pv;
     int pm;
-    int defensa;
-    int defensa_magica;
+    int defensaFisica;
+    int defensaMagica;
 
     //CONSTRUCTOR
-    public Pechera(String nombre, int durabilidad, int pv, int pm, int defensa, int defensa_magica) {
+    public Pechera(String nombre, int durabilidad, int pv, int pm, int defensaFisica, int defensaMagica) {
         this.nombre = nombre;
         this.durabilidad = durabilidad;
         this.pv = pv;
         this.pm = pm;
-        this.defensa = defensa;
-        this.defensa_magica = defensa_magica;
+        this.defensaFisica = defensaFisica;
+        this.defensaMagica = defensaMagica;
     }
 
     //GETTER & SETTER
@@ -38,47 +38,41 @@ public class Pechera implements Serializable{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public int getDurabilidad() {
         return durabilidad;
     }
     public void setDurabilidad(int durabilidad) {
         this.durabilidad = durabilidad;
     }
-
     public int getPv() {
         return pv;
     }
     public void setPv(int pv) {
         this.pv = pv;
     }
-
     public int getPm() {
         return pm;
     }
     public void setPm(int pm) {
         this.pm = pm;
     }
-
-    public int getDefensa() {
-        return defensa;
+    public int getDefensaFisica() {
+        return defensaFisica;
     }
-    public void setDefensa(int defensa) {
-        this.defensa = defensa;
+    public void setDefensaFisica(int defensaFisica) {
+        this.defensaFisica = defensaFisica;
     }
-
-    public int getDefensa_magica() {
-        return defensa_magica;
+    public int getDefensaMagica() {
+        return defensaMagica;
     }
-
-    public void setDefensa_magica(int defensa_magica) {
-        this.defensa_magica = defensa_magica;
+    public void setDefensaMagica(int defensaMagica) {
+        this.defensaMagica = defensaMagica;
     }
 
     //MÉTODOS
     @Override
     public String toString() {
-        return "Pechera{" + "nombre=" + nombre + ", durabilidad=" + durabilidad + ", pv=" + pv + ", pm=" + pm + ", defensa=" + defensa + ", defensa_magica=" + defensa_magica + '}';
+        return "PECHERA\nNombre: "+this.nombre+"\nDurabilidad: "+this.durabilidad+"\nPV: "+this.pv+"\nPM: "+this.pm+"\nDefensa Física: "+this.defensaFisica+"\nDefensa Mágica: "+this.defensaMagica;
     }
         
     
