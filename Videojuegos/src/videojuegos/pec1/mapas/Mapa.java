@@ -5,7 +5,6 @@
  */
 package videojuegos.pec1.mapas;
 
-import java.util.Random;
 import javax.swing.ImageIcon;
 
 /**
@@ -21,7 +20,7 @@ public class Mapa extends Thread{
     
     ImageIcon p = new ImageIcon("src/Pueblo.jpg");
     ImageIcon c = new ImageIcon("src/Cueva.jpg");
-    ImageIcon m = new ImageIcon("src/Mazmora.jpg");
+    ImageIcon m = new ImageIcon("src/Mazmorra.jpg");
     ImageIcon mo = new ImageIcon("src/Montaña.jpg");
     ImageIcon ni = new ImageIcon("src/Nieve.jpg");
     ImageIcon ll = new ImageIcon("src/Llano.jpg");
@@ -41,6 +40,9 @@ public class Mapa extends Thread{
         this.map[9][2]=mazmorra;
     }
     
+    
+    
+    /*
     public void generarMapa(){
         genera(1,1,llano);
         genera(7,2,bosque);
@@ -87,8 +89,36 @@ public class Mapa extends Thread{
             }
         }   
     }
+    */
     
+    public void generacionMapa(){
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if(j>=0 && j<5 && i>=0 && i<6){
+                    if(map[i][j]==null)
+                        map[i][j]=llano;                    
+                }else if(j>=5 && j<10 && i>=0 && i<6){
+                    if(map[i][j]==null)
+                        map[i][j]=montaña;
+                }else if(j>=0 && j<5 && i>=5 && i<10){
+                    if(map[i][j]==null)
+                        map[i][j]=bosque;
+                }else{
+                    if(map[i][j]==null)
+                        map[i][j]=nieve;
+                }
+            }
+        }
+    }
     
+    public void mostrarContenido(int x, int y){
+                Terreno a=map[x][y];
+                System.out.println(a.getNombre());
+    }
+    
+    public Terreno getContenido(int x, int y){
+        return this.map[x][y];
+    }
     
     public void mostrarMapa(){
         for (int i = 0; i < tam; i++) {
