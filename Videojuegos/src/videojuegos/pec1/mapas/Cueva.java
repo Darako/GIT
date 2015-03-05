@@ -5,24 +5,24 @@
  */
 package videojuegos.pec1.mapas;
 
+/**
+ *
+ * @author pedro
+ */
 import javax.swing.ImageIcon;
 
 /**
  *
  * @author pedro
  */
+
 public class Cueva extends Terreno{
 
-    private MCueva c;
+    
 
     public Cueva(String nombre, int lvl, ImageIcon imagen) {
         super(nombre, lvl, imagen);
-        this.c=new MCueva();
-    }
-    
-    
-    public MCueva getContenido(){
-        return c;
+
     }
     
     @Override

@@ -28,11 +28,11 @@ public class Mapa extends Thread{
     
     Pueblo pueblo=new Pueblo("Marchamalo", 1, p);
     Cueva cueva=new Cueva("Cueva1", 1, c);
-    Mazmorra mazmorra=new Mazmorra("Mazmorra1", 1, m);
-    Montaña montaña=new Montaña("Montaña1", 2, mo, 15);
-    Llano llano=new Llano("Llano1", 1, ll, 5);
-    Bosque bosque=new Bosque("Bosque1", 1, bo, 10);
-    Nieve nieve=new Nieve("Nieve1", 3, ni, 20);
+    Cueva mazmorra=new Cueva("Mazmorra1", 1, m);
+    Zona montaña=new Zona("Montaña1", 2, mo, 15);
+    Zona llano=new Zona("Llano1", 1, ll, 5);
+    Zona bosque=new Zona("Bosque1", 1, bo, 10);
+    Zona nieve=new Zona("Nieve1", 3, ni, 20);
     
     public Mapa(){ 
         this.map[1][1]=pueblo;

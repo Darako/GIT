@@ -5,6 +5,10 @@
  */
 package videojuegos.pec1.mapas;
 
+/**
+ *
+ * @author pedro
+ */
 import javax.swing.ImageIcon;
 
 /**
