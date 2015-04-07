@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="12" height="12" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="tiles_spritesheet" tilewidth="32" tileheight="32">
+  <image source="../../../../../../FREETILEST/Tiles/tiles_spritesheet.png" trans="ff00ff" width="914" height="936"/>
+ </tileset>
+ <tileset firstgid="813" name="tiles_spritesheet" tilewidth="70" tileheight="70">
+  <image source="../../../../../../FREETILEST/Tiles/tiles_spritesheet.png" trans="ff00ff" width="914" height="936"/>
+ </tileset>
+ <tileset firstgid="982" name="tiles_spritesheet" tilewidth="32" tileheight="32" spacing="2" margin="2">
+  <image source="../../../../../../FREETILEST/Tiles/tiles_spritesheet.png" trans="ff00ff" width="914" height="936"/>
+ </tileset>
+ <tileset firstgid="1684" name="generic_platformer_tiles" tilewidth="32" tileheight="32">
+  <image source="generic_platformer_tiles.png" trans="ff00ff" width="1024" height="768"/>
+ </tileset>
+ <tileset firstgid="2452" name="boxAlt" tilewidth="32" tileheight="32">
+  <image source="boxAlt.png" trans="ff00ff" width="70" height="70"/>
+ </tileset>
+ <layer name="Capa de Patrones 1" width="12" height="12">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACzvLwcBwlkR8EohPAfFpID5DhPqXQPwKiF8D8RsgfkuGnQNpL63xFE4IrcXOwKDPjsmmBK9mY2BYg4adOTDF1gLxOiA+DcRn0HAyyCw2THwOiAEwQrxMQAIAAA==
+  </data>
+ </layer>
+ <layer name="Capa de patrones 2" width="12" height="12">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAX0Br4cDAx+QOzPQZz6XKC6PCDOJ1J9L1BdHxD3E6meEgAAhs4pzUACAAA=
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="12" height="12" tilewidth="70" tileheight="70" nextobjectid="6">
+ <tileset firstgid="1" name="tiles_spritesheet" tilewidth="70" tileheight="70" spacing="2">
+  <image source="CutePack/Base pack/Tiles/tiles_spritesheet.png" trans="ff00ff" width="914" height="936"/>
+  <tile id="44">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+  </tile>
+  <tile id="56">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+  </tile>
+  <tile id="68">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+  </tile>
+  <tile id="80">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+  </tile>
+  <tile id="91">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+  </tile>
+  <tile id="103">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+  </tile>
+  <tile id="115">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+  </tile>
+  <tile id="132">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="157" name="fondo" tilewidth="70" tileheight="70" spacing="2">
+  <image source="CutePack/Base pack/bg.png" trans="ff00ff" width="256" height="256"/>
+ </tileset>
+ <layer name="Capa de patrones 2" width="12" height="12">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC5vLwMAwdxSPYjIxAAFVz4xAAgAA
+  </data>
+ </layer>
+ <layer name="Capa de Patrones 1" width="12" height="12">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWDASwmU18JEGdAcQwV3IFsHiEMsg8ARgPHY0ACAAA=
+  </data>
+ </layer>
+</map>
