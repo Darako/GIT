@@ -24,12 +24,13 @@ public class SimpleSlickGame extends BasicGame
 {   
     private TiledMap mapa;
     private Input entrada;
-    private Animation sprite, right, left, jump, standing, crouchRight, crouchLeft;
+    private Animation spritePersonaje, spriteAnterior, right, left, jumpRight, jumpLeft, stay, crouchRight, crouchLeft;
     private float personajeX = 280f, personajeY = 560f;
+    private float velocidadX = 0f, velocidadY = 0f;
     private Rectangle personajeRect;
     private Rectangle[][] terreno;
     private float aceleracion = 0.25f;
-    private float gravedad = 0.20f;
+    private float gravedad = 0.50f;
     private float fuerzaSalto = 0.50f;
     private boolean jumping = false;  
     private boolean[][] bloques;   
@@ -45,27 +46,32 @@ public class SimpleSlickGame extends BasicGame
     public void init(GameContainer gc) throws SlickException
     {
         mapa = new TiledMap("data/MapaPrueba02.tmx");
-        Image [] movimientoFrontal = 
+        Image [] movStay = 
         {
             new Image("data\\Personaje\\Front\\p1_front.png")
         };
         
-        Image [] movimientoAgacharseDerecha = 
+        Image [] movCrouchRight = 
         {
             new Image("data\\Personaje\\Crouch\\p1_duck_R.png")
         };
         
-        Image [] movimientoAgacharseIzquierda = 
+        Image [] movCrouchLeft = 
         {
             new Image("data\\Personaje\\Crouch\\p1_duck_L.png")
         };
         
-        Image [] movimientoSaltar = 
+        Image [] movJumpRight = 
         {
             new Image("data\\Personaje\\Jump\\p1_jump_R.png")
         };
         
-        Image [] movimientoDerecha = 
+        Image [] movJumpLeft = 
+        {
+            new Image("data\\Personaje\\Jump\\p1_jump_L.png")
+        };
+        
+        Image [] movRight = 
         {
             new Image("data\\Personaje\\Right\\p1_walk01.png"), 
             new Image("data\\Personaje\\Right\\p1_walk02.png"),
@@ -80,7 +86,7 @@ public class SimpleSlickGame extends BasicGame
             new Image("data\\Personaje\\Right\\p1_walk11.png")
         };
        
-        Image [] movimientoIzquierda = 
+        Image [] movLeft = 
         {
             new Image("data\\Personaje\\Left\\p1_walk01.png"), 
             new Image("data\\Personaje\\Left\\p1_walk02.png"),
@@ -95,22 +101,23 @@ public class SimpleSlickGame extends BasicGame
             new Image("data\\Personaje\\Left\\p1_walk11.png")
         };     
         
-        int [] duration = {100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100};
-        int [] durationJump = {250};
+        int [] movDuration = {100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100};
+        int [] jumpDuration = {250};
        
-        right = new Animation(movimientoDerecha, duration, false);
-        left = new Animation(movimientoIzquierda, duration, false);
-        jump = new Animation(movimientoSaltar, durationJump, false);
-        crouchRight = new Animation(movimientoAgacharseDerecha, durationJump, false);
-        crouchLeft = new Animation(movimientoAgacharseIzquierda, durationJump, false);
-        standing = new Animation(movimientoFrontal,durationJump,false);
-        sprite = standing;
+        right = new Animation(movRight, movDuration, false);
+        left = new Animation(movLeft, movDuration, false);
+        jumpRight = new Animation(movJumpRight, jumpDuration, false);
+        jumpLeft = new Animation(movJumpLeft, jumpDuration, false);
+        crouchRight = new Animation(movCrouchRight, jumpDuration, false);
+        crouchLeft = new Animation(movCrouchLeft, jumpDuration, false);
+        stay = new Animation(movStay,jumpDuration,false);
+        spritePersonaje = stay;
         
         // build a collision map based on tile properties in the TileD map
         bloques = new boolean[mapa.getWidth()][mapa.getHeight()];
         terreno = new Rectangle[mapa.getWidth()][mapa.getHeight()];
         
-        personajeRect = new Rectangle(personajeX,personajeY,sprite.getWidth(),sprite.getHeight());
+        personajeRect = new Rectangle(personajeX,personajeY,spritePersonaje.getWidth(),spritePersonaje.getHeight());
         
         for (int i=0;i<mapa.getWidth(); i++)
         {
@@ -143,7 +150,7 @@ public class SimpleSlickGame extends BasicGame
     public void render(GameContainer gc, Graphics g) throws SlickException{
         mapa.render(0,0);
         entrada = gc.getInput();
-        sprite.draw((int)personajeX, (int)personajeY);
+        spritePersonaje.draw((int)personajeX, (int)personajeY);
         g.drawRect(personajeRect.getX(),personajeRect.getY(), personajeRect.getWidth(), personajeRect.getHeight());
         for (int i=0;i<mapa.getWidth(); i++)
         {
@@ -159,7 +166,7 @@ public class SimpleSlickGame extends BasicGame
         x = (int) (personajeX/SIZE);
         y = (int) (personajeY/SIZE);
         suelo = bloques[x][y];
-        g.drawString("Posicion del personaje: "+personajeX/SIZE+","+personajeY/SIZE+"\nPosicion del cubo de debajo: "+personajeX/SIZE+","+(personajeY+sprite.getHeight())/SIZE+"\n Suelo: "+suelo,70,70);
+        g.drawString("Posicion del personaje: "+personajeX/SIZE+","+personajeY/SIZE+"\nPosicion del cubo de debajo: "+personajeX/SIZE+","+(personajeY+spritePersonaje.getHeight())/SIZE+"\n Suelo: "+suelo,70,70);
     }       
     
     //MAIN
@@ -178,14 +185,42 @@ public class SimpleSlickGame extends BasicGame
         //SI PULSAMOS BOTON ARRIBA
         if(entrada.isKeyDown(entrada.KEY_UP))
         {
-            sprite=jump;
-            sprite.update(delta);
-            personajeY -= fuerzaSalto * delta;            
-            personajeRect.setY(personajeY);
-            
-            
-            jumping = true;
-        }
+            if(!enColision(personajeRect,"arriba"))
+            {                
+                if(spriteAnterior == left && !enColision(personajeRect,"izquierda"))
+                {
+                    spritePersonaje=jumpLeft;
+                    spritePersonaje.update(delta);
+                    personajeX -= aceleracion * delta;
+                    personajeY -= fuerzaSalto * delta;
+                    personajeRect.setY(personajeY);
+                    personajeRect.setX(personajeX);
+                    jumping = true;
+                }
+                else if(spriteAnterior == right && !enColision(personajeRect,"derecha"))
+                {
+                    spritePersonaje=jumpRight;
+                    spritePersonaje.update(delta);
+                    personajeX += aceleracion * delta;
+                    personajeY -= fuerzaSalto * delta;
+                    personajeRect.setY(personajeY);
+                    personajeRect.setX(personajeX);
+                    jumping = true;
+                }
+                else
+                {
+                    spritePersonaje=jumpRight;
+                    spritePersonaje.update(delta);
+                    personajeY -= fuerzaSalto * delta;
+                    personajeRect.setY(personajeY);
+                    jumping = true;
+                }
+            }
+            else
+            {
+                jumping = true;
+            }
+        }     
         else if(jumping)
         {            
             if(enColision(personajeRect,"abajo"))
@@ -194,16 +229,38 @@ public class SimpleSlickGame extends BasicGame
             }
             else
             {
-                sprite.update(delta);
+                spritePersonaje.update(delta);
                 personajeY += gravedad * delta;
                 personajeRect.setY(personajeY);
+                spriteAnterior = spritePersonaje;
+                if(spriteAnterior == left)
+                {
+                    personajeX -= aceleracion * delta;
+                    personajeRect.setX(personajeX);
+                    /*if(!enColision(personajeRect,"izquierda"))
+                    {
+                        personajeX -= aceleracion * delta;
+                        personajeRect.setX(personajeX);
+                    }      */
+                }
+                else if(spriteAnterior == right)
+                {
+                    personajeX += aceleracion * delta;
+                    personajeRect.setX(personajeX);
+                    /*if(!enColision(personajeRect,"derecha"))
+                    {
+                        personajeX += aceleracion * delta;
+                        personajeRect.setX(personajeX);
+                    }           */     
+                }
             }                      
         }
         //SI PULSAMOS BOTON DERECHO
         else if(entrada.isKeyDown(entrada.KEY_RIGHT))
         {
-            sprite = right;
-            sprite.update(delta);
+            spritePersonaje = right;            
+            spriteAnterior = spritePersonaje;
+            spritePersonaje.update(delta);
             personajeX += aceleracion * delta;
             personajeRect.setX(personajeX);
             if(!enColision(personajeRect,"abajo"))
@@ -214,8 +271,9 @@ public class SimpleSlickGame extends BasicGame
         //SI PULSAMOS BOTON IZQUIERDO
         else if(entrada.isKeyDown(entrada.KEY_LEFT))
         {
-            sprite = left;
-            sprite.update(delta);
+            spritePersonaje = left;
+            spriteAnterior = spritePersonaje;
+            spritePersonaje.update(delta);
             personajeX -= aceleracion * delta;
             personajeRect.setX(personajeX);
             if(!enColision(personajeRect,"abajo"))
@@ -223,11 +281,25 @@ public class SimpleSlickGame extends BasicGame
                 jumping = true;
             }
         }
+        //SI PULSAMOS BOTON ABAJO
+        else if(entrada.isKeyDown(entrada.KEY_DOWN))
+        {
+            if(spriteAnterior == left)
+            {
+                spritePersonaje=crouchLeft;
+                spritePersonaje.update(delta);
+            }
+            else if(spriteAnterior == right || spriteAnterior == stay )
+            {
+                spritePersonaje=crouchRight;
+                spritePersonaje.update(delta);
+            }
+        }        
         //SI ESTA QUIETO
         else
         {
-           sprite = standing; 
-        }
+           spritePersonaje = stay; 
+        }     
     }
     
     //METODOS AUXILIARES    
@@ -257,12 +329,12 @@ public class SimpleSlickGame extends BasicGame
             {
                 int xBlock = 0;
                 int yBlock = 0;
-                if(sprite == right)
+                if(spritePersonaje == right)
                 {
                     xBlock = (int) personaje.getMinX() / SIZE;
                     yBlock = (int) (personaje.getMinY())/ SIZE + 1;
                 }
-                else if(sprite == left)
+                else if(spritePersonaje == left)
                 {
                     xBlock = (int) personaje.getMaxX() / SIZE;
                     yBlock = (int) (personaje.getMinY())/ SIZE + 1; 
