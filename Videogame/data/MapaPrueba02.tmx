@@ -39,6 +39,7 @@
   </tile>
   <tile id="132">
    <properties>
+    <property name="desplazable" value="true"/>
     <property name="suelo" value="true"/>
    </properties>
   </tile>
