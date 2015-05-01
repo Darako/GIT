@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package TimmyTheAlien;
+package game.enums;
 
 /**
  *
- * @author Jorge
+ * @author Darako
  */
-public class Terreno {
-    
+public enum Facing 
+{
+    LEFT, RIGHT
 }
