@@ -71,13 +71,13 @@ public abstract class Character extends LevelObject
     
     public void jump()
     {
-        if(onGround) yVelocity = -0.4f;
+        if(onGround) yVelocity = -0.6f;
     }
     
     public void moveLeft(int delta)
     {
         //if we aren't already moving at max speed
-        if(xVelocity < -maximumSpeed)
+        if(xVelocity > -maximumSpeed)
         {
             xVelocity -= accelerationSpeed * delta;
             if(xVelocity > -maximumSpeed)

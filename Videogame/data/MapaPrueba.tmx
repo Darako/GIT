@@ -47,22 +47,22 @@
  <tileset firstgid="157" name="fondo" tilewidth="70" tileheight="70" spacing="2">
   <image source="CutePack/Base pack/bg.png" trans="ff00ff" width="256" height="256"/>
  </tileset>
- <tileset firstgid="166" name="transparencia" tilewidth="70" tileheight="70">
+ <tileset firstgid="166" name="transparent" tilewidth="70" tileheight="70">
+  <image source="CutePack/transparent.png" width="70" height="70"/>
   <tile id="0">
    <properties>
     <property name="tileType" value="air"/>
    </properties>
-   <image width="70" height="70" source="CutePack/transparent.png"/>
   </tile>
  </tileset>
- <layer name="BackgroundLayer" width="12" height="12" visible="0">
+ <layer name="BackgroundLayer" width="12" height="12">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC5vLwMAwdxSPYjIxAAFVz4xAAgAA
   </data>
  </layer>
  <layer name="CollisionLayer" width="12" height="12">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC1vGwMCwbBQPWVwCxBlQHEOEOnxq0M0jhEFmAQDfcwsbQAIAAA==
+   H4sIAAAAAAAAC5vJwMAwk0S8jEhMbfVcNDYf3S5amM9FpHp0v+JTj00tLvW41CKrzyASxwAxAGqt2OxAAgAA
   </data>
  </layer>
 </map>

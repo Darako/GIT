@@ -43,8 +43,8 @@ public class LevelState extends BasicGameState
         level = new Level(startingLevel);
     
         //at the start of the game we don't have a player yet
-        //player = new Player(280f,560f);
-        player = new Player(420f,700f);
+        //player = new Player(280f,559f);
+        player = new Player(70f,699f);
         level.addCharacter(player);
         
         //and we create a controller, for now we use the MouseAndKeyBoardPlayerController
