@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game.enums;
+package game.level.tile;
 
 /**
  *
  * @author Darako
  */
-public enum Facing 
+public class AirTile extends Tile
 {
-    LEFT, RIGHT, STAND
+    public AirTile(int x, int y)
+    {
+        super(x,y);
+    }
 }

@@ -6,6 +6,7 @@
 package game.character;
 
 import game.enums.Facing;
+import game.physics.AABoundingRect;
 import java.util.HashMap;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
@@ -18,38 +19,37 @@ import org.newdawn.slick.SlickException;
 public class Player extends Character 
 { 
     Image [] movRight = 
-        {
-            new Image("data/Personaje/Right/p1_walk01.png"), 
-            new Image("data/Personaje/Right/p1_walk02.png"),
-            new Image("data/Personaje/Right/p1_walk03.png"),
-            new Image("data/Personaje/Right/p1_walk04.png"),
-            new Image("data/Personaje/Right/p1_walk05.png"),
-            new Image("data/Personaje/Right/p1_walk06.png"),
-            new Image("data/Personaje/Right/p1_walk07.png"),
-            new Image("data/Personaje/Right/p1_walk08.png"),
-            new Image("data/Personaje/Right/p1_walk09.png"),
-            new Image("data/Personaje/Right/p1_walk10.png"),
-            new Image("data/Personaje/Right/p1_walk11.png")
-        };
+    {
+        new Image("data/Mapuski/Walk/mapuski_walk_01.png"), 
+        new Image("data/Mapuski/Walk/mapuski_walk_02.png"), 
+        new Image("data/Mapuski/Walk/mapuski_walk_03.png"), 
+        new Image("data/Mapuski/Walk/mapuski_walk_04.png"), 
+        new Image("data/Mapuski/Walk/mapuski_walk_05.png")
+    };
+    
+    Image [] stand =
+    {
+        new Image("data/Mapuski/Stand/mapuski_stand_01.png"), 
+        new Image("data/Mapuski/Stand/mapuski_stand_02.png"), 
+        new Image("data/Mapuski/Stand/mapuski_stand_03.png"), 
+        new Image("data/Mapuski/Stand/mapuski_stand_04.png"), 
+        new Image("data/Mapuski/Stand/mapuski_stand_05.png")          
+    };
     
     public Player(float x, float y) throws SlickException
     {
         super(x,y);
-        setSprite(new Image("data/Personaje/Right/p1_walk03.png"));
+        setSprite(new Image("data/Mapuski/Stand/mapuski_stand_01.png"));
         setMovingAnimation(movRight, 100);
+        boundingShape = new AABoundingRect(x,y,70,70);
+        accelerationSpeed = 0.001f;
+        maximumSpeed = 0.15f;
+        maximumFallSpeed = 0.3f;
+        decelerationSpeed = 0.001f;
     }
 
-    public void moveLeft(int delta) 
-    {        
-        x -= (0.25f * delta);
-        facing = Facing.LEFT;
-        lastTimeMoved = System.currentTimeMillis();
+    public void updateBoundingShape()
+    {
+        boundingShape.updatePosition(x, y);
     }
-
-    public void moveRight(int delta) 
-    {        
-        x += (0.25f * delta);
-        facing = Facing.RIGHT;
-        lastTimeMoved = System.currentTimeMillis();
-    }  
 }
