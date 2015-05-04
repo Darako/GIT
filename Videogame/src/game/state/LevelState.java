@@ -15,6 +15,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Sound;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -31,6 +32,7 @@ public class LevelState extends BasicGameState
     private PlayerController playerController;
     private Physics physics;
     private Music music;
+    private static Sound mjump;
  
     public LevelState(String startingLevel)
     {
@@ -53,6 +55,7 @@ public class LevelState extends BasicGameState
         playerController = new MouseAndKeyBoardPlayerController(player);
         
         music=new Music("src/sound/2.ogg");
+        mjump=new Sound("src/sound/jump_08.ogg");
     }
  
     public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException 
@@ -78,6 +81,8 @@ public class LevelState extends BasicGameState
         if(key == Input.KEY_ESCAPE){
             System.exit(0);
         }
+        if(key == Input.KEY_SPACE) mjump.play();
+        
     }
  
     public int getID() 
