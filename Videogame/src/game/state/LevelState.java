@@ -13,6 +13,7 @@ import game.physics.Physics;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -29,6 +30,7 @@ public class LevelState extends BasicGameState
     private Player player;
     private PlayerController playerController;
     private Physics physics;
+    private Music music;
  
     public LevelState(String startingLevel)
     {
@@ -49,13 +51,17 @@ public class LevelState extends BasicGameState
         
         //and we create a controller, for now we use the MouseAndKeyBoardPlayerController
         playerController = new MouseAndKeyBoardPlayerController(player);
-    
+        
+        music=new Music("src/sound/2.ogg");
     }
  
     public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException 
     {
         playerController.handleInput(container.getInput(), delta);
         physics.handlePhysics(level,delta);
+        if(music.playing()==false){
+            music.play();
+        }
     }
  
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException 
