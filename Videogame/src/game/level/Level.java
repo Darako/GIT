@@ -30,7 +30,7 @@ public class Level
  
     public Level(String level) throws SlickException
     {
-        map = new TiledMap("data/MapaPrueba.tmx");
+        map = new TiledMap("data/MapaPruebaScroll.tmx");
         characters = new ArrayList<Character>();
         loadTileMap();
     }
@@ -38,7 +38,7 @@ public class Level
     public void render()
     {
         //render the map first
-        map.render(0, 0, 0, 0, 12, 12);
+        map.render(0, 0, 0, 0, 42, 14);
  
         //and then render the characters on top of the map
         for(Character c : characters)

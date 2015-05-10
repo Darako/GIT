@@ -19,8 +19,8 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Game extends StateBasedGame
 {
     //set the window width and then the height according to a aspect ratio
-    public static final int     WINDOW_WIDTH  = 840;
-    public static final int     WINDOW_HEIGTH = 840;
+    public static final int     WINDOW_WIDTH  = 800;
+    public static final int     WINDOW_HEIGTH = 600;
     public static final boolean FULLSCREEN = false;
  
     //set size of the tile
@@ -28,7 +28,7 @@ public class Game extends StateBasedGame
     
     //1280x720 is our base, we use 32x32 tiles but we want it to be 40x40 at 1280x720
     //so our base scale is not 1 but 1.25 actually
-    //public static final float  SCALE         = (float) (0.5714285714285714*((double)WINDOW_WIDTH/1280));
+    public static final float  SCALE         = (float) (0.6122448979591837*((double)WINDOW_WIDTH/800));
     public static final String GAME_NAME     = "LoQueMeSalgaDelNispero";
  
     public Game() 
