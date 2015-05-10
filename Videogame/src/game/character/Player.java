@@ -50,6 +50,6 @@ public class Player extends Character
 
     public void updateBoundingShape()
     {
-        boundingShape.updatePosition(x, y);
+        boundingShape.updatePosition(x+3, y);
     }
 }

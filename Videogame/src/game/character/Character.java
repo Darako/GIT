@@ -18,15 +18,14 @@ import org.newdawn.slick.SlickException;
  */
 public abstract class Character extends LevelObject 
 {
- 
+    protected HashMap<Facing,Image> sprites;
+    protected HashMap<Facing,Animation> movingAnimations;
+    protected Facing facing;
     protected boolean moving = false;
     protected float accelerationSpeed = 1;
     protected float decelerationSpeed = 1;
     protected float maximumSpeed = 1;
     protected Image sprite;
-    protected Facing facing;
-    protected HashMap<Facing,Image> sprites;
-    protected HashMap<Facing,Animation> movingAnimations;
     protected long lastTimeMoved;
     
     
@@ -39,6 +38,28 @@ public abstract class Character extends LevelObject
         facing = Facing.RIGHT;
     }
     
+    protected void setMovingAnimation(Image[]images, int frameDuration)
+    {
+        movingAnimations = new HashMap<Facing,Animation>();
+
+        //we can just put the right facing in with the default images
+        movingAnimations.put(Facing.RIGHT, new Animation(images, frameDuration));
+        
+        Animation facingLeftAnimation = new Animation();
+        for(Image i : images)
+        {
+            facingLeftAnimation.addFrame(i.getFlippedCopy(true, false), frameDuration);
+        }
+        movingAnimations.put(Facing.LEFT, facingLeftAnimation);         
+    }
+
+    protected void setSprite(Image i)
+    {
+        sprites = new HashMap<Facing,Image>();
+        sprites.put(Facing.RIGHT, i);
+        sprites.put(Facing.LEFT, i.getFlippedCopy(true, false));
+    }
+
     public boolean isMoving()
     {
         return moving;
@@ -61,7 +82,7 @@ public abstract class Character extends LevelObject
         }
         else if (xVelocity < 0)
         {
-            xVelocity += decelerationSpeed + delta;
+            xVelocity += decelerationSpeed * delta;
             if(xVelocity > 0)
             {
                 xVelocity = 0;
@@ -71,7 +92,7 @@ public abstract class Character extends LevelObject
     
     public void jump()
     {
-        if(onGround) yVelocity = -0.6f;
+        if(onGround) yVelocity = -0.5f;
     }
     
     public void moveLeft(int delta)
@@ -80,7 +101,7 @@ public abstract class Character extends LevelObject
         if(xVelocity > -maximumSpeed)
         {
             xVelocity -= accelerationSpeed * delta;
-            if(xVelocity > -maximumSpeed)
+            if(xVelocity < -maximumSpeed)
             {
                 xVelocity = -maximumSpeed;
             }
@@ -115,28 +136,6 @@ public abstract class Character extends LevelObject
             sprites.get(facing).draw(x,y);
         }        
     }
-    
-    protected void setSprite(Image i)
-    {
-        sprites = new HashMap<Facing,Image>();
-        sprites.put(Facing.RIGHT, i);
-        sprites.put(Facing.LEFT, i.getFlippedCopy(true, false));
-    }
-    
-    protected void setMovingAnimation(Image[]images, int frameDuration)
-    {
-        movingAnimations = new HashMap<Facing,Animation>();
-
-        //we can just put the right facing in with the default images
-        movingAnimations.put(Facing.RIGHT, new Animation(images, frameDuration));
-        Animation facingLeftAnimation = new Animation();
-        for(Image i : images)
-        {
-            facingLeftAnimation.addFrame(i.getFlippedCopy(true, false), frameDuration);
-        }
-        movingAnimations.put(Facing.LEFT, facingLeftAnimation);         
-    }
-        
 }
 
 

@@ -70,7 +70,7 @@ public class AABoundingRect extends BoundingShape
         
         for(int i = (int) x; i <= x+width+(70-width%70); i+= 70)
         {
-            tilesUnderneath.add(tiles[i/70][j/70]);
+            tilesUnderneath.add(tiles[i/70 -1][j/70 -1]);
         }
         return tilesUnderneath;
     }
