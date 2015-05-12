@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="28" height="14" tilewidth="70" tileheight="70" nextobjectid="1">
+ <tileset firstgid="1" name="tiles_spritesheet" tilewidth="72" tileheight="72">
+  <image source="../../../../Tiles/tiles_spritesheet.png" width="914" height="936"/>
+  <tile id="23">
+   <properties>
+    <property name="suelo" value="t"/>
+   </properties>
+  </tile>
+  <tile id="31">
+   <properties>
+    <property name="escalera" value="true"/>
+   </properties>
+  </tile>
+  <tile id="35">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+  </tile>
+  <tile id="71">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+  </tile>
+  <tile id="105">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+  </tile>
+  <tile id="119">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+  </tile>
+  <tile id="139">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="157" name="Bbbb" tilewidth="70" tileheight="70">
+  <image source="../../../../Tiles/Bbbb.png" width="70" height="70"/>
+ </tileset>
+ <tileset firstgid="158" name="Bbbb" tilewidth="70" tileheight="70">
+  <image source="../../../../Tiles/Bbbb.png" width="70" height="70"/>
+  <tile id="0">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="159" name="Bbbb - copia" tilewidth="70" tileheight="70">
+  <image source="../../../../Tiles/Bbbb - copia.png" width="70" height="70"/>
+ </tileset>
+ <tileset firstgid="160" name="enemies_spritesheet" tilewidth="50" tileheight="50">
+  <image source="../../../../Enemies/enemies_spritesheet.png" width="353" height="153"/>
+ </tileset>
+ <tileset firstgid="181" name="ffff" tilewidth="70" tileheight="70">
+  <image source="../../../../Tiles/ffff.png" width="70" height="70"/>
+ </tileset>
+ <tileset firstgid="182" name="pokerMad" tilewidth="48" tileheight="70">
+  <image source="../../../../Enemies/pokerMad.png" width="48" height="146"/>
+  <tile id="0">
+   <properties>
+    <property name="enemigo" value="true"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="enemigo" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Capa de Patrones 1" width="28" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC7NgYGCwGMWjeBSP4lE86LEKGgaJ6SBhdHlKMQAHi+EAIAYAAA==
+  </data>
+ </layer>
+ <layer name="Capa de patrones 2" width="28" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC91SMQ7CMAz0yAN4QCdGNqSoGwvKjPqMPqCfCX0F5HtgyRbXU9OmCBYsnZJYZ59jW+S/Ldh5qORv5QXyXyrjv2VXO88/yq//O9l9/0IECJxsgyGt5OZ3gNhmgV/S7QuannuE/GysV6vbQ84H+FWrA22hO+p9up8ZtDviYd2B9Lj3JWNeXuEiXC8WwLE4m5v5B3nvRJJpH7lG1Tsu6EWZ7hjO5k716Bx9l+b21PVa8PO8EVwz7oxaBn8q5GggXv+iPdptBPbYwZrIeQLQwszsIAYAAA==
+  </data>
+ </layer>
+</map>
