@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="56" height="14" tilewidth="70" tileheight="70" nextobjectid="1">
+ <tileset firstgid="1" name="sheet" tilewidth="70" tileheight="70">
+  <image source="data/CutePack/Request pack/sheet.png" width="980" height="490"/>
+  <tile id="16">
+   <properties>
+    <property name="Suelo" value="True"/>
+   </properties>
+  </tile>
+  <tile id="35">
+   <properties>
+    <property name="Suelo" value="True"/>
+   </properties>
+  </tile>
+  <tile id="42">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="99" name="fondo - copia (2)" tilewidth="70" tileheight="70">
+  <image source="fondo - copia (2).png" width="70" height="70"/>
+ </tileset>
+ <tileset firstgid="100" name="liquidLava" tilewidth="70" tileheight="70">
+  <image source="data/CutePack/Base pack/Tiles/liquidLava.png" width="70" height="70"/>
+ </tileset>
+ <tileset firstgid="101" name="liquidLavaTop" tilewidth="70" tileheight="70">
+  <image source="data/CutePack/Base pack/Tiles/liquidLavaTop.png" width="70" height="70"/>
+ </tileset>
+ <tileset firstgid="102" name="liquidLavaTop_mid" tilewidth="70" tileheight="70">
+  <image source="data/CutePack/Base pack/Tiles/liquidLavaTop_mid.png" width="70" height="70"/>
+ </tileset>
+ <tileset firstgid="103" name="spinnerHalf" tilewidth="63" tileheight="31">
+  <image source="data/CutePack/Extra animations and enemies/Enemy sprites/spinnerHalf.png" width="63" height="31"/>
+ </tileset>
+ <tileset firstgid="104" name="spider_walk2" tilewidth="77" tileheight="53">
+  <image source="data/CutePack/Extra animations and enemies/Enemy sprites/spider_walk2.png" width="77" height="53"/>
+ </tileset>
+ <tileset firstgid="105" name="piranha" tilewidth="45" tileheight="60">
+  <image source="data/CutePack/Extra animations and enemies/Enemy sprites/piranha.png" width="45" height="60"/>
+ </tileset>
+ <tileset firstgid="106" name="doorOpenTop" tilewidth="70" tileheight="70">
+  <image source="data/CutePack/Buildings expansion/Tiles/doorOpenTop.png" width="70" height="70"/>
+ </tileset>
+ <tileset firstgid="107" name="doorOpen" tilewidth="70" tileheight="70">
+  <image source="data/CutePack/Buildings expansion/Tiles/doorOpen.png" width="70" height="70"/>
+ </tileset>
+ <layer name="Capa de Patrones 1" width="56" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3DAQ0AAAzDoHqdfw+3cAGQsGqqqqqPByIiT6BADAAA
+  </data>
+ </layer>
+ <layer name="sef" width="56" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3PAQ0AAAjDMJTgXyYqyBNoFWxVQEKnA5Zd/wOArwY2vpeCQAwAAA==
+  </data>
+ </layer>
+ <layer name="Colisiones" width="56" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC92VywqDMBBF/QXXhbYLFxYXfe2EPj5GLLT/v+8EEhjCTLwTtYFeOIwmk2RuDLGuqqr+EyRp7XP1IJ5C1NSDaPq1P6uOxAmImub4awy5OboTN0OUlONP6lvaI3oup86pVNcbqHdtj1fiQhxYdG1n/x73hzZEH7BWLadRYml1xOgjqhL3kKU+PmZgcLWzK1pOHQPNd99siED/k0E8bxTg43P3y9W6IV4+pnxqvlL+UnctxzKftBd8TxC4xylfUj07Yu9j7FFaLzXf1LqWvZE8omvwscHb1j9ra7QF/QWPOf6sWOZbowbE3xf4mTaaQAwAAA==
+  </data>
+ </layer>
+ <layer name="sdfdsf" width="56" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBSMglEwCkbBKBh6IAUN0wKoEKBpCdD9h+zHdDxqhwrA5z98akfBwAMAzmcTKkAMAAA=
+  </data>
+ </layer>
+ <layer name="wf" width="56" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgwAQKSGx5LPL41ClgKsMQI8Z8bOKE9AmiYQUkdfZA7ICkVgqHvegAWR+xeki1A5sebPaC/CSPRg8noMCAiDcYPZzAcIwzZADLd8hAYQDcMVSANQ56FNAGZFLRrAwqmkULQE2/ooNIMvQMpvBCbzuQElbIeZVYfbjaOLSMI1x2wNyiD8QGSDQ+PchqkP2igMNO9HKM3v5UAGIrNIwPEKOGXKCAxMaWDvC1m8mxg1y1+Nr5+AAAW291aEAMAAA=
+  </data>
+ </layer>
+</map>
