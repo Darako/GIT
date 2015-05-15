@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="42" height="14" tilewidth="70" tileheight="70" nextobjectid="1">
+ <tileset firstgid="1" name="sheet" tilewidth="70" tileheight="70">
+  <image source="CutePack/Request pack/sheet.png" width="980" height="490"/>
+ </tileset>
+ <layer name="Capa de Patrones 1" width="42" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC7NkYGCwHMWjeBSP4lE8ikfxKB7FODEAbtQuuzAJAAA=
+  </data>
+ </layer>
+ <layer name="colisiones" width="42" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC7NiYGCwGsWjeBSPYhzYchC4YRRTD9sSiUfdObzcOYopxwAxCYRUMAkAAA==
+  </data>
+ </layer>
+</map>
