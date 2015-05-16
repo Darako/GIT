@@ -1,0 +1,17 @@
+Si abris el mapa MapaPruebaScroll, vereis que tiene 3 capas:
+
+1. CollisionLayer
+	Esta capa contiene 3 tipos de elementos: limites, obstaculos y aire
+	Limites: el suelo, paredes y techo
+	Obstaculos: los bloques que nos impiden el camino, nos sirven para saltar de un sitio a otro, etc
+	Aire: aunque pensemos que no, esta ahi, es un tile "transparente", solo es un png de 70x70, que sirve para que el programa detecte que ahi hay algo, pero es aire, asi sabemos que no tiene colision
+
+2. DecorationLayer
+	Esta capa contiene los elementos de decoracion (antorchas, cactus, carteles) que no nos impiden el paso ni accionan nada, solo decoran como ya he dicho
+
+3. BackgroundLayer
+	El fondo, nubes, cielo, mazmorra, lo que sea, solo decora
+
+1. CollisionLayer
+2. DecorationLayer
+3. BackgroundLayer

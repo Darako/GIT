@@ -124,16 +124,16 @@ public abstract class Character extends LevelObject
         facing = Facing.RIGHT;
     }
  
-    public void render()
+    public void render(float offsetX, float offsetY)
     {
         //draw a moving animation if we have one and we moved within the last 150 milis
         if(movingAnimations != null && moving)
         {
-            movingAnimations.get(facing).draw(x,y);
+            movingAnimations.get(facing).draw(x-offsetX,y-offsetY);
         }
         else
         {
-            sprites.get(facing).draw(x,y);
+            sprites.get(facing).draw(x-offsetX,y-offsetY);
         }        
     }
 }

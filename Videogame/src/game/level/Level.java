@@ -6,7 +6,9 @@
 
 package game.level;
 
+import game.Game;
 import game.character.Character;
+import game.character.Player;
 import game.level.tile.AirTile;
 import game.level.tile.SolidTile;
 import game.level.tile.Tile;
@@ -27,23 +29,30 @@ public class Level
     private ArrayList<Character> characters;
     //a list of our tiles
     private Tile[][] tiles;
+    //Our player
+    private Player player;
  
-    public Level(String level) throws SlickException
+    public Level(String level, Player player) throws SlickException
     {
         map = new TiledMap("data/MapaPruebaScroll.tmx");
         characters = new ArrayList<Character>();
+        this.player = player;
+        addCharacter(player);
         loadTileMap();
     }
      
     public void render()
     {
+        int offsetX = getXOffset();
+        int offsetY = getYOffset();
+        
         //render the map first
-        map.render(0, 0, 0, 0, 42, 14);
+        map.render(-(offsetX%70), -(offsetY%70),  offsetX/70,  offsetY/70, 42, 14);
  
         //and then render the characters on top of the map
         for(Character c : characters)
         {
-            c.render();
+            c.render(offsetX,offsetY);
         }
     }
     
@@ -62,6 +71,7 @@ public class Level
         }
         
         //loop through the whole map
+        //System.out.println("Ancho: "+map.getWidth()+" Alto: "+map.getHeight());
         for(int x = 0; x < map.getWidth(); x++)
         {
             for(int y = 0; y < map.getHeight(); y++)
@@ -93,5 +103,61 @@ public class Level
     public Tile[][] getTiles()
     {
         return tiles;
+    }
+    
+    public int getXOffset()
+    {
+        int offsetX = 0;
+        
+        //the first thing we are to need is the half-width of the screen, 
+        //to calculate if the player is in the middle of the screen
+        int halfWidth = (int) (Game.WINDOW_WIDTH/Game.SCALE/2);
+        
+        //next up is the maximum offset, this is the most right side of the map
+        //mis half of the the screen
+        int maxX = (int) (map.getWidth()*70) - halfWidth;
+        
+        //now we hace 3 cases here
+        if(player.getX() < halfWidth)
+        {
+            //the player is between the most lef side of the map, whis is zero and half a screen
+            //wich is 0+halfSceen
+            offsetX=0;
+        }
+        else if(player.getX() > maxX)
+        {
+            //the player is between the maximum point of scrolling and the maximum width of the map
+            //the reason why we substract half the screen again is because we need to set our offset to the
+            //top left position of our screen
+            offsetX = maxX - halfWidth;
+        }
+        else
+        {
+            //the player is in between the 2 spots, so we set the offset
+            //to the player, minus the halfWidth of ths screen
+            offsetX = (int) (player.getX() - halfWidth);
+        }
+        return offsetX;
+    }
+    
+    public int getYOffset()
+    {
+        int offsetY = 0;
+        int halfHeight = (int) (Game.WINDOW_HEIGTH/Game.SCALE/2);
+        int maxY = (int) (map.getHeight()*70) - halfHeight;
+        
+        if(player.getY()<halfHeight)
+        {
+            offsetY = 0;
+        }
+        else if(player.getY() > maxY)
+        {
+            offsetY = maxY - halfHeight;
+        }
+        else
+        {
+            offsetY = (int) (player.getY() - halfHeight);
+        }
+        return offsetY;
     }
 }

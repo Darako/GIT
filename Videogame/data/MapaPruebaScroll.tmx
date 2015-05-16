@@ -67,7 +67,7 @@
  </layer>
  <layer name="CollisionLayer" width="42" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACzNiYGAwGiJ42SDHo+4cdedgxqPuHLru5ILSrYPUnVxofFq5swSIM6A4hgS70N1HK3fiMw+fHC730cKdrRS4kxAm153I8TpYMSi9AQAJNEPwMAkAAA==
+   H4sIAAAAAAAACzNiYGAwGiJ42SDHo+4cdedgxqPuHJru5IJiELt1ELoT2X0wTCt3lgBxBhTHkGAXuvto5U585uGTwxaGtHJnKxnuBLmNgQg7yXUncrwOVgxKbwBgLDINMAkAAA==
   </data>
  </layer>
 </map>

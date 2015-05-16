@@ -42,19 +42,19 @@ public class LevelState extends BasicGameState
     }
  
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException 
-    {
- 
-        //once we initialize our level, we want to load the right level
-        level = new Level(startingLevel);
-    
+    {       
         //at the start of the game we don't have a player yet
         //player = new Player(280f,559f);
         player = new Player(70f,839f);
-        level.addCharacter(player);
+        
+         //once we initialize our level, we want to load the right level
+        level = new Level(startingLevel, player);
         
         //and we create a controller, for now we use the MouseAndKeyBoardPlayerController
         playerController = new MouseAndKeyBoardPlayerController(player);
         
+        //adding physics
+        physics = new Physics();
 //        music=new Music("src/sound/2.ogg");
 //        mjump=new Sound("src/sound/jump_08.ogg");
     }
@@ -69,7 +69,7 @@ public class LevelState extends BasicGameState
     }
  
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException 
-    {
+    { 
         //if we ever wanter to scale but nope
         g.scale(Game.SCALE, Game.SCALE);
         level.render();
@@ -82,13 +82,14 @@ public class LevelState extends BasicGameState
         if(key == Input.KEY_ESCAPE){
             System.exit(0);
         }
-//        if(key == Input.KEY_SPACE) mjump.play();
-        
+//        if(key == Input.KEY_SPACE) mjump.play();        
     }
- 
+    
     public int getID() 
     {
         //this is the id for changing states
         return 0;
     } 
+    
+    
 }
