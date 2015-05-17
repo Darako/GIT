@@ -38,8 +38,9 @@ public class MouseAndKeyBoardPlayerController extends PlayerController
 
         }
         else
-        {
+        {            
             player.setMoving(false);
+            player.standing(delta);
         }
         if(i.isKeyDown(Input.KEY_SPACE))
         {

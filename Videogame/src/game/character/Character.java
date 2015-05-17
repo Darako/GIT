@@ -20,6 +20,7 @@ public abstract class Character extends LevelObject
 {
     protected HashMap<Facing,Image> sprites;
     protected HashMap<Facing,Animation> movingAnimations;
+    protected HashMap<Facing,Animation> standingAnimations;
     protected Facing facing;
     protected boolean moving = false;
     protected float accelerationSpeed = 1;
@@ -35,7 +36,13 @@ public abstract class Character extends LevelObject
         //in case we forget to set the image, we don't want the game to crash, but it still has to be obvious that something was forgotten
         setSprite(new Image("data/Personaje/Front/p1_front.png"));
         //default direction will be right
-        facing = Facing.RIGHT;
+        facing = Facing.STAND;
+    }
+    
+    protected void setStandingAnimation(Image[]images, int frameDuration)
+    {
+        standingAnimations = new HashMap<Facing,Animation>();
+        standingAnimations.put(Facing.STAND, new Animation(images, frameDuration));
     }
     
     protected void setMovingAnimation(Image[]images, int frameDuration)
@@ -123,6 +130,12 @@ public abstract class Character extends LevelObject
         moving = true;
         facing = Facing.RIGHT;
     }
+    
+    public void standing(int delta)
+    {
+        moving = false;
+        facing = Facing.STAND;
+    }
  
     public void render(float offsetX, float offsetY)
     {
@@ -133,8 +146,12 @@ public abstract class Character extends LevelObject
         }
         else
         {
-            sprites.get(facing).draw(x-offsetX,y-offsetY);
-        }        
+            standingAnimations.get(facing).draw(x-offsetX,y-offsetY);
+        }
+//        else
+//        {
+//            sprites.get(facing).draw(x-offsetX,y-offsetY);
+//        }        
     }
 }
 
