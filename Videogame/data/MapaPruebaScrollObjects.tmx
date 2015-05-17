@@ -55,6 +55,23 @@
    </properties>
   </tile>
  </tileset>
+ <tileset firstgid="167" name="frutas" tilewidth="71" tileheight="71">
+  <tile id="0">
+   <properties>
+    <property name="fruitType" value="apple"/>
+   </properties>
+   <image width="71" height="71" source="CutePack/Frutas/Manzana/Manzana_Manzana01.png"/>
+  </tile>
+  <tile id="1">
+   <image width="70" height="70" source="CutePack/Frutas/Pera/Pera_Pera01.png"/>
+  </tile>
+  <tile id="2">
+   <image width="71" height="71" source="CutePack/Frutas/Sandia/Sandia_Sandia01.png"/>
+  </tile>
+  <tile id="3">
+   <image width="70" height="71" source="CutePack/Frutas/Uva/Uva_Uva01.png"/>
+  </tile>
+ </tileset>
  <layer name="BackgroundLayer" width="42" height="14">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACzNiYGAwGiJ47iDHo+4cdedgxqPuHHXnYMaj7hzZ7hwKGADUhbnFMAkAAA==
@@ -63,6 +80,11 @@
  <layer name="DecorationLayer" width="42" height="14">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC2NgGAWjYBSMgpENpAbaAYMQDKYwGUxuGQUjFwAA+yRBHTAJAAA=
+  </data>
+ </layer>
+ <layer name="ObjectLayer" width="42" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBSMglEwChgYlg+0A0bBKBjEAABSc63qMAkAAA==
   </data>
  </layer>
  <layer name="CollisionLayer" width="42" height="14">

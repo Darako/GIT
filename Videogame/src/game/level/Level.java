@@ -9,6 +9,7 @@ package game.level;
 import game.Game;
 import game.character.Character;
 import game.character.Player;
+import game.level.object.Objective;
 import game.level.tile.AirTile;
 import game.level.tile.SolidTile;
 import game.level.tile.Tile;
@@ -36,11 +37,58 @@ public class Level
  
     public Level(String level, Player player) throws SlickException
     {
-        map = new TiledMap("data/MapaPruebaScroll.tmx");
+        map = new TiledMap("data/MapaPruebaObjects.tmx");
         characters = new ArrayList<Character>();
+        levelObjects = new ArrayList<LevelObject>();
+        
         this.player = player;
         addCharacter(player);
         loadTileMap();
+        cargaObjetos();
+    }
+    
+    private void cargaObjetos() throws SlickException
+    {
+        System.out.println("Carga Objetos");
+        int layerIndex = map.getLayerIndex("FruitLayer");
+        if(layerIndex == -1)
+        {
+            //TODO we can clean this up later with an exception if we want, but because we
+            //make the maps ourselfs this will suffice for now
+            System.err.println("Map does not have the layer \"FruitLayer\"");
+            System.exit(0);
+        }
+        
+        //loop through the whole map
+        for(int x = 0; x < map.getWidth(); x++)
+        {
+            for(int y = 0; y < map.getHeight(); y++)
+            {
+                int tileID = map.getTileId(x, y, layerIndex);
+                Tile tile = null;
+                switch(map.getTileProperty(tileID, "tileType", "none"))
+                {
+                    case "manzana":
+                    {
+                        addLevelObject(new Objective(x*70,y*70,"manzana"));break;
+                    }
+                    case "sandia":
+                    {
+                        addLevelObject(new Objective(x*70,y*70,"sandia"));break;
+                    }
+                    case "uva":
+                    {
+                        addLevelObject(new Objective(x*70,y*70,"uva"));break;
+                    }
+                    case "pera":
+                    {
+                        addLevelObject(new Objective(x*70,y*70,"pera"));break;
+                    }
+                    default:
+                        break;
+                }
+            }
+        }        
     }
      
     public void render()
@@ -104,7 +152,6 @@ public class Level
     
     public void addLevelObject(LevelObject obj)
     {
-        System.out.println("ERROR?");
         levelObjects.add(obj);
     }
     

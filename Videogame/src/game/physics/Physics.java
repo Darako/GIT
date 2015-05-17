@@ -5,9 +5,12 @@
  */
 package game.physics;
 
+import game.Game;
 import game.character.Character;
+import game.character.Player;
 import game.level.Level;
 import game.level.LevelObject;
+import game.level.object.Objective;
 import game.level.tile.Tile;
 import java.util.ArrayList;
 
@@ -77,6 +80,27 @@ public class Physics
                 c.decelerate(delta);
             }
             handleGameObject(c,level,delta);
+
+            if(c instanceof Player)
+            {
+                ArrayList<LevelObject> removeQueue = new ArrayList<LevelObject>();
+
+                //we hae to chek if he collides with anything special, such as objetives, for example
+                for(LevelObject obj : level.getLevelObjects())
+                {
+                    if(obj instanceof Objective)
+                    {
+                        //in case its an objective and its collides
+                        if(obj.getBoundingShape().checkCollision(c.getBoundingShape()))
+                        {
+                            //we have to remove the object from the level, and add something to the score
+                            Game.FRUITS_COLLECTED++;
+                            removeQueue.add(obj);
+                        }
+                    }
+                }
+                level.removeObjects(removeQueue);
+            }
         }
     }
     

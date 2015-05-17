@@ -45,20 +45,13 @@ public class LevelState extends BasicGameState
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException 
     {       
         //at the start of the game we don't have a player yet
-        //player = new Player(280f,559f);
-        player = new Player(70f,839f);
-        
-         //once we initialize our level, we want to load the right level
+        player = new Player(70f,839f);        
+        //once we initialize our level, we want to load the right level
         level = new Level(startingLevel, player);
-        
         //and we create a controller, for now we use the MouseAndKeyBoardPlayerController
-        playerController = new MouseAndKeyBoardPlayerController(player);
-        
+        playerController = new MouseAndKeyBoardPlayerController(player);        
         //adding objetives
-        level.addLevelObject(new Objective(630,559));
-        //level.addLevelObject(new Objective(700,559));
-        //level.addLevelObject(new Objective(770,559));
-        
+        //level.addLevelObject(new Objective(630,629));        
         //adding physics
         physics = new Physics();
 //        music=new Music("src/sound/2.ogg");
@@ -96,6 +89,4 @@ public class LevelState extends BasicGameState
         //this is the id for changing states
         return 0;
     } 
-    
-    
 }

@@ -41,7 +41,7 @@ public class Player extends Character
         super(x,y);
         setSprite(new Image("data/Mapuski/Stand/mapuski_stand_01.png"));
         setMovingAnimation(movRight, 100);
-        boundingShape = new AABoundingRect(x+3,y+2,64,66);
+        boundingShape = new AABoundingRect(x+5,y+2,60,66);
         accelerationSpeed = 0.005f;
         maximumSpeed = 0.25f;
         maximumFallSpeed = 0.5f;
@@ -51,6 +51,6 @@ public class Player extends Character
     
     public void updateBoundingShape()
     {
-        boundingShape.updatePosition(x+3, y+2);
+        boundingShape.updatePosition(x+5, y+2);
     }
 }

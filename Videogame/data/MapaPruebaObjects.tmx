@@ -27,6 +27,11 @@
     <property name="suelo" value="true"/>
    </properties>
   </tile>
+  <tile id="97">
+   <properties>
+    <property name="fruitType" value="apple"/>
+   </properties>
+  </tile>
   <tile id="103">
    <properties>
     <property name="suelo" value="true"/>
@@ -55,6 +60,29 @@
    </properties>
   </tile>
  </tileset>
+ <tileset firstgid="167" name="Frutas-01" tilewidth="70" tileheight="70">
+  <image source="CutePack/Frutas/Frutas-01.png" width="140" height="140"/>
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="manzana"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="tileType" value="uva"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="tileType" value="sandia"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="tileType" value="pera"/>
+   </properties>
+  </tile>
+ </tileset>
  <layer name="BackgroundLayer" width="42" height="14">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACzNiYGAwGiJ47iDHo+4cdedgxqPuHHXnYMaj7hzZ7hwKGADUhbnFMAkAAA==
@@ -68,6 +96,11 @@
  <layer name="CollisionLayer" width="42" height="14">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACzNiYGAwGiJ42SDHo+4cdedgxqPuHJru5IJiELt1ELoT2X0wTCt3lgBxBhTHkGAXuvto5U585uGTwxaGtHJnKxnuBLmNgQg7yXUncrwOVgxKbwBgLDINMAkAAA==
+  </data>
+ </layer>
+ <layer name="FruitLayer" width="42" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3DuQ0AAAgDMfZfhGdKCrqwQIqz5AgAOCVdpXQ10lVLAN8CcBubUzAJAAA=
   </data>
  </layer>
 </map>
