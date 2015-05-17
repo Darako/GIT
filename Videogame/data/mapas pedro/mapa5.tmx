@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="56" height="14" tilewidth="70" tileheight="70" nextobjectid="1">
+ <tileset firstgid="1" name="terreno" tilewidth="70" tileheight="70">
+  <tile id="0">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/box.png"/>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/boxAlt.png"/>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/boxCoin.png"/>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/boxCoin_disabled.png"/>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/boxCoinAlt.png"/>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/boxCoinAlt_disabled.png"/>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/boxEmpty.png"/>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/boxExplosive.png"/>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/boxExplosive_disabled.png"/>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/boxExplosiveAlt.png"/>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/boxItem.png"/>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/boxItem_disabled.png"/>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/boxItemAlt.png"/>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/boxItemAlt_disabled.png"/>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/boxWarning.png"/>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/lock_blue.png"/>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/lock_green.png"/>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/lock_red.png"/>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Base pack/Tiles/lock_yellow.png"/>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Request pack/Tiles/metal.png"/>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Request pack/Tiles/metalCenterSticker.png"/>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/Request pack/Tiles/metalCenterWarning.png"/>
+  </tile>
+  <tile id="22">
+   <image width="70" height="70" source="../CutePack/Request pack/Tiles/metalCenter.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="24" name="fondo" tilewidth="70" tileheight="70">
+  <tile id="0">
+   <image width="70" height="70" source="../CutePack/Base pack/70.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="25" name="trasnparente" tilewidth="70" tileheight="70">
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+   <image width="70" height="70" source="../CutePack/transparent.png"/>
+  </tile>
+ </tileset>
+ <layer name="BackgroundLayer" width="56" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3DAQ0AAAzDoMqYf6W3cAGQsGqqqqqPB6QYSplADAAA
+  </data>
+ </layer>
+ <layer name="DecorationLayer" width="56" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BgQAAAADDoPlTX+EAVQEAAHwGb7FwgkAMAAA=
+  </data>
+ </layer>
+ <layer name="CollisionLayer" width="56" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC7WW646rMAyEDZQ75Q7Vvv+LHiJ9o3iRWratzg+rJYntGduxk5lZc8h2yIQkh1SHtPyf2b8h2SGD05v5Xg8ZsVGyH9buzn5/SHfIjp0NH1rv8L3jq8JmkBpMN34XJEcvQW9H745dj39jPXH+WrDkrA/8JvDI0b1zLoVbDqYMfyv+9F2CRbER7g4cG/oj9sQ341zQ+XGSw1c+G3QTMK0u5gNn5V95DecL/ORwujm7NfFq4bI47B37P29Kia0KO1fnC3AFDA8wp+AVt4IY9OxXYC1cLBYwKyery9Nkv+sn+SO2Z/zmD/QeiL5VbxsYdbdKx3mBi3yqjjpipruWnvL/CkeIRYNMb3JI8VGj/4rfWRL8tScMC7lIPszHuZaCrdFiHecXOuo/o8W+khDXHJvid2XL10hmsX98y2sA2+Ryn4Kts+e1rD6m/qi7Wbv/GdwfFnvZt3jfkRnxvTHko+V3Yv9+0lM/V01qBjUW+7vmjvgFG+ob/5NTD+6MHKQW59oKthReqtmbXd/dV/IgZik8B3u/9kawX90x3ZPN4n3Wu6BHVs5pTrbst1/wm8mp+GnGnc/uYPNrC3r7k7gMFmd8z3ewUSKaL+oLK+uKud4r04d51P3rwbhgT3O0e6GrOZ5bnJGeo+bogO1wrnG2NYN79DR/O4szVvrqH1d1cq6ZAp8tolnWW+zT5zuuvAijsNUW30uzxfqqLfbGFPuNxbeN+t1MjJTv0mJvLRzHq36vOiktzmu9NVSfinFpcV7fwZCAT71ds7Wy328XvVcUP+HX3NfsV/2o35TuWzno4JVZnB2ax+pNBTj1tlY8/wHtpC1EQAwAAA==
+  </data>
+ </layer>
+</map>
