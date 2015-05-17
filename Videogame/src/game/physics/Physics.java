@@ -161,5 +161,12 @@ public class Physics
         }        
     }
     
+    private void handleLevelObjects(Level level, int delta)
+    {
+        for(LevelObject obj: level.getLevelObjects())
+        {
+            handleGameObject(obj, level, delta);
+        }
+    }    
     
 }

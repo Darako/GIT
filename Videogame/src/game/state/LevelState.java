@@ -10,6 +10,7 @@ import game.character.Player;
 import game.controller.MouseAndKeyBoardPlayerController;
 import game.controller.PlayerController;
 import game.level.Level;
+import game.level.object.Objective;
 import game.physics.Physics;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -52,6 +53,11 @@ public class LevelState extends BasicGameState
         
         //and we create a controller, for now we use the MouseAndKeyBoardPlayerController
         playerController = new MouseAndKeyBoardPlayerController(player);
+        
+        //adding objetives
+        level.addLevelObject(new Objective(630,559));
+        //level.addLevelObject(new Objective(700,559));
+        //level.addLevelObject(new Objective(770,559));
         
         //adding physics
         physics = new Physics();

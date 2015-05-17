@@ -12,7 +12,7 @@ import game.physics.BoundingShape;
  *
  * @author Darako
  */
-public class LevelObject 
+public abstract class LevelObject 
 {
     protected float x;
     protected float y;
@@ -96,4 +96,7 @@ public class LevelObject
     public BoundingShape getBoundingShape(){
         return boundingShape;
     }
+    
+    public abstract void render(float offsetX, float offsetY);
+    
 }

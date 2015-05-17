@@ -27,6 +27,8 @@ public class Level
  
     //a list of all characters present somewhere on this map
     private ArrayList<Character> characters;
+    //a list of the objects in this map (excluding characters)
+    private ArrayList<LevelObject> levelObjects;
     //a list of our tiles
     private Tile[][] tiles;
     //Our player
@@ -49,6 +51,11 @@ public class Level
         //render the map first
         map.render(-(offsetX%70), -(offsetY%70),  offsetX/70,  offsetY/70, 42, 14);
  
+        for(LevelObject obj : levelObjects)
+        {
+            obj.render(offsetX, offsetY);
+        }
+        
         //and then render the characters on top of the map
         for(Character c : characters)
         {
@@ -88,6 +95,17 @@ public class Level
                 tiles[x][y] = tile;
             }
         }
+    }
+    
+    public ArrayList<LevelObject> getLevelObjects()
+    {
+        return levelObjects;
+    }
+    
+    public void addLevelObject(LevelObject obj)
+    {
+        System.out.println("ERROR?");
+        levelObjects.add(obj);
     }
     
     public ArrayList<Character> getCharacters()
@@ -159,5 +177,15 @@ public class Level
             offsetY = (int) (player.getY() - halfHeight);
         }
         return offsetY;
+    }
+    
+    public void removeObject(LevelObject obj)
+    {
+        levelObjects.remove(obj);
+    }
+    
+    public void removeObjects(ArrayList<LevelObject> objects) 
+    {
+        levelObjects.removeAll(objects);
     }
 }
