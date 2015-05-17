@@ -34,7 +34,7 @@ public abstract class Character extends LevelObject
     {
         super(x,y);
         //in case we forget to set the image, we don't want the game to crash, but it still has to be obvious that something was forgotten
-        setSprite(new Image("data/Personaje/Front/p1_front.png"));
+        setSprite(new Image("data/Mapuski/Stand/mapuski_stand_01.png"));
         //default direction will be right
         facing = Facing.STAND;
     }

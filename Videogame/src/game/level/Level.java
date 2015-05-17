@@ -37,7 +37,7 @@ public class Level
  
     public Level(String level, Player player) throws SlickException
     {
-        map = new TiledMap("data/MapaPruebaObjects.tmx");
+        map = new TiledMap("data/MapaVideo.tmx");
         characters = new ArrayList<Character>();
         levelObjects = new ArrayList<LevelObject>();
         

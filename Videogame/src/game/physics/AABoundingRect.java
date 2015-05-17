@@ -19,6 +19,7 @@ public class AABoundingRect extends BoundingShape
     public float width;
     public float height;
     
+    
     public AABoundingRect(float x, float y, float width, float height)
     {
         this.x = x;
@@ -58,7 +59,7 @@ public class AABoundingRect extends BoundingShape
         {
             for(int j = (int) y; j < y+height+(70-height%70); j += 70)
             {
-              if(j/70<14)
+              //if(j/70<14)
                 occupiedTiles.add(tiles[i/70][j/70]);
                 //System.out.print("("+i/70+","+j/70+") ");
             }
