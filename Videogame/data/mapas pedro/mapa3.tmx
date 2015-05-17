@@ -571,23 +571,45 @@
   <tile id="171">
    <image width="70" height="70" source="CutePack/Base pack/Tiles/window.png"/>
   </tile>
+  <tile id="172">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="CutePack/Base pack/Tiles/puente.png"/>
+  </tile>
  </tileset>
- <tileset firstgid="173" name="fondo" tilewidth="256" tileheight="256">
+ <tileset firstgid="174" name="fondo" tilewidth="256" tileheight="256">
   <tile id="0">
    <image width="256" height="256" source="CutePack/Base pack/bg.png"/>
   </tile>
   <tile id="1">
    <image width="128" height="71" source="CutePack/Base pack/Items/cloud1.png"/>
   </tile>
+  <tile id="2">
+   <image width="70" height="70" source="CutePack/Base pack/70.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="177" name="trasparente" tilewidth="70" tileheight="70">
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+   <image width="70" height="70" source="CutePack/transparent.png"/>
+  </tile>
  </tileset>
  <layer name="BackgroundLayer" width="28" height="17">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+VUyQ2AMAzrYgimAMaBJ6yCyIz0QT+RnaYHLyxZlYrjmKhtCP+EfOh1vxSyeon0rFdLXrS3EW+dYQcZc2B6VKu/s0xsXkPklfFD/QRotT/CSbJZ2VM/Bs9ZsWr0PpqThqgarbHOMsph1SJ4/zmXvdbbum8tfkdFptpellfpm+FFz3c1YYkcC7Rr5BT6zHN2aEpm+QDa4K2ScAcAAA==
+   H4sIAAAAAAAAC9vAwMCwYRSP4lE8ikfxKB7FNMUAS01YynAHAAA=
+  </data>
+ </layer>
+ <layer name="DecorationLayer" width="28" height="17">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAW0ACupbN56AuamU9k+WptLbbCesJJhC2jl9wYoDUtzjXRyx1BJc/jAUEmPpLqT0nKNVP2UpoXBlpYAKFxMnXAHAAA=
   </data>
  </layer>
  <layer name="CollisionLayer" width="28" height="17">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2tmYGBopjOmFxi1b/DZZ4fG70TD+OzrAuIeEu2zJUINzF6YfejuIAWQohfdf5TYi80d6GFKDf+RYj8t/YduFwMD9eIPl35C6RObvk4i2ITsQbePWuFIyBx6xR+6ffRIn8j2TQbiKTTGU6F2AQBYhzfVcAcAAA==
+   H4sIAAAAAAAAC+XSUQrAIAgGYM9uR9hGp+ihG65ggUhpifiyh58Nyj4yMwDk4NSg/NXDL4VkrJXFl/7jhofCPmv4mbP7eZmzc6R+elvavFjNVR0ST9rjYe3cj7/5bJ6kNavn2WuL161k7PWpN6x0aI66E49buyat0+ZTszST13XrarmD8rS8hBVYAXAHAAA=
   </data>
  </layer>
 </map>

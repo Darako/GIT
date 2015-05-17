@@ -62,9 +62,6 @@
    <image width="70" height="70" source="CutePack/Base pack/Tiles/castle.png"/>
   </tile>
   <tile id="19">
-   <properties>
-    <property name="suelo" value="true"/>
-   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/castleCenter.png"/>
   </tile>
   <tile id="20">
@@ -506,60 +503,111 @@
    <image width="70" height="70" source="CutePack/Base pack/Tiles/snowRight.png"/>
   </tile>
   <tile id="149">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stone.png"/>
   </tile>
   <tile id="150">
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneCenter.png"/>
   </tile>
   <tile id="151">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneCenter_rounded.png"/>
   </tile>
   <tile id="152">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneCliffLeft.png"/>
   </tile>
   <tile id="153">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneCliffLeftAlt.png"/>
   </tile>
   <tile id="154">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneCliffRight.png"/>
   </tile>
   <tile id="155">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneCliffRightAlt.png"/>
   </tile>
   <tile id="156">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneHalf.png"/>
   </tile>
   <tile id="157">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneHalfLeft.png"/>
   </tile>
   <tile id="158">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneHalfMid.png"/>
   </tile>
   <tile id="159">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneHalfRight.png"/>
   </tile>
   <tile id="160">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneHillLeft2.png"/>
   </tile>
   <tile id="161">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneHillRight2.png"/>
   </tile>
   <tile id="162">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="5" height="24" source="CutePack/Base pack/Tiles/stoneLedgeLeft.png"/>
   </tile>
   <tile id="163">
    <image width="5" height="24" source="CutePack/Base pack/Tiles/stoneLedgeRight.png"/>
   </tile>
   <tile id="164">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneLeft.png"/>
   </tile>
   <tile id="165">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneMid.png"/>
   </tile>
   <tile id="166">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneRight.png"/>
   </tile>
   <tile id="167">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
    <image width="70" height="70" source="CutePack/Base pack/Tiles/stoneWall.png"/>
   </tile>
   <tile id="168">
@@ -574,23 +622,48 @@
   <tile id="171">
    <image width="70" height="70" source="CutePack/Base pack/Tiles/window.png"/>
   </tile>
+  <tile id="172">
+   <properties>
+    <property name="suelo" value="true"/>
+   </properties>
+   <image width="70" height="70" source="CutePack/Base pack/Tiles/puente.png"/>
+  </tile>
  </tileset>
- <tileset firstgid="173" name="fondo" tilewidth="256" tileheight="256">
+ <tileset firstgid="174" name="fondo" tilewidth="256" tileheight="256">
   <tile id="0">
    <image width="128" height="71" source="CutePack/Base pack/Items/cloud1.png"/>
   </tile>
   <tile id="1">
    <image width="256" height="256" source="CutePack/Base pack/bg_castle.png"/>
   </tile>
+  <tile id="2">
+   <image width="70" height="70" source="CutePack/Base pack/c1.png"/>
+  </tile>
+  <tile id="3">
+   <image width="70" height="70" source="CutePack/Base pack/c2.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="178" name="trasparente" tilewidth="70" tileheight="70">
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+   <image width="70" height="70" source="CutePack/transparent.png"/>
+  </tile>
  </tileset>
  <layer name="BackgroundLayer" width="28" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAXIYCUQr4HS5IJ1ODC6XAMWNdjE0PUSYxe6XnIAzC3YQD0an9RwQ1aP7kdcgBi/EouRzcRnDz51ILAaj3tx+YEUgMt8YuOakH2NRJqLKz1i00eqeeSoHc4An59BfBUsaohN46TmBwDYAfRDIAYAAA==
+   H4sIAAAAAAAAC9vAwMCwYRRTHa+nkdrhgrH5mZJwoHYYDmSc4LKb2mE2immXDtYTYQYxZqOroXd8AwDL+2B1IAYAAA==
+  </data>
+ </layer>
+ <layer name="DecorationLayer" width="28" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWUgsaBdgAD7d1gQ2Pz0YE1Gn8NFjUwsZUk8lfjMZMYkE6iPCH1tAINZOpbSVjJoAbIeYFYv6CrG+phQC0AAKGQcXAgBgAA
   </data>
  </layer>
  <layer name="CollisionLayer" width="28" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACxNhYGAQoTOmFxhq9kmRaZ8dkWbDMLl2wuyzJWAGITNxqUd3I8w+bO6mBaBnepGign1SONi4xEi1D1eaIWQPPvuEyTCfWACzTxhNjFYA3X/CdLJPBYhVaYzVoHYBAPti3z0gBgAA
+   H4sIAAAAAAAAC82S0QqAIAxF9/8fMJGey6de/MIMHIyLo6w2ejgo48phc4mIUjA1iL/4uLN3pD6664x+V6Fu+Xjg9+jP02PN09OZlY+DnNa+4H/jqfcEkZ2Z8X0BennC93bG2nXlk+xTJ7pOFiObb+ZmXGtjC6I0DoZp+DIgBgAA
   </data>
  </layer>
 </map>

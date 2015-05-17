@@ -553,8 +553,17 @@
   <tile id="171">
    <image width="70" height="70" source="CutePack/Base pack/Tiles/window.png"/>
   </tile>
+  <tile id="172">
+   <image width="70" height="70" source="CutePack/Base pack/Tiles/boxCoinAlt.png"/>
+  </tile>
+  <tile id="173">
+   <image width="70" height="70" source="CutePack/Base pack/Tiles/puente.png"/>
+  </tile>
+  <tile id="174">
+   <image width="70" height="70" source="CutePack/Base pack/Tiles/puente2.png"/>
+  </tile>
  </tileset>
- <tileset firstgid="173" name="fondo" tilewidth="256" tileheight="256">
+ <tileset firstgid="176" name="fondo" tilewidth="256" tileheight="256">
   <tile id="0">
    <image width="256" height="256" source="CutePack/Base pack/bg.png"/>
   </tile>
@@ -570,15 +579,31 @@
   <tile id="4">
    <image width="129" height="71" source="CutePack/Base pack/Items/cloud3.png"/>
   </tile>
+  <tile id="5">
+   <image width="70" height="70" source="CutePack/Base pack/70.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="182" name="trasnparente" tilewidth="70" tileheight="70">
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+   <image width="70" height="70" source="CutePack/transparent.png"/>
+  </tile>
  </tileset>
  <layer name="BackgroundLayer" width="28" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+VT2w3AIAhkvC7QdB07kMER+yPJ5SJFrH8luYDE3PFQkf+aTuYyVjdDOziHejtNyTM/n715cb1Rnx5/Bd8mObyeuDbkLwM9jj0cE3dKx9s8o12uvM1Iry1wmo3q8fSi3WUhFHv6X/8z6oz2Y7mb/JXgz9zF3k+oC+MdszV7AI/PEOEgBgAA
+   H4sIAAAAAAAAC9vKwMCwdRSP4lE8ikfxKEbDALAEhrggBgAA
+  </data>
+ </layer>
+ <layer name="DecorationLayer" width="28" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWEQONAO2CQgdHwGHqgYaAdAAUjLe2EArE9EersoWrD0cQjqO4i0gAAy3Zj/SAGAAA=
   </data>
  </layer>
  <layer name="CollisionLayer" width="28" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC8tmYGDIpjOmFxi1b/jYZ4cm50FD++qB2BaLvAcRbGKBB5J9HkiYFP247MdlHrXjD5t7kcXIsQ9XGBATNvjsQw8PfOFNbDyg2+dIpD5S7UG3LwiIg2mMQ6B2AQCSX8T4IAYAAA==
+   H4sIAAAAAAAAC3NiYGBwojPeRic8lOxzRMJuNLIP2Q5q+g/ZPBcS3I9NPzb7sMmT6wdi/OcJxF5A7E1jO4mNPxcGzHSBjU/t9EKs2dji3IVM+0gNY2T12OxzxMOmJD4dkexD9rszCeaSog5mFyhcg+mEQf4CAKtQN5ogBgAA
   </data>
  </layer>
 </map>
