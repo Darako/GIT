@@ -5,6 +5,7 @@
  */
 package game;
 
+import game.menu.Menu;
 import game.state.LevelState;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
@@ -32,7 +33,7 @@ public class Game extends StateBasedGame
     public static final String GAME_NAME     = "Mapuski";
     
     //Score
-    public static int FRUITS_COLLECTED = 0;
+    public static int FRUITS_COLLECTED;
  
     public Game() 
     {
@@ -43,9 +44,16 @@ public class Game extends StateBasedGame
     {
  
         //create a level state, this state will do the whole logic and rendering for individual levels
-        addState(new LevelState("level_0"));
+//        
+        addState(new Menu());
+        addState(new LevelState("Nivel_0",1,13));
+        addState(new LevelState("Nivel_1",2,41));
+        addState(new LevelState("Nivel_0",3,13));
+        addState(new LevelState("Nivel_1",4,41));
+        addState(new LevelState("Nivel_0",5,13));
+        addState(new LevelState("Nivel_1",6,41));
         this.enterState(0);
- 
+
     }
  
     public static void main(String[] args) throws SlickException 
@@ -53,6 +61,7 @@ public class Game extends StateBasedGame
          AppGameContainer app = new AppGameContainer(new Game());
  
          //set the size of the display to the width and height and fullscreen or not
+         app.setShowFPS(false);
          app.setDisplayMode(WINDOW_WIDTH, WINDOW_HEIGTH, FULLSCREEN);
          //this will attempt to create a framerate of approximately 60 frames per second
          app.setTargetFrameRate(60);

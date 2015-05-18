@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="left-up" width="28" height="42" tilewidth="70" tileheight="70" nextobjectid="19">
  <tileset firstgid="1" name="tiles_spritesheet" tilewidth="70" tileheight="70" spacing="2">
-  <image source="CutePack/Base pack/Tiles/tiles_spritesheet.png" trans="ff00ff" width="914" height="936"/>
+  <image source="../CutePack/Base pack/Tiles/tiles_spritesheet.png" trans="ff00ff" width="914" height="936"/>
   <tile id="44">
    <properties>
     <property name="suelo" value="true"/>
@@ -50,10 +50,10 @@
   </tile>
  </tileset>
  <tileset firstgid="157" name="fondo" tilewidth="70" tileheight="70" spacing="2">
-  <image source="CutePack/Base pack/bg.png" trans="ff00ff" width="256" height="256"/>
+  <image source="../CutePack/Base pack/bg.png" trans="ff00ff" width="256" height="256"/>
  </tileset>
  <tileset firstgid="166" name="transparent" tilewidth="70" tileheight="70">
-  <image source="CutePack/transparent.png" width="70" height="70"/>
+  <image source="../CutePack/transparent.png" width="70" height="70"/>
   <tile id="0">
    <properties>
     <property name="tileType" value="air"/>
@@ -61,7 +61,7 @@
   </tile>
  </tileset>
  <tileset firstgid="167" name="Frutas-01" tilewidth="70" tileheight="70">
-  <image source="CutePack/Frutas/Frutas-01.png" width="140" height="140"/>
+  <image source="../CutePack/Frutas/Frutas-01.png" width="140" height="140"/>
   <tile id="0">
    <properties>
     <property name="tileType" value="manzana"/>
@@ -95,12 +95,12 @@
  </layer>
  <layer name="CollisionLayer" width="28" height="42">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC9WWSwrAIAxEXfS+vVVLPWVXBZFoxmQcqOBCCXnmY5KjlHKI9yXaKO9bGQ7CaxfDphkvy7kM3R5vRfdd/LwY3UdsQ/LA4iGsO8CyeDNWNfy1+p9aec8mxj/t39f7iclqeTMfMevPzP876pwXbzYTyS+VP3fmCyqr5H3yVcjL2hnt71FmZp6IvjPrH+/+IfJa3dVg9WfWfDbqTSvzBOMN7PhF4srkPY4+Ng+p/cxajMiw8hOVy/C8eLF5kVr/h/qp7A/K/ncKecr55SSwEB6L4/HYnBFvF6fnKfcL4yCjuGASAAA=
+   H4sIAAAAAAAAC9WWUQoAIQhE++i+3WrPuV8LEZmTjgMb9FFIL81Ge2uti+cjmijvG9W8eTAYJx7Dp/Vsjxf1xTrX2o/4huTBjlfF2vE8VvY/zfaeT4x/it6PpQmI5jD15+Rfhc558WQzkfdTxbMyX1BbJY/BjNTbDDNa36PMTD8RvWc2Prf7jBxA16z+zKpNN/0E4w4V8VS/H8qq4CHaz9RixIaVn6gd+/9V8iJa/wf9VNYHZf0bQp6yfxkEFsJjcTwem2PxqjgrTzlf8NqWjWASAAA=
   </data>
  </layer>
  <layer name="FruitLayer" width="28" height="42">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3ORwEAIBADsPNvhKESEYw+SBSkCgAAAP4y0oFLejpwWEsHHprpwKYFUwhP12ASAAA=
+   H4sIAAAAAAAAC+3X2wkAMAhDUfdfpI8pu0A/hFrS6j0TRAyIZjg11QHwBHqwN9QBgAD0uI6mDhAs2zy4q6sDwI1dxch637P1o9It+/2nXDRdHI5gEgAA
   </data>
  </layer>
 </map>

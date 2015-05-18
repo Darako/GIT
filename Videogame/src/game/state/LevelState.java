@@ -12,14 +12,18 @@ import game.controller.PlayerController;
 import game.level.Level;
 import game.level.object.Objective;
 import game.physics.Physics;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
 
 /**
@@ -32,30 +36,39 @@ public class LevelState extends BasicGameState
     private String startingLevel;
     private Player player;
     private PlayerController playerController;
+    //protected Image sprite;
     private Physics physics;
     private Music music;
     private static Sound mjump;
+    private int levelID;
+    private int posY;
+    private Image numbers;
  
-    public LevelState(String startingLevel)
+    public LevelState(String startingLevel, int levelID, int posY)
     {
         this.startingLevel = startingLevel;
+        this.levelID = levelID;
         this.physics = new Physics();
+        this.posY = posY;
     }
  
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException 
     {       
+        
+        //sprite = new Image("data/CutePack/AllFruits.png");
         //at the start of the game we don't have a player yet
-        player = new Player(70f,839f);        
+        player = new Player(70f,(float) (posY*70 - 70));        
         //once we initialize our level, we want to load the right level
         level = new Level(startingLevel, player);
         //and we create a controller, for now we use the MouseAndKeyBoardPlayerController
-        playerController = new MouseAndKeyBoardPlayerController(player);        
-        //adding objetives
-        //level.addLevelObject(new Objective(630,629));        
+        playerController = new MouseAndKeyBoardPlayerController(player); 
         //adding physics
         physics = new Physics();
 //        music=new Music("src/sound/2.ogg");
 //        mjump=new Sound("src/sound/jump_08.ogg");
+        
+        //setting number images
+        numbers = new Image("data/CutePack/Base pack/HUD/hud_0.png");
     }
  
     public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException 
@@ -65,6 +78,16 @@ public class LevelState extends BasicGameState
 //        if(music.playing()==false){
 //            music.play();
 //        }
+        if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID != 6)
+        {            
+            Game.FRUITS_COLLECTED = 0;
+            level.resetItemCount();
+            sbg.enterState(levelID+1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+        }
+        else if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID == 6)
+        {
+            System.exit(0);
+        }
     }
  
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException 
@@ -87,6 +110,6 @@ public class LevelState extends BasicGameState
     public int getID() 
     {
         //this is the id for changing states
-        return 0;
+        return levelID;
     } 
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="28" height="42" tilewidth="70" tileheight="70" nextobjectid="19">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="28" height="14" tilewidth="70" tileheight="70" nextobjectid="19">
  <tileset firstgid="1" name="tiles_spritesheet" tilewidth="70" tileheight="70" spacing="2">
-  <image source="CutePack/Base pack/Tiles/tiles_spritesheet.png" trans="ff00ff" width="914" height="936"/>
+  <image source="../CutePack/Base pack/Tiles/tiles_spritesheet.png" trans="ff00ff" width="914" height="936"/>
   <tile id="44">
    <properties>
     <property name="suelo" value="true"/>
@@ -50,10 +50,10 @@
   </tile>
  </tileset>
  <tileset firstgid="157" name="fondo" tilewidth="70" tileheight="70" spacing="2">
-  <image source="CutePack/Base pack/bg.png" trans="ff00ff" width="256" height="256"/>
+  <image source="../CutePack/Base pack/bg.png" trans="ff00ff" width="256" height="256"/>
  </tileset>
  <tileset firstgid="166" name="transparent" tilewidth="70" tileheight="70">
-  <image source="CutePack/transparent.png" width="70" height="70"/>
+  <image source="../CutePack/transparent.png" width="70" height="70"/>
   <tile id="0">
    <properties>
     <property name="tileType" value="air"/>
@@ -61,7 +61,7 @@
   </tile>
  </tileset>
  <tileset firstgid="167" name="Frutas-01" tilewidth="70" tileheight="70">
-  <image source="CutePack/Frutas/Frutas-01.png" width="140" height="140"/>
+  <image source="../CutePack/Frutas/Frutas-01.png" width="140" height="140"/>
   <tile id="0">
    <properties>
     <property name="tileType" value="manzana"/>
@@ -83,24 +83,24 @@
    </properties>
   </tile>
  </tileset>
- <layer name="BackgroundLayer" width="28" height="42">
+ <layer name="BackgroundLayer" width="28" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3DQQ0AAAwDofPvoV7nYW9IWDVVVVVVfT4XczXAYBIAAA==
+   H4sIAAAAAAAAC5vLwMAwdxSP4lE8ikfxKEbDAAISszAgBgAA
   </data>
  </layer>
- <layer name="DecorationLayer" width="28" height="42">
+ <layer name="DecorationLayer" width="28" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3PoQ0AIAxFwU7HACQoHPsPgUUiKCTkTn3X1wgAAAD4R3sd8LH+OiDJzl8lvSJiLLteuHfSBLZPPUBgEgAA
+   H4sIAAAAAAAAC2NgGAWjYBSMglEwCjABAGPoZhkgBgAA
   </data>
  </layer>
- <layer name="CollisionLayer" width="28" height="42">
+ <layer name="CollisionLayer" width="28" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC9WWSwrAIAxEXfS+vVVLPWVXBZFoxmQcqOBCCXnmY5KjlHKI9yXaKO9bGQ7CaxfDphkvy7kM3R5vRfdd/LwY3UdsQ/LA4iGsO8CyeDNWNfy1+p9aec8mxj/t39f7iclqeTMfMevPzP876pwXbzYTyS+VP3fmCyqr5H3yVcjL2hnt71FmZp6IvjPrH+/+IfJa3dVg9WfWfDbqTSvzBOMN7PhF4srkPY4+Ng+p/cxajMiw8hOVy/C8eLF5kVr/h/qp7A/K/ncKecr55SSwEB6L4/HYnBFvF6fnKfcL4yCjuGASAAA=
+   H4sIAAAAAAAAC2NhYGBgoTNeRic8at+ofaP2jdpHT/tacajNQMKU2kdPDABX5BnKIAYAAA==
   </data>
  </layer>
- <layer name="FruitLayer" width="28" height="42">
+ <layer name="FruitLayer" width="28" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3ORwEAIBADsPNvhKESEYw+SBSkCgAAAP4y0oFLejpwWEsHHprpwKYFUwhP12ASAAA=
+   H4sIAAAAAAAAC2NgGAWjYBSMguENVmIRW47EXkEvhxAJVg20A6AAAHhRgAIgBgAA
   </data>
  </layer>
 </map>

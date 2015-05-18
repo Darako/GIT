@@ -25,7 +25,6 @@ public class Level
 {
  
     private TiledMap map;
- 
     //a list of all characters present somewhere on this map
     private ArrayList<Character> characters;
     //a list of the objects in this map (excluding characters)
@@ -34,17 +33,26 @@ public class Level
     private Tile[][] tiles;
     //Our player
     private Player player;
+    //Item count
+    private int itemCount;
+    private int posY;
  
     public Level(String level, Player player) throws SlickException
     {
-        map = new TiledMap("data/MapaVideo.tmx");
+        map = new TiledMap("data/Darako/"+level+".tmx");
         characters = new ArrayList<Character>();
         levelObjects = new ArrayList<LevelObject>();
-        
         this.player = player;
         addCharacter(player);
         loadTileMap();
+        itemCount = 0;
+        posY = 0;
         cargaObjetos();
+    }
+    
+    public float getPosY()
+    {
+        return (float) posY;
     }
     
     private void cargaObjetos() throws SlickException
@@ -70,25 +78,27 @@ public class Level
                 {
                     case "manzana":
                     {
-                        addLevelObject(new Objective(x*70,y*70,"manzana"));break;
+                        addLevelObject(new Objective(x*70,y*70,"manzana"));itemCount++;break;
                     }
                     case "sandia":
                     {
-                        addLevelObject(new Objective(x*70,y*70,"sandia"));break;
+                        addLevelObject(new Objective(x*70,y*70,"sandia"));itemCount++;break;
                     }
                     case "uva":
                     {
-                        addLevelObject(new Objective(x*70,y*70,"uva"));break;
+                        addLevelObject(new Objective(x*70,y*70,"uva"));itemCount++;break;
                     }
                     case "pera":
                     {
-                        addLevelObject(new Objective(x*70,y*70,"pera"));break;
+                        addLevelObject(new Objective(x*70,y*70,"pera"));itemCount++;break;
                     }
                     default:
                         break;
                 }
             }
-        }        
+        }
+        posY = map.getHeight() -1;
+        System.out.println("Items: "+map.getHeight());
     }
      
     public void render()
@@ -109,6 +119,7 @@ public class Level
         {
             c.render(offsetX,offsetY);
         }
+        
     }
     
     private void loadTileMap()
@@ -235,4 +246,15 @@ public class Level
     {
         levelObjects.removeAll(objects);
     }
+    
+    public int getItemCount()
+    {
+        return itemCount;
+    }
+    
+    public void resetItemCount()
+    {
+        itemCount = 0;
+    }
+        
 }
