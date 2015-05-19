@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="42" height="14" tilewidth="70" tileheight="70" nextobjectid="19">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="56" height="14" tilewidth="70" tileheight="70" nextobjectid="19">
  <tileset firstgid="1" name="tiles_spritesheet" tilewidth="70" tileheight="70" spacing="2">
   <image source="../CutePack/Base pack/Tiles/tiles_spritesheet.png" trans="ff00ff" width="914" height="936"/>
   <tile id="44">
@@ -83,24 +83,30 @@
    </properties>
   </tile>
  </tileset>
- <layer name="BackgroundLayer" width="42" height="14">
+ <tileset firstgid="171" name="fondo" tilewidth="70" tileheight="70">
+  <image source="../CutePack/Base pack/Tiles/fondo.png" width="70" height="70"/>
+ </tileset>
+ <tileset firstgid="172" name="sheet" tilewidth="70" tileheight="70">
+  <image source="../CutePack/Base pack/Tiles/sheet.png" width="980" height="490"/>
+ </tileset>
+ <layer name="BackgroundLayer" width="56" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC5vLwMAwdxSP4lE8ikfxKB7Fo3gU48QANPRF1jAJAAA=
+   H4sIAAAAAAAAC+3DAQ0AAAzDoPq3MpO3cAGQsGqqqqqPB/z2XMZADAAA
   </data>
  </layer>
- <layer name="DecorationLayer" width="42" height="14">
+ <layer name="DecorationLayer" width="56" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAUjCTgSqU6Tpq4YBaNgFIyCUTAUQDEReDAAHSIwpQAAKyunXzAJAAA=
+   H4sIAAAAAAAAC+2SwQmAMAxFK3joDG7Qizcv3pzPDXUBq0uYgwUJNk3TiIg++KQ0JvaHGPM9JtBM5LeC3mtBrQbT6aztUeotzDsVOX0wWh6l3jxoAbkj+kSMwZ0BhuPxLTsZg/L4tDctwm64051/4iE/qjSgujLGIkn6aOKIHP7XSIhCWhdoI/cds56LJZTKU3UxhiP26F46pyty3inxx/HJedNdvjj9c+tTu/wmfznfU/kdJts7wkAMAAA=
   </data>
  </layer>
- <layer name="CollisionLayer" width="42" height="14">
+ <layer name="CollisionLayer" width="56" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC82WSw6AIAxE2XjSHsMD4J47eE41kYRMplCQj4uJSdPK60/xzrnz5/K3ZOHZOaW+QjiZX0+2lrjIOYqrB2vsuWTit9d+DOy5JQfsO/ObNb+xbtb5RGaBeo6cX0vftfqv+h5grdi+s77PrCGrVWnfS/OLCvBsZUOGHCv7D+RYkc3CasldQLgv0b4b3q0xMXvtDGl7FEgOyFp75pf5TnueChk1v5r7gRZv0RN7AQCEedUwCQAA
+   H4sIAAAAAAAAC+WWywmAMAyGc3T/IZzCBVxARa8dRAsKJeSNz3r4qdAmzZfUph0AdJWrfbmSUdgOPsIX1d/5RkJ3xqedQW1e4tNYrmKl/qPouoMPx1oDm1Y/L9vE6Gw2j7x8FNsZ91O0bmCwtcRH3S3W/in1Xa5vcXaR/GA7i0/P+yDPz5sWYvTmxVrbhPyU300hyqf3zZPXDowkuyMHFB/uV/0uqX6YrQF/Djn/PSOtHsm4t8ZHsT3N59lb8rcCCP1310AMAAA=
   </data>
  </layer>
- <layer name="FruitLayer" width="42" height="14">
+ <layer name="FruitLayer" width="56" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGHiwkkx9q6jqCgRYPsD6SQGkhMFKBtLCmtx4IdXcFUTqI1YdLQCucKZVGhwF1Ae0Ss+4ADnlACVlBzX8R4wZ6GmemDxAy7yLzc2khCM9y2tSAb3T7CjADwCBrkHUMAkAAA==
+   H4sIAAAAAAAAC2NgGAWjYOiD5QNg50oS5QfCjYMBoPt7pIbDYAS0josVNDafHoBQPh+sZg9XMBzCbBUVzRoOeWwUDE0AAKx21xhADAAA
   </data>
  </layer>
 </map>
