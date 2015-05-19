@@ -85,7 +85,7 @@
  </tileset>
  <layer name="BackgroundLayer" width="14" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYBTAAAATmsT7EAMAAA==
+   H4sIAAAAAAAAC5vLwMAwdxSP4lEMxgCtbC82EAMAAA==
   </data>
  </layer>
  <layer name="DecorationLayer" width="14" height="14">
@@ -95,7 +95,7 @@
  </layer>
  <layer name="CollisionLayer" width="14" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYBTAAAATmsT7EAMAAA==
+   H4sIAAAAAAAAC2NhYGBgIROTCkb1jeqjpz5yMADI19K5EAMAAA==
   </data>
  </layer>
  <layer name="FruitLayer" width="14" height="14">

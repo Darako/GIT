@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="28" height="42" tilewidth="70" tileheight="70" nextobjectid="19">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="25" height="25" tilewidth="70" tileheight="70" nextobjectid="19">
  <tileset firstgid="1" name="tiles_spritesheet" tilewidth="70" tileheight="70" spacing="2">
   <image source="../CutePack/Base pack/Tiles/tiles_spritesheet.png" trans="ff00ff" width="914" height="936"/>
   <tile id="44">
@@ -83,24 +83,24 @@
    </properties>
   </tile>
  </tileset>
- <layer name="BackgroundLayer" width="28" height="42">
+ <layer name="BackgroundLayer" width="25" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3DQQ0AAAwDofPvoV7nYW9IWDVVVVVVfT4XczXAYBIAAA==
+   H4sIAAAAAAAAC+3DAQkAAAwEoevf4bsux0DBVVNV9dUDaPWj+MQJAAA=
   </data>
  </layer>
- <layer name="DecorationLayer" width="28" height="42">
+ <layer name="DecorationLayer" width="25" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3BMQEAAADCoPVPbQdvoAAAAADgN2b84ZNgEgAA
+   H4sIAAAAAAAAC2NgGAWtZOpzpKoraAtMB9oBAwzyBtoBZIKJVDRLk4pmEQPURu0btY9MMNTKK3LrEHqDxIF2wCAE9C4XqQ0Ab7DfIMQJAAA=
   </data>
  </layer>
- <layer name="CollisionLayer" width="28" height="42">
+ <layer name="CollisionLayer" width="25" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC72WQQ7AIAgEPfhff9V39tSkMSgL7GLCpSFOgQWZY4zZbE+TobzvqHn/w2DceIyY9rs9XjaW072n75nYEB1YPBXL4nmsaj/9/b2YGH2K/h9rJiAzhzl/bvEp5pyXTzYTqV9XPpV6QX07eQwmohdrxit4il6JvhtV5ilfVQ2hOcvsT159rftZukPY+y7D2iGzulDWLxpnVLfZvSAa761+KlZVL5kdgNULEV91Dlk81vxUsbI81ftn2Wrkde4vi8BCeCyOx2NzTjwVZ+d12gvO2DxdYBIAAA==
+   H4sIAAAAAAAAC2NhYGBgoQNeRkNMih0lQJwBxDFUtgOXuaTYh80OUt1LSD3MDnLDgRg7qRXn+NxIiR3E+p1UO8gJU2LsoDSucNlBzTRAi3RFjD+obR+5+ZyadlDDPnLzB6XlFbXto0X9MVpekZ+2hlt5hSzGRQVzsdlBawwAZi67sMQJAAA=
   </data>
  </layer>
- <layer name="FruitLayer" width="28" height="42">
+ <layer name="FruitLayer" width="25" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3WSw4AEAwEUPe/iM8pxR4bZWo6by+pmEylJKcaegBxQTmYq+gBRAy8yLE6xIeMHsAY230G7ZW9Ajq7wphBD268VUSsfcKWj0g98vt/sAMmXHNfYBIAAA==
+   H4sIAAAAAAAAC+3UUQoAEBAEUPe/CPaU2vxITayM0L5PZdNMK4S7RNLcBM6zcY50d2Th/ohmgN67YuesFqsrayezrF3NeilfVrYIK3OE1QXC2gHk9/7US/uk/L+qTu+CqwqdCxHUxAkAAA==
   </data>
  </layer>
 </map>

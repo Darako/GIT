@@ -48,10 +48,10 @@ public class Game extends StateBasedGame
         addState(new Menu());
         addState(new LevelState("Nivel_0",1,13));
         addState(new LevelState("Nivel_1",2,41));
-        addState(new LevelState("Nivel_0",3,13));
+        addState(new LevelState("Nivel_3",3,23));
         addState(new LevelState("Nivel_1",4,41));
         addState(new LevelState("Nivel_0",5,13));
-        addState(new LevelState("Nivel_1",6,41));
+        addState(new LevelState("Nivel_3",6,21));
         this.enterState(0);
 
     }

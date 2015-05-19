@@ -57,7 +57,6 @@ public class Level
     
     private void cargaObjetos() throws SlickException
     {
-        System.out.println("Carga Objetos");
         int layerIndex = map.getLayerIndex("FruitLayer");
         if(layerIndex == -1)
         {
@@ -98,7 +97,6 @@ public class Level
             }
         }
         posY = map.getHeight() -1;
-        System.out.println("Items: "+map.getHeight());
     }
      
     public void render()

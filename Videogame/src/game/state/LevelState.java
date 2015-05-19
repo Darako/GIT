@@ -11,6 +11,8 @@ import game.controller.MouseAndKeyBoardPlayerController;
 import game.controller.PlayerController;
 import game.level.Level;
 import game.physics.Physics;
+import java.awt.Font;
+import java.io.InputStream;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -19,10 +21,13 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
+import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
+import org.newdawn.slick.util.ResourceLoader;
+
 
 
 /**
@@ -41,6 +46,7 @@ public class LevelState extends BasicGameState
     private static Sound mjump;
     private int levelID;
     private int posY;
+    private TrueTypeFont font;
  
     public LevelState(String startingLevel, int levelID, int posY)
     {
@@ -62,6 +68,18 @@ public class LevelState extends BasicGameState
         playerController = new MouseAndKeyBoardPlayerController(player); 
         //adding physics
         physics = new Physics();
+        //adding fonts
+        try 
+        {
+            InputStream inputStream = ResourceLoader.getResourceAsStream("data/Fonts/DINL___.TTF");
+
+            Font awtFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
+            awtFont = awtFont.deriveFont(60f); // set font size
+            font = new TrueTypeFont(awtFont, false);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 //        music=new Music("src/sound/2.ogg");
 //        mjump=new Sound("src/sound/jump_08.ogg");
     }
@@ -73,13 +91,13 @@ public class LevelState extends BasicGameState
 //        if(music.playing()==false){
 //            music.play();
 //        }
-        if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID != 6)
+        if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID != 3)
         {            
             Game.FRUITS_COLLECTED = 0;
             level.resetItemCount();
             sbg.enterState(levelID+1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
         }
-        else if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID == 6)
+        else if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID == 3)
         {
             System.exit(0);
         }
@@ -91,34 +109,9 @@ public class LevelState extends BasicGameState
         g.scale(Game.SCALE, Game.SCALE);
         
         level.render();
-        g.drawImage( new Image("data/CutePack/FruitsCount.png"), 0, (posY-1) * 70 + 5);
-        switch(Game.FRUITS_COLLECTED)
-        {
-            case 0 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_0.png"), 215, (posY-1) *70 + 20); break; } 
-            case 1 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_1.png"), 215, (posY-1) *70 + 20); break; }
-            case 2 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_2.png"), 215, (posY-1) *70 + 20); break; }
-            case 3 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_3.png"), 215, (posY-1) *70 + 20); break; }
-            case 4 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_4.png"), 215, (posY-1) *70 + 20); break; }
-            case 5 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_5.png"), 215, (posY-1) *70 + 20); break; }
-            case 6 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_6.png"), 215, (posY-1) *70 + 20); break; }
-            case 7 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_7.png"), 215, (posY-1) *70 + 20); break; }
-            case 8 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_8.png"), 215, (posY-1) *70 + 20); break; }
-            case 9 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_9.png"), 215, (posY-1) *70 + 20); break; }
-        }
-        
-        switch(level.getItemCount())
-        {
-            case 0 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_0.png"), 295, (posY-1) *70 + 20); break; } 
-            case 1 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_1.png"), 295, (posY-1) *70 + 20); break; }
-            case 2 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_2.png"), 295, (posY-1) *70 + 20); break; }
-            case 3 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_3.png"), 295, (posY-1) *70 + 20); break; }
-            case 4 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_4.png"), 295, (posY-1) *70 + 20); break; }
-            case 5 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_5.png"), 295, (posY-1) *70 + 20); break; }
-            case 6 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_6.png"), 295, (posY-1) *70 + 20); break; }
-            case 7 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_7.png"), 295, (posY-1) *70 + 20); break; }
-            case 8 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_8.png"), 295, (posY-1) *70 + 20); break; }
-            case 9 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_9.png"), 295, (posY-1) *70 + 20); break; }
-        }
+        g.setFont(font);
+        g.setColor(Color.black);        
+        g.drawString("FRUTAS: "+Game.FRUITS_COLLECTED+"/"+level.getItemCount(),0,845);
     }
  
     //this method is overriden from basicgamestate and will trigger once you press any key on your keyboard
