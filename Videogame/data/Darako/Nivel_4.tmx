@@ -90,17 +90,17 @@
  </layer>
  <layer name="DecorationLayer" width="42" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYGgCzYF2wCAEo2EytMBofBEGM3GIzUSS68aB6QnwuRMELICYAwemBXDEIT4TB4a5kd7uJBVYMAycOwEO8p0qMAkAAA==
+   H4sIAAAAAAAAC2NgGAWjYBQMF6A5QHoHIxhu/hmpYCYaGx3jEkfWRw+Azy0MeORo4U5HPHK43EAMJhVQ0yxS3E4tgG4WAEBmtbMwCQAA
   </data>
  </layer>
  <layer name="CollisionLayer" width="42" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2VwQ2AIAxFe3QEB2AAjx3SOIZzqgkkpOmnBcEY4+FHI219+YXCRLQ/JD41RbGyZunn/C6nlvMmTk8uWgtRPVkTp8Wk+V0TP4oT+eHp+2hOja3lHKX1nr2XfnprXxybw3NUbxX5KG4u9N3DKv0M2RN5Xqqr9SeI90sE8tHZZRHD2XeN07NXar2S/0dz1IrR9oHF6Zlp0mdZf8nESsydO8wzj1vm8gE6bG55MAkAAA==
+   H4sIAAAAAAAAC+2USw6AIAxEOUwP0UMaj+E5ZSEJmbRDRSSYuJiFjqWPftSUkn5ExySxvD/nO5wsZgXOSNwszmhOubQipzjfS4AT7zWa0zpbQJE5KX6Ld8vaA7206hmpQ4nxcnh3YdxejVjfW6wsRgyvNS9WDDL0zJrVA608xsj+db2z7dUAz727i09V7wvz6z1ReMadw3cjxHKifwLoQpYjMAkAAA==
   </data>
  </layer>
  <layer name="FruitLayer" width="42" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYBSQClYOtAPIAKsG2H5sYbaCAvMo0UtNQGm4LqdQPyXhgM/tpPqL2nliKOYxbIDU+KVGPiUUdsvRaGqBFQyDJ1/SAgAAsKaIRjAJAAA=
+   H4sIAAAAAAAAC2NgGAWjYBQMF7ACh/hyIvSuoqZDyHQDKWAlAXli/UOpv3GFObXU09I8cuKEGumEGDcTil9SAa3TNzqgdjzDADHhQu28RggQG1e0ChN6AQDOIhGIMAkAAA==
   </data>
  </layer>
 </map>

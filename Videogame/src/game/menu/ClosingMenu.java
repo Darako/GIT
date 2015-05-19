@@ -42,7 +42,7 @@ public class ClosingMenu extends BasicGameState
     @Override
     public int getID() 
     {
-        return 4;
+        return 7;
     } 
     
     public void keyReleased(int key, char c) 
