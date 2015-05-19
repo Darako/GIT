@@ -10,7 +10,6 @@ import game.character.Player;
 import game.controller.MouseAndKeyBoardPlayerController;
 import game.controller.PlayerController;
 import game.level.Level;
-import game.level.object.Objective;
 import game.physics.Physics;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -42,7 +41,6 @@ public class LevelState extends BasicGameState
     private static Sound mjump;
     private int levelID;
     private int posY;
-    private Image numbers;
  
     public LevelState(String startingLevel, int levelID, int posY)
     {
@@ -66,9 +64,6 @@ public class LevelState extends BasicGameState
         physics = new Physics();
 //        music=new Music("src/sound/2.ogg");
 //        mjump=new Sound("src/sound/jump_08.ogg");
-        
-        //setting number images
-        numbers = new Image("data/CutePack/Base pack/HUD/hud_0.png");
     }
  
     public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException 
@@ -94,7 +89,36 @@ public class LevelState extends BasicGameState
     { 
         //if we ever wanter to scale but nope
         g.scale(Game.SCALE, Game.SCALE);
+        
         level.render();
+        g.drawImage( new Image("data/CutePack/FruitsCount.png"), 0, (posY-1) * 70 + 5);
+        switch(Game.FRUITS_COLLECTED)
+        {
+            case 0 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_0.png"), 215, (posY-1) *70 + 20); break; } 
+            case 1 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_1.png"), 215, (posY-1) *70 + 20); break; }
+            case 2 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_2.png"), 215, (posY-1) *70 + 20); break; }
+            case 3 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_3.png"), 215, (posY-1) *70 + 20); break; }
+            case 4 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_4.png"), 215, (posY-1) *70 + 20); break; }
+            case 5 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_5.png"), 215, (posY-1) *70 + 20); break; }
+            case 6 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_6.png"), 215, (posY-1) *70 + 20); break; }
+            case 7 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_7.png"), 215, (posY-1) *70 + 20); break; }
+            case 8 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_8.png"), 215, (posY-1) *70 + 20); break; }
+            case 9 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_9.png"), 215, (posY-1) *70 + 20); break; }
+        }
+        
+        switch(level.getItemCount())
+        {
+            case 0 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_0.png"), 295, (posY-1) *70 + 20); break; } 
+            case 1 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_1.png"), 295, (posY-1) *70 + 20); break; }
+            case 2 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_2.png"), 295, (posY-1) *70 + 20); break; }
+            case 3 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_3.png"), 295, (posY-1) *70 + 20); break; }
+            case 4 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_4.png"), 295, (posY-1) *70 + 20); break; }
+            case 5 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_5.png"), 295, (posY-1) *70 + 20); break; }
+            case 6 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_6.png"), 295, (posY-1) *70 + 20); break; }
+            case 7 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_7.png"), 295, (posY-1) *70 + 20); break; }
+            case 8 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_8.png"), 295, (posY-1) *70 + 20); break; }
+            case 9 : { g.drawImage(new Image("data/CutePack/Base pack/HUD/hud_9.png"), 295, (posY-1) *70 + 20); break; }
+        }
     }
  
     //this method is overriden from basicgamestate and will trigger once you press any key on your keyboard

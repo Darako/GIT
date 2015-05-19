@@ -34,10 +34,11 @@ public class Menu extends BasicGameState
     @Override
     public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException 
     {
-        g.setColor(Color.white);
-        g.drawString("MAPUSKI", 50, 10);
-        g.drawImage(sprite,50, 20);
-        g.drawString("1. JUGAR", 50, 100);
+//        g.setColor(Color.white);
+//        g.drawString("MAPUSKI", 50, 10);
+//        g.drawImage(sprite,50, 20);
+//        g.drawString("1. JUGAR", 50, 100);
+          g.drawImage(new Image("data/Mapuski/mapuskibackground.png"),0,0);
     }
  
     @Override
@@ -55,7 +56,7 @@ public class Menu extends BasicGameState
     public void keyReleased(int key, char c) 
     {
         switch(key) {
-        case Input.KEY_1:
+        case Input.KEY_ENTER:
             game.enterState(1);
             break;
         default:
