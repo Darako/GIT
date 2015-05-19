@@ -5,6 +5,7 @@
  */
 package game;
 
+import game.menu.ClosingMenu;
 import game.menu.Menu;
 import game.state.LevelState;
 import org.newdawn.slick.AppGameContainer;
@@ -48,10 +49,8 @@ public class Game extends StateBasedGame
         addState(new Menu());
         addState(new LevelState("Nivel_0",1,13));
         addState(new LevelState("Nivel_1",2,41));
-        addState(new LevelState("Nivel_3",3,23));
-        addState(new LevelState("Nivel_1",4,41));
-        addState(new LevelState("Nivel_0",5,13));
-        addState(new LevelState("Nivel_3",6,21));
+        addState(new LevelState("Nivel_3",3,23));                
+        addState(new ClosingMenu());
         this.enterState(0);
 
     }

@@ -91,16 +91,17 @@ public class LevelState extends BasicGameState
 //        if(music.playing()==false){
 //            music.play();
 //        }
-        if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID != 3)
+        if(Game.FRUITS_COLLECTED == level.getItemCount())
         {            
             Game.FRUITS_COLLECTED = 0;
             level.resetItemCount();
             sbg.enterState(levelID+1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
         }
-        else if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID == 3)
-        {
-            System.exit(0);
-        }
+//        else if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID == 3)
+//        {
+//            sbg.enterState(levelID+1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+//        
+//        }
     }
  
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException 
@@ -118,7 +119,8 @@ public class LevelState extends BasicGameState
     public void keyPressed(int key, char code)
     {
         //if the key is escape, close our application
-        if(key == Input.KEY_ESCAPE){
+        if(key == Input.KEY_ESCAPE)
+        {
             System.exit(0);
         }
 //        if(key == Input.KEY_SPACE) mjump.play();        

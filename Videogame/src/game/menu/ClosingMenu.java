@@ -5,7 +5,6 @@
  */
 package game.menu;
 
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -18,8 +17,8 @@ import org.newdawn.slick.state.StateBasedGame;
  *
  * @author Darako
  */
-public class Menu extends BasicGameState
-{ 
+public class ClosingMenu extends BasicGameState
+{
     private StateBasedGame game;
     
     @Override
@@ -31,7 +30,7 @@ public class Menu extends BasicGameState
     @Override
     public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException 
     {
-        g.drawImage(new Image("data/Mapuski/mapuskibackground.png"),0,0);
+        g.drawImage(new Image("data/Mapuski/mapuskibackgroundout.png"),0,0);
     }
  
     @Override
@@ -43,16 +42,17 @@ public class Menu extends BasicGameState
     @Override
     public int getID() 
     {
-        return 0;
+        return 4;
     } 
     
     public void keyReleased(int key, char c) 
     {
         switch(key) {
         case Input.KEY_ENTER:
-            game.enterState(1);
+            System.exit(0);
             break;
-        default:
+        case Input.KEY_ESCAPE:
+            System.exit(0);
             break;
         }
     }
