@@ -13,6 +13,8 @@ import game.level.LevelObject;
 import game.level.object.Objective;
 import game.level.tile.Tile;
 import java.util.ArrayList;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Sound;
 
 /**
  *
@@ -21,10 +23,17 @@ import java.util.ArrayList;
 public class Physics 
 {
     private final float gravity = 0.0015f;
+    private static Sound mcomer;
+    public boolean sueloCierto=true;
+    
+    public void phsysics() throws SlickException{
+        mcomer=new Sound("data/sound/comer.ogg");
+    }
+    
     
     public void handlePhysics(Level level, int delta)
     {
-        handleCharacters(level,delta);        
+        handleCharacters(level,delta);          
     }    
     
     private boolean checkCollision(LevelObject obj, Tile[][] mapTiles)
@@ -61,12 +70,14 @@ public class Physics
                 {
                     //dont forget the object back up even if we are on the ground!!
                     obj.getBoundingShape().movePosition(0, -1);
+                    sueloCierto=true;
                     return true;
                 }
             }
         }
         //and obviously move the object back up if we dont hit the ground
         obj.getBoundingShape().movePosition(0, -1);
+        sueloCierto=false;
         return false;
     }
     
@@ -95,6 +106,7 @@ public class Physics
                         {
                             //we have to remove the object from the level, and add something to the score
                             Game.FRUITS_COLLECTED++;
+                            mcomer.play(1f,0.5f);
                             removeQueue.add(obj);
                         }
                     }
@@ -191,5 +203,5 @@ public class Physics
         {
             handleGameObject(obj, level, delta);
         }
-    }    
+    }      
 }

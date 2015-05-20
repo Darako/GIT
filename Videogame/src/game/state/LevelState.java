@@ -47,6 +47,7 @@ public class LevelState extends BasicGameState
     private int levelID;
     private int posY;
     private TrueTypeFont font;
+    private int pistacancion;
  
     public LevelState(String startingLevel, int levelID, int posY)
     {
@@ -68,6 +69,7 @@ public class LevelState extends BasicGameState
         playerController = new MouseAndKeyBoardPlayerController(player); 
         //adding physics
         physics = new Physics();
+        physics.phsysics();
         //adding fonts
         try 
         {
@@ -80,21 +82,31 @@ public class LevelState extends BasicGameState
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        music=new Music("src/sound/2.ogg");
-//        mjump=new Sound("src/sound/jump_08.ogg");
+        music=new Music("data/sound/2.ogg");
+        mjump=new Sound("data/sound/jump_08.ogg");
+        pistacancion=1;
     }
  
     public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException 
     {
         playerController.handleInput(container.getInput(), delta);
         physics.handlePhysics(level,delta);
-//        if(music.playing()==false){
-//            music.play();
-//        }
+        if (!music.playing()){
+            music.play();
+        }      
         if(Game.FRUITS_COLLECTED == level.getItemCount())
         {            
             Game.FRUITS_COLLECTED = 0;
             level.resetItemCount();
+            music.stop();
+//            if (pistacancion==2){
+//                music=new Music("src/sound/4.ogg");
+//                music.play();
+//            }else {
+//                music=new Music("src/sound/2.ogg");
+//                music.play();
+//            }
+            pistacancion++;
             sbg.enterState(levelID+1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
         }
 //        else if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID == 3)
@@ -123,7 +135,7 @@ public class LevelState extends BasicGameState
         {
             System.exit(0);
         }
-//        if(key == Input.KEY_SPACE) mjump.play();        
+        if(key == Input.KEY_SPACE && physics.sueloCierto==true) mjump.play();        
     }
     
     public int getID() 
