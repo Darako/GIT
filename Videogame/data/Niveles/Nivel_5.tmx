@@ -106,7 +106,7 @@
  </layer>
  <layer name="FruitLayer" width="56" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYOiD5QNg50oS1Q+EGwcDQPf3SA2HkQhWDLQDqABIzeeDxezhCoZDmK2iolnDIY+NgqEJAF/DkHtADAAA
+   H4sIAAAAAAAAC2NgGAWjYOiD5QNg50oS1Q+EGwcDQPf3SA2HkQhWUKif1DxGCzAY3DAKEGA4xMcqKppFaR4bBaOAXAAAJlhdXEAMAAA=
   </data>
  </layer>
 </map>
