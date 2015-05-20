@@ -35,6 +35,7 @@ public class Game extends StateBasedGame
     
     //Score
     public static int FRUITS_COLLECTED;
+    public static int ULTIMO_NIVEL;
  
     public Game() 
     {
@@ -45,15 +46,16 @@ public class Game extends StateBasedGame
     {
  
         //create a level state, this state will do the whole logic and rendering for individual levels
-//        
+//      
+        ULTIMO_NIVEL = 0;
         addState(new Menu());
-        addState(new LevelState("Nivel_0",5,13));
-        addState(new LevelState("Nivel_1",2,41));
-        addState(new LevelState("Nivel_2",3,23));                
-        addState(new LevelState("Nivel_3",3,14));                
-        addState(new LevelState("Nivel_4",4,13));                
-        addState(new LevelState("Nivel_5",1,13));                
-        addState(new ClosingMenu());
+//        addState(new LevelState("Nivel_0",1,13));ULTIMO_NIVEL++;
+//        addState(new LevelState("Nivel_1",2,41));ULTIMO_NIVEL++;
+//        addState(new LevelState("Nivel_2",3,23));ULTIMO_NIVEL++;                
+//        addState(new LevelState("Nivel_3",3,14));ULTIMO_NIVEL++;                
+//        addState(new LevelState("Nivel_4",4,13));ULTIMO_NIVEL++;                
+        addState(new LevelState("Nivel_5",1,13));ULTIMO_NIVEL++;                
+        addState(new ClosingMenu(ULTIMO_NIVEL+1));
         this.enterState(0);
 
     }

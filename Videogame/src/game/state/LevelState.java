@@ -109,11 +109,12 @@ public class LevelState extends BasicGameState
             pistacancion++;
             sbg.enterState(levelID+1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
         }
-//        else if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID == 3)
+//        else if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID == Game.ULTIMO_NIVEL)
 //        {
 //            sbg.enterState(levelID+1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 //        
 //        }
+        
     }
  
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException 
@@ -130,12 +131,13 @@ public class LevelState extends BasicGameState
     //this method is overriden from basicgamestate and will trigger once you press any key on your keyboard
     public void keyPressed(int key, char code)
     {
+//        if(key == Input.KEY_R) this.enterState(levelID);
         //if the key is escape, close our application
         if(key == Input.KEY_ESCAPE)
         {
             System.exit(0);
         }
-        if(key == Input.KEY_SPACE && physics.sueloCierto==true) mjump.play();        
+        if(key == Input.KEY_SPACE && physics.sueloCierto==true) mjump.play();         
     }
     
     public int getID() 

@@ -95,12 +95,12 @@
  </layer>
  <layer name="CollisionLayer" width="28" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NhYGBgoTNeRic8at+ofaP2jdpHT/tacajNQMKU2kdPDABX5BnKIAYAAA==
+   H4sIAAAAAAAAC5vJwMAwk854GZ3wqH2j9o3aN3Tty0DCtLQPZgdyGUWMvfjsQ9ebgcMedIzPTnS3oZtJrB3Y7MRlJgDsx/AlIAYAAA==
   </data>
  </layer>
  <layer name="FruitLayer" width="28" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYBSMguENVmIRW47EXkEvhxAJVg20A6AAAHhRgAIgBgAA
+   H4sIAAAAAAAAC2NgGAWjYBSMAuLAioF2AJlgJRax5XR3BfFg1UA7AAoA/Jv5CSAGAAA=
   </data>
  </layer>
 </map>

@@ -95,7 +95,7 @@
  </layer>
  <layer name="CollisionLayer" width="28" height="42">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC72WQQ7AIAgEPfhff9V39tSkMSgL7GLCpSFOgQWZY4zZbE+TobzvqHn/w2DceIyY9rs9XjaW072n75nYEB1YPBXL4nmsaj/9/b2YGH2K/h9rJiAzhzl/bvEp5pyXTzYTqV9XPpV6QX07eQwmohdrxit4il6JvhtV5ilfVQ2hOcvsT159rftZukPY+y7D2iGzulDWLxpnVLfZvSAa761+KlZVL5kdgNULEV91Dlk81vxUsbI81ftn2Wrkde4vi8BCeCyOx2NzTjwVZ+d12gvO2DxdYBIAAA==
+   H4sIAAAAAAAAC9WWUQrEMAhE892T9kq9QM+5LGyhSIzj6AQ24EdLkteZmOo1xrg2x70pUN4z1Lz3YBnnLyJeh6YjoY9hnSZQPxltVgt6firWjBexrF+ebwgv0oRqyPqpYr15K4+6WJG+Tg7qZzcTOb9dfirzBZm78z50MZl8qTDZ+8AyPR6yH8Oc8TL7eHO995bHfLNds3p+eNW882rTqp/wahtb82Yaqv1n9fyyOrN5a+tf5QyRfOvIz8zaLj/Z/kylS52fCl7X/1PFYnmq+tfNyvL+uZ9XcyKeopef8VQcy8vWWja+rA9DkjUbYBIAAA==
   </data>
  </layer>
  <layer name="FruitLayer" width="28" height="42">

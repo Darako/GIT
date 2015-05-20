@@ -20,6 +20,12 @@ import org.newdawn.slick.state.StateBasedGame;
 public class ClosingMenu extends BasicGameState
 {
     private StateBasedGame game;
+    private int IDLevel;
+    
+    public ClosingMenu(int IDLevel)
+    {
+        this.IDLevel = IDLevel;
+    }
     
     @Override
     public void init(GameContainer container, StateBasedGame game) throws SlickException 
@@ -42,7 +48,7 @@ public class ClosingMenu extends BasicGameState
     @Override
     public int getID() 
     {
-        return 7;
+        return IDLevel;
     } 
     
     public void keyReleased(int key, char c) 
