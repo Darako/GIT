@@ -89,19 +89,19 @@
  <tileset firstgid="172" name="sheet" tilewidth="70" tileheight="70">
   <image source="../CutePack/Base pack/Tiles/sheet.png" width="980" height="490"/>
  </tileset>
- <layer name="BackgroundLayer" width="56" height="14" visible="0">
+ <layer name="BackgroundLayer" width="56" height="14">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3DAQ0AAAzDoPq3MpO3cAGQsGqqqqqPB/z2XMZADAAA
   </data>
  </layer>
- <layer name="DecorationLayer" width="56" height="14" visible="0">
+ <layer name="DecorationLayer" width="56" height="14">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC2NgGHngFhDfxiP/mgKzX1GglxrgFhKb2n4k12+EwpuQPLI6dEAtP5LqN00o/RKIXyDR6ICQPAwQGwbogBg/DpU0iQvg8+NA+41aAJY2NJHEXg6EQ0YBVYEUELMwMjBwoGFyzKEm0MQjh25XNx6MD5CrDwb0cIibEqmfWMCBBxOSJ6QXG3CE0lZo4uSGE6l+opb/8PmRWDfRyl/EmE+qfkJpeSj5jxT1+OQBI29Z5EAMAAA=
   </data>
  </layer>
  <layer name="CollisionLayer" width="56" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+WWQQqEMAxFs+z9D+EpvEAXbhVmth5EBxwo5Sf5KVVGZ/EQtI15JhpHERkfzvDjrCT1vrv4tfLvfgvgqtzYHrSuW36ey1muyKF13devrs0T3Lz6Rd1QL0eeA5tzhKgfyrfH96m1buLsZf1QLcr5qdVuEXvuWrOsx5xG+5h4Pf4p3jsv5xjxs55TmXcqQDE/56binl5OGjOB5le/3/lAqwVySyA+kydakxWY3mL62fNDbqwfQy8/ba0VbwOG/IMXQAwAAA==
+   H4sIAAAAAAAAC+WWTQqEMAxGs/T+h/AUXsCFWwsz2znIKCiU8iX5Uqr4s3gI2sa8pjYOIjI8nP7i/EjKeXfxq+XtfglwVm7sHrSeW36ey1GuyKF23O5X1uYJbl79om5oL0fWgc05QtQP5dvifIrWbb+KM5f1Q7XI+6dWuyR237V6WU2fZs4XJl6Lf4rvwse5Rvysdcrz7jJQzPXelL3Ty0ljJtD8yu973NBqgdw6EJ/JE40ZFZizgdnPnh9yY/0YWvlpY614f5PRQ7BADAAA
   </data>
  </layer>
  <layer name="FruitLayer" width="56" height="14">
