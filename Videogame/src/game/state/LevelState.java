@@ -63,7 +63,7 @@ public class LevelState extends BasicGameState
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException 
     {   
         //at the start of the game we don't have a player yet
-        player = new Player(posX,(float) posY);        
+        player = new Player(posX,(float) posY);
         //once we initialize our level, we want to load the right level
         level = new Level(startingLevel, player);
         //and we create a controller, for now we use the MouseAndKeyBoardPlayerController
@@ -143,7 +143,8 @@ public class LevelState extends BasicGameState
         g.setFont(font);
         g.setColor(Color.black);
         g.drawString("NIVEL: "+levelID, 0,0);
-        g.drawString("FRUTAS: "+Game.FRUITS_COLLECTED+"/"+level.getItemCount(),0,845);
+//        g.drawString("FRUTAS: "+Game.FRUITS_COLLECTED+"/"+level.getItemCount(),0,845);
+        g.drawString("FRUTAS: "+Game.FRUITS_COLLECTED+"/"+level.getItemCount(),0,700);
     }
     
     public void controllerButtonPressed(int controller, int button)

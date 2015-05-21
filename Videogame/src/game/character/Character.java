@@ -21,8 +21,10 @@ public abstract class Character extends LevelObject
     protected HashMap<Facing,Image> sprites;
     protected HashMap<Facing,Animation> movingAnimations;
     protected HashMap<Facing,Animation> standingAnimations;
+    protected HashMap<Facing,Animation> crouchingAnimations;
     protected Facing facing;
     protected boolean moving = false;
+    protected boolean crouch = false;
     protected float accelerationSpeed = 1;
     protected float decelerationSpeed = 1;
     protected float maximumSpeed = 1;
@@ -43,6 +45,12 @@ public abstract class Character extends LevelObject
     {
         standingAnimations = new HashMap<Facing,Animation>();
         standingAnimations.put(Facing.STAND, new Animation(images, frameDuration));
+    }
+    
+    protected void setCrouchingAnimation(Image[]images, int frameDuration)
+    {
+        crouchingAnimations = new HashMap<Facing,Animation>();
+        crouchingAnimations.put(Facing.CROUCH, new Animation(images, frameDuration));
     }
     
     protected void setMovingAnimation(Image[]images, int frameDuration)
@@ -77,6 +85,32 @@ public abstract class Character extends LevelObject
         moving = b;
     }
     
+    public boolean isCrouch()
+    {
+        return crouch;
+    }
+    
+    public void setCrouch(boolean b)
+    {
+        crouch = b;
+    }
+
+    public void jump()
+    {
+        if(onGround) yVelocity = -0.5f;
+    }
+
+    public void standing(int delta)
+    {
+        moving = false;
+        facing = Facing.STAND;
+    }
+    
+    public void crouching(int delta)
+    {
+        if(onGround) facing = Facing.CROUCH;
+    }
+    
     public void decelerate(int delta)
     {
         if(xVelocity > 0)
@@ -95,11 +129,6 @@ public abstract class Character extends LevelObject
                 xVelocity = 0;
             }
         }
-    }
-    
-    public void jump()
-    {
-        if(onGround) yVelocity = -0.5f;
     }
     
     public void moveLeft(int delta)
@@ -130,12 +159,6 @@ public abstract class Character extends LevelObject
         moving = true;
         facing = Facing.RIGHT;
     }
-    
-    public void standing(int delta)
-    {
-        moving = false;
-        facing = Facing.STAND;
-    }
  
     public void render(float offsetX, float offsetY)
     {
@@ -143,11 +166,17 @@ public abstract class Character extends LevelObject
         if(movingAnimations != null && moving)
         {
             movingAnimations.get(facing).draw(x-offsetX,y-offsetY);
-        }
+        } 
+//        else if(crouchingAnimations != null && crouch)
+//        {
+//            System.out.println("weee");
+//            crouchingAnimations.get(facing).draw(x-offsetX,y-offsetY);
+//        }
         else
         {
             standingAnimations.get(facing).draw(x-offsetX,y-offsetY);
-        }     
+        }
+                 
     }
 }
 

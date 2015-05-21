@@ -29,22 +29,30 @@ public class XBoxController extends PlayerController
     {
         //we can both use the WASD or arrow keys to move around, obviously we can't move both
         if(i.isControllerLeft(0))
-        {
+        {        
+            //player.setCrouch(false);
             player.moveLeft(delta);
         }
         else if(i.isControllerRight(0))
-        {
+        {       
+            //player.setCrouch(false);
             player.moveRight(delta);
-
-        }
+        }    
+//        else if (i.isControllerDown(0))
+//        {
+//            //player.setMoving(false);
+//            player.crouching(delta);
+//        }
         else
         {            
             player.setMoving(false);
             player.standing(delta);
         }
+        
         if(i.isButton1Pressed(0))
         {
             player.jump();
         }
+        
     }
 }

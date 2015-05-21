@@ -30,7 +30,7 @@ public abstract class LevelObject
         this.y = y;
         
         //default bounding shape is a 70x70 box
-        boundingShape = new AABoundingRect(x,y,70,70);
+        boundingShape = new AABoundingRect(x+5,y+5,60,60);
     }
     
     public void applyGravity(float gravity)

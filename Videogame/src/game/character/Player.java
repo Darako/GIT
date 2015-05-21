@@ -36,12 +36,24 @@ public class Player extends Character
         new Image("data/Mapuski/Stand/mapuski_stand_05.png")          
     };
     
+    Image [] crouched =
+    {
+        new Image("data/Mapuski/Crouch/mapuski_crouch_01.png"), 
+        new Image("data/Mapuski/Crouch/mapuski_crouch_02.png"), 
+        new Image("data/Mapuski/Crouch/mapuski_crouch_03.png"), 
+        new Image("data/Mapuski/Crouch/mapuski_crouch_04.png"), 
+        new Image("data/Mapuski/Crouch/mapuski_crouch_05.png"),          
+        new Image("data/Mapuski/Crouch/mapuski_crouch_06.png")          
+    };
+    
     public Player(float x, float y) throws SlickException
     {
         super(x,y);
         setSprite(new Image("data/Mapuski/Stand/mapuski_stand_01.png"));
         setMovingAnimation(movRight, 100);
-        setStandingAnimation(stand, 100);
+//        setCrouchingAnimation(crouched, 100);
+//        setStandingAnimation(stand, 100);
+        setStandingAnimation(crouched, 100);
         boundingShape = new AABoundingRect(x+5,y+2,60,66);
         accelerationSpeed = 0.005f;
         maximumSpeed = 0.25f;

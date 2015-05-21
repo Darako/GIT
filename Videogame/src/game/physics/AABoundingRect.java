@@ -63,7 +63,6 @@ public class AABoundingRect extends BoundingShape
                 occupiedTiles.add(tiles[i/70][j/70]);
                 //System.out.print("("+i/70+","+j/70+") ");
             }
-            System.out.println("");
         }
         return occupiedTiles;
     }

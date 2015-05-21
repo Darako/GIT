@@ -21,9 +21,12 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Game extends StateBasedGame
 {
     //set the window width and then the height according to a aspect ratio
-    public static final int     WINDOW_WIDTH  = 840;
-    public static final int     WINDOW_HEIGTH = 560;
-    public static final boolean FULLSCREEN = false;
+//    public static final int     WINDOW_WIDTH  = 840;
+//    public static final int     WINDOW_HEIGTH = 560;
+    public static final int     WINDOW_WIDTH  = 1366;
+    public static final int     WINDOW_HEIGTH = 768;
+    
+    public static final boolean FULLSCREEN = true;
  
     //set size of the tile
     private static final int SIZE = 70;
