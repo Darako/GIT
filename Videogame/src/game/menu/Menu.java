@@ -51,6 +51,17 @@ public class Menu extends BasicGameState
         return 0;
     } 
     
+    public void controllerButtonPressed(int controller, int button)
+    {
+        //Start
+        if(button == 8)
+        {
+            inputEnded();
+            music.stop();
+            game.enterState(1);
+        }
+    }
+    
     public void keyReleased(int key, char c) 
     {
         switch(key) {
@@ -58,7 +69,8 @@ public class Menu extends BasicGameState
             music.stop();
             game.enterState(1);
             break;
-        default:
+        case Input.KEY_ESCAPE:
+            System.exit(0);
             break;
         }
     }

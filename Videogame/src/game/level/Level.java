@@ -55,6 +55,14 @@ public class Level
         return (float) posY;
     }
     
+    public void resetFrutas() throws SlickException
+    {
+        removeObjects(levelObjects);
+        resetItemCount();
+        Game.FRUITS_COLLECTED=0;
+        cargaObjetos();
+    }
+    
     private void cargaObjetos() throws SlickException
     {
         int layerIndex = map.getLayerIndex("FruitLayer");

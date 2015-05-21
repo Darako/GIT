@@ -147,11 +147,7 @@ public abstract class Character extends LevelObject
         else
         {
             standingAnimations.get(facing).draw(x-offsetX,y-offsetY);
-        }
-//        else
-//        {
-//            sprites.get(facing).draw(x-offsetX,y-offsetY);
-//        }        
+        }     
     }
 }
 

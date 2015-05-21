@@ -9,6 +9,7 @@ import game.Game;
 import game.character.Player;
 import game.controller.MouseAndKeyBoardPlayerController;
 import game.controller.PlayerController;
+import game.controller.XBoxController;
 import game.level.Level;
 import game.physics.Physics;
 import java.awt.Font;
@@ -45,6 +46,7 @@ public class LevelState extends BasicGameState
     private Music music;
     private static Sound mjump;
     private int levelID;
+    private float posX;
     private int posY;
     private TrueTypeFont font;
     private int pistacancion;
@@ -54,19 +56,19 @@ public class LevelState extends BasicGameState
         this.startingLevel = startingLevel;
         this.levelID = levelID;
         this.physics = new Physics();
-        this.posY = posY;
+        this.posX = 70f;
+        this.posY = (posY*70 - 70);
     }
  
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException 
-    {       
-        
-        //sprite = new Image("data/CutePack/AllFruits.png");
+    {   
         //at the start of the game we don't have a player yet
-        player = new Player(70f,(float) (posY*70 - 70));        
+        player = new Player(posX,(float) posY);        
         //once we initialize our level, we want to load the right level
         level = new Level(startingLevel, player);
         //and we create a controller, for now we use the MouseAndKeyBoardPlayerController
-        playerController = new MouseAndKeyBoardPlayerController(player); 
+//        playerController = new MouseAndKeyBoardPlayerController(player); 
+        playerController = new XBoxController(player); 
         //adding physics
         physics = new Physics();
         physics.phsysics();
@@ -78,7 +80,6 @@ public class LevelState extends BasicGameState
             Font awtFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
             awtFont = awtFont.deriveFont(60f); // set font size
             font = new TrueTypeFont(awtFont, false);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -93,7 +94,26 @@ public class LevelState extends BasicGameState
         physics.handlePhysics(level,delta);
         if (!music.playing()){
             music.play();
-        }      
+        }  
+        //R1
+        if(container.getInput().isButtonPressed(5, 0))
+        {            
+            inputEnded();
+            sbg.getCurrentState().leave(container, sbg);
+            player.setX(posX);player.setY(posY);
+            level.resetFrutas();
+            sbg.enterState(levelID, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black,10));
+        }
+        //Select
+        if(container.getInput().isButtonPressed(6, 0))
+        {
+            inputEnded();
+            leave(container, sbg);
+            music.stop();
+            player.setX(posX);player.setY(posY);
+            level.resetFrutas();
+            sbg.enterState(Game.ULTIMO_NIVEL, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
+        }
         if(Game.FRUITS_COLLECTED == level.getItemCount())
         {            
             Game.FRUITS_COLLECTED = 0;
@@ -107,14 +127,11 @@ public class LevelState extends BasicGameState
 //                music.play();
 //            }
             pistacancion++;
-            sbg.enterState(levelID+1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
-        }
-//        else if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID == Game.ULTIMO_NIVEL)
-//        {
-//            sbg.enterState(levelID+1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
-//        
-//        }
-        
+            leave(container, sbg);
+            player.setX(posX);player.setY(posY);
+            level.resetFrutas();            
+            sbg.enterState(levelID+1, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black,10));
+        }  
     }
  
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException 
@@ -124,10 +141,15 @@ public class LevelState extends BasicGameState
         
         level.render();
         g.setFont(font);
-        g.setColor(Color.black);        
+        g.setColor(Color.black);
+        g.drawString("NIVEL: "+levelID, 0,0);
         g.drawString("FRUTAS: "+Game.FRUITS_COLLECTED+"/"+level.getItemCount(),0,845);
     }
- 
+    
+    public void controllerButtonPressed(int controller, int button)
+    {        
+        if(button == 1 && physics.sueloCierto == true) mjump.play();
+    }
     //this method is overriden from basicgamestate and will trigger once you press any key on your keyboard
     public void keyPressed(int key, char code)
     {
@@ -137,7 +159,7 @@ public class LevelState extends BasicGameState
         {
             System.exit(0);
         }
-        if(key == Input.KEY_SPACE && physics.sueloCierto==true) mjump.play();         
+        if(key == Input.KEY_SPACE && physics.sueloCierto==true) mjump.play();
     }
     
     public int getID() 
