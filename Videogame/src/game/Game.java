@@ -51,13 +51,13 @@ public class Game extends StateBasedGame
         //create a level state, this state will do the whole logic and rendering for individual levels      
         ULTIMO_NIVEL = 0;
         addState(new Menu());ULTIMO_NIVEL++;
-        addState(new LevelState("Nivel_0",1,13));ULTIMO_NIVEL++;
+//        addState(new LevelState("Nivel_0",1,13));ULTIMO_NIVEL++;
 //        addState(new LevelState("Nivel_1",2,41));ULTIMO_NIVEL++;
-//        addState(new LevelState("Nivel_2",3,23));ULTIMO_NIVEL++;                
+        addState(new LevelState("Nivel_2",1,23));ULTIMO_NIVEL++;                
 //        addState(new LevelState("Nivel_3",4,14));ULTIMO_NIVEL++;                
-//        addState(new LevelState("Nivel_4",5,13));ULTIMO_NIVEL++;                
-//        addState(new LevelState("Nivel_5",6,13));ULTIMO_NIVEL++;                
-//        addState(new LevelState("Nivel_6",7,13));ULTIMO_NIVEL++;                
+//        addState(new LevelState("Nivel_4",3,13));ULTIMO_NIVEL++;                
+        addState(new LevelState("Nivel_5",4,13));ULTIMO_NIVEL++;                
+        addState(new LevelState("Nivel_6",2,13));ULTIMO_NIVEL++;                
 //        addState(new LevelState("Nivel_7",8,13));ULTIMO_NIVEL++;                
 //        addState(new LevelState("Nivel_8",9,13));ULTIMO_NIVEL++;                
         addState(new ClosingMenu(ULTIMO_NIVEL));

@@ -90,7 +90,7 @@
  </layer>
  <layer name="DecorationLayer" width="42" height="14">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYBQMF6A5QHoHIxhu/hmpYCYaGx3jEkfWRw+Azy0MeORo4U5HPHK43EAMJhVQ0yxS3E4tgG4WAEBmtbMwCQAA
+   H4sIAAAAAAAAC2NgGAWjYBQMF6A5QHoHIxhu/hmpYCYaGx3jEkfWRw+Azy0MeOQGwp3kYmraRUu3UwugmwUAv7YjITAJAAA=
   </data>
  </layer>
  <layer name="CollisionLayer" width="42" height="14">
