@@ -114,7 +114,7 @@ public class LevelState extends BasicGameState
             level.resetFrutas();
             sbg.enterState(Game.ULTIMO_NIVEL, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
         }
-        if(Game.FRUITS_COLLECTED == level.getItemCount())
+        if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID != Game.ULTIMO_NIVEL-1)
         {            
             Game.FRUITS_COLLECTED = 0;
             level.resetItemCount();
@@ -130,8 +130,16 @@ public class LevelState extends BasicGameState
             leave(container, sbg);
             player.setX(posX);player.setY(posY);
             level.resetFrutas();            
-            sbg.enterState(levelID+1, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black,10));
-        }  
+            sbg.enterState(levelID+1, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
+        } 
+        else if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID == Game.ULTIMO_NIVEL-1)
+        {
+            leave(container, sbg);
+            player.setX(posX);player.setY(posY);
+            level.resetFrutas();            
+            music.stop();
+            sbg.enterState(Game.ULTIMO_NIVEL, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
+        }
     }
  
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException 
