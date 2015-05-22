@@ -63,7 +63,8 @@ public class ClosingMenu extends BasicGameState
             game.enterState(0, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
         }
         if(container.getInput().isKeyPressed(Input.KEY_ENTER))
-        {            
+        {      
+            inputEnded();            
             game.getCurrentState().leave(container, game);
             fin.stop();
             game.enterState(0, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));

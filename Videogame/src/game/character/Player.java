@@ -52,8 +52,8 @@ public class Player extends Character
         setSprite(new Image("data/Mapuski/Stand/mapuski_stand_01.png"));
         setMovingAnimation(movRight, 100);
 //        setCrouchingAnimation(crouched, 100);
-//        setStandingAnimation(stand, 100);
-        setStandingAnimation(crouched, 100);
+        setStandingAnimation(stand, 100);
+//        setStandingAnimation(crouched, 100);
         boundingShape = new AABoundingRect(x+5,y+2,60,66);
         accelerationSpeed = 0.005f;
         maximumSpeed = 0.25f;
