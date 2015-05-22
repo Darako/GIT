@@ -6,6 +6,8 @@
 package game.state;
 
 import game.Game;
+import game.Musica.Musica;
+import game.Musica.Musica1;
 import game.character.Player;
 import game.controller.MouseAndKeyBoardPlayerController;
 import game.controller.PlayerController;
@@ -43,13 +45,13 @@ public class LevelState extends BasicGameState
     private PlayerController playerController;
     //protected Image sprite;
     private Physics physics;
-    private Music music;
+    private Musica cancion1;
+    private Musica1 cancion2;
     private static Sound mjump;
     private int levelID;
     private float posX;
     private int posY;
     private TrueTypeFont font;
-    private int pistacancion;
  
     public LevelState(String startingLevel, int levelID, int posY)
     {
@@ -83,18 +85,25 @@ public class LevelState extends BasicGameState
         } catch (Exception e) {
             e.printStackTrace();
         }
-        music=new Music("data/sound/2.ogg");
+        cancion1=new Musica();
+        cancion2=new Musica1();
         mjump=new Sound("data/sound/jump_08.ogg");
-        pistacancion=1;
     }
  
     public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException 
     {
         playerController.handleInput(container.getInput(), delta);
         physics.handlePhysics(level,delta);
-        if (!music.playing()){
-            music.play();
-        }  
+        if (getID()%2==0 && Game.ULTIMO_NIVEL!=getID()){
+                if (!cancion1.sondando())cancion1.repoducir();
+            }
+        else if (Game.ULTIMO_NIVEL!=getID()){
+                if (!cancion2.sondando())cancion2.repoducir();
+            }
+        else{
+            cancion1.parada();
+            cancion2.parada();
+        }
         //R1
         if(container.getInput().isButtonPressed(5, 0))
         {            
@@ -109,7 +118,11 @@ public class LevelState extends BasicGameState
         {
             inputEnded();
             leave(container, sbg);
-            music.stop();
+            if (getID()%2==0){
+                cancion1.parada();
+            }else {
+                cancion2.parada();
+            }
             player.setX(posX);player.setY(posY);
             level.resetFrutas();
             sbg.enterState(Game.ULTIMO_NIVEL, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
@@ -118,15 +131,11 @@ public class LevelState extends BasicGameState
         {            
             Game.FRUITS_COLLECTED = 0;
             level.resetItemCount();
-            music.stop();
-//            if (pistacancion==2){
-//                music=new Music("src/sound/4.ogg");
-//                music.play();
-//            }else {
-//                music=new Music("src/sound/2.ogg");
-//                music.play();
-//            }
-            pistacancion++;
+            if (getID()%2==0){
+                cancion1.parada();
+            }else {
+                cancion2.parada();
+            }
             leave(container, sbg);
             player.setX(posX);player.setY(posY);
             level.resetFrutas();            
@@ -137,7 +146,8 @@ public class LevelState extends BasicGameState
             leave(container, sbg);
             player.setX(posX);player.setY(posY);
             level.resetFrutas();            
-            music.stop();
+            cancion1.parada();
+            cancion2.parada();
             sbg.enterState(Game.ULTIMO_NIVEL, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
         }
     }
