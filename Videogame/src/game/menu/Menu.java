@@ -62,7 +62,7 @@ public class Menu extends BasicGameState
         }
     }
     
-    public void keyReleased(int key, char c) 
+    public void keyPressed(int key, char c) 
     {
         switch(key) {
         case Input.KEY_ENTER:
