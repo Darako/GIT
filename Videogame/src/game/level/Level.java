@@ -25,10 +25,15 @@ public class Level
 {
  
     private TiledMap map;
+    //a list of all characters present somewhere on this map
     private ArrayList<Character> characters;
+    //a list of the objects in this map (excluding characters)
     private ArrayList<LevelObject> levelObjects;
+    //a list of our tiles
     private Tile[][] tiles;
+    //Our player
     private Player player;
+    //Item count
     private int itemCount;
     private int posY;
  
@@ -63,10 +68,13 @@ public class Level
         int layerIndex = map.getLayerIndex("FruitLayer");
         if(layerIndex == -1)
         {
+            //TODO we can clean this up later with an exception if we want, but because we
+            //make the maps ourselfs this will suffice for now
             System.err.println("Map does not have the layer \"FruitLayer\"");
             System.exit(0);
         }
         
+        //loop through the whole map
         for(int x = 0; x < map.getWidth(); x++)
         {
             for(int y = 0; y < map.getHeight(); y++)
@@ -102,28 +110,40 @@ public class Level
     public void render()
     {
         int offsetX = getXOffset();
-        int offsetY = getYOffset();        
-        map.render(-(offsetX%70), -(offsetY%70),  offsetX/70,  offsetY/70, 42, 14); 
+        int offsetY = getYOffset();
+        
+        //render the map first
+        map.render(-(offsetX%70), -(offsetY%70),  offsetX/70,  offsetY/70, 42, 14);
+ 
         for(LevelObject obj : levelObjects)
         {
             obj.render(offsetX, offsetY);
         }
+        
+        //and then render the characters on top of the map
         for(Character c : characters)
         {
             c.render(offsetX,offsetY);
-        }        
+        }
+        
     }
     
     private void loadTileMap()
     {
+        //create an array to hold all the tiles in the map
         tiles = new Tile[map.getWidth()][map.getHeight()];
         
         int layerIndex = map.getLayerIndex("CollisionLayer");
         if(layerIndex == -1)
         {
+            //TODO we can clean this up later with an exception if we want, but because we
+            //make the maps ourselfs this will suffice for now
             System.err.println("Map does not have the layer \"CollisionLayer\"");
             System.exit(0);
         }
+        
+        //loop through the whole map
+        //System.out.println("Ancho: "+map.getWidth()+" Alto: "+map.getHeight());
         for(int x = 0; x < map.getWidth(); x++)
         {
             for(int y = 0; y < map.getHeight(); y++)
@@ -170,18 +190,33 @@ public class Level
     public int getXOffset()
     {
         int offsetX = 0;
+        
+        //the first thing we are to need is the half-width of the screen, 
+        //to calculate if the player is in the middle of the screen
         int halfWidth = (int) (Game.WINDOW_WIDTH/Game.SCALE/2);
+        
+        //next up is the maximum offset, this is the most right side of the map
+        //mis half of the the screen
         int maxX = (int) (map.getWidth()*70) - halfWidth;
+        
+        //now we hace 3 cases here
         if(player.getX() < halfWidth)
         {
+            //the player is between the most lef side of the map, whis is zero and half a screen
+            //wich is 0+halfSceen
             offsetX=0;
         }
         else if(player.getX() > maxX)
         {
+            //the player is between the maximum point of scrolling and the maximum width of the map
+            //the reason why we substract half the screen again is because we need to set our offset to the
+            //top left position of our screen
             offsetX = maxX - halfWidth;
         }
         else
         {
+            //the player is in between the 2 spots, so we set the offset
+            //to the player, minus the halfWidth of ths screen
             offsetX = (int) (player.getX() - halfWidth);
         }
         return offsetX;
