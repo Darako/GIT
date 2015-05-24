@@ -40,7 +40,7 @@ public class Menu extends BasicGameState
     @Override
     public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException 
     {
-        if(music.playing()==false){
+        if(music.playing() == false){
             music.play();
         }
     }
@@ -56,7 +56,6 @@ public class Menu extends BasicGameState
         //Start
         if(button == 8)
         {
-            inputEnded();
             music.stop();
             game.enterState(1);
         }
