@@ -50,12 +50,18 @@ public class AABoundingRect extends BoundingShape
    
     public ArrayList<Tile> getTilesOccupying(Tile[][] tiles)
     {
-        ArrayList<Tile> occupiedTiles = new ArrayList<Tile>();        
+        ArrayList<Tile> occupiedTiles = new ArrayList<Tile>();
+        
+        //we go from the left of the rect towards to right of the rect, 
+        //making sure we round upwards to a multiple of 70 or we miss a few tiles
+        //System.out.println("OCUPANDO: ("+(x+width+(70-width%70))/70+","+(y+height+(70-height%70))/70+")");        
         for(int i = (int) x; i < x+width+(70-width%70); i += 70)
         {
             for(int j = (int) y; j < y+height+(70-height%70); j += 70)
             {
-                occupiedTiles.add(tiles[i/70][j/70]);;
+              //if(j/70<14)
+                occupiedTiles.add(tiles[i/70][j/70]);
+                //System.out.print("("+i/70+","+j/70+") ");
             }
         }
         return occupiedTiles;
@@ -63,11 +69,15 @@ public class AABoundingRect extends BoundingShape
     
     public ArrayList<Tile> getGroundTiles(Tile[][] tiles)
     {
+        //System.out.println("Suelo:");
         ArrayList<Tile> tilesUnderneath = new ArrayList<Tile>();
-        int j = (int) (y+height+1);        
+        int j = (int) (y+height+1);
+        
         for(int i = (int) x; i <= x+width+(70-width%70); i+= 70)
-        {            
+        {
+            
             tilesUnderneath.add(tiles[i/70][j/70]);
+            //System.out.println("("+i/70+","+j/70+")");
         }
         return tilesUnderneath;
     }

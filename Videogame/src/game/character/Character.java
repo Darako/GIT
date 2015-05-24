@@ -35,7 +35,9 @@ public abstract class Character extends LevelObject
     public Character(float x, float y) throws SlickException
     {
         super(x,y);
+        //in case we forget to set the image, we don't want the game to crash, but it still has to be obvious that something was forgotten
         setSprite(new Image("data/Mapuski/Stand/mapuski_stand_01.png"));
+        //default direction will be right
         facing = Facing.STAND;
     }
     
@@ -54,6 +56,8 @@ public abstract class Character extends LevelObject
     protected void setMovingAnimation(Image[]images, int frameDuration)
     {
         movingAnimations = new HashMap<Facing,Animation>();
+
+        //we can just put the right facing in with the default images
         movingAnimations.put(Facing.RIGHT, new Animation(images, frameDuration));
         
         Animation facingLeftAnimation = new Animation();
