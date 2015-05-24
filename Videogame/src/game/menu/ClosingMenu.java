@@ -55,16 +55,9 @@ public class ClosingMenu extends BasicGameState
     public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException 
     {
         //R1
-//        if(container.getInput().isButtonPressed(5, 0))
-//        {   
-//            inputEnded();
-//            game.getCurrentState().leave(container, game);
-//            fin.stop();
-//            a=0;
-//            game.enterState(0, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
-//        }      
-        if(container.getInput().isKeyPressed(Input.KEY_ENTER))
+        if(container.getInput().isButtonPressed(5, 0) || container.getInput().isKeyDown(Input.KEY_ENTER))
         {   
+            inputEnded();
             game.getCurrentState().leave(container, game);
             fin.stop();
             a=0;

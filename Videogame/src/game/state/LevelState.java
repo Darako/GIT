@@ -99,20 +99,7 @@ public class LevelState extends BasicGameState
             cancion2.parada();
         }
         //R1
-        if(container.getInput().isButtonPressed(5, 0))
-        {     
-            if (getID()%2==0){
-                cancion1.rest();
-            }else {
-                cancion2.rest();
-            }
-            inputEnded();
-            sbg.getCurrentState().leave(container, sbg);
-            player.setX(posX);player.setY(posY);
-            level.resetFrutas();
-            sbg.enterState(levelID, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black,10));
-        }
-        if(container.getInput().isKeyPressed(Input.KEY_R))
+        if(container.getInput().isButtonPressed(5, 0) || container.getInput().isKeyDown(Input.KEY_R))
         {     
             if (getID()%2==0){
                 cancion1.rest();

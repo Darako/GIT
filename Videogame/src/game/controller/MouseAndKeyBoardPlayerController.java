@@ -35,6 +35,7 @@ public class MouseAndKeyBoardPlayerController extends PlayerController
         else if(i.isKeyDown(Input.KEY_D) || i.isKeyDown(Input.KEY_RIGHT))
         {
             player.moveRight(delta);
+
         }
         else
         {            
