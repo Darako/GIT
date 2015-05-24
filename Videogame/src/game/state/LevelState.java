@@ -43,7 +43,6 @@ public class LevelState extends BasicGameState
     private String startingLevel;
     private Player player;
     private PlayerController playerController;
-    //protected Image sprite;
     private Physics physics;
     private Musica cancion1;
     private Musica1 cancion2;
@@ -64,23 +63,18 @@ public class LevelState extends BasicGameState
  
     public void init(GameContainer container, StateBasedGame sbg) throws SlickException 
     {   
-        //at the start of the game we don't have a player yet
         player = new Player(posX,(float) posY);
-        //once we initialize our level, we want to load the right level
         level = new Level(startingLevel, player);
-        //and we create a controller, for now we use the MouseAndKeyBoardPlayerController
-//        playerController = new MouseAndKeyBoardPlayerController(player); 
-        playerController = new XBoxController(player); 
-        //adding physics
+       playerController = new MouseAndKeyBoardPlayerController(player); 
+//        playerController = new XBoxController(player); 
         physics = new Physics();
         physics.phsysics();
-        //adding fonts
         try 
         {
             InputStream inputStream = ResourceLoader.getResourceAsStream("data/Fonts/DINL___.TTF");
 
             Font awtFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
-            awtFont = awtFont.deriveFont(60f); // set font size
+            awtFont = awtFont.deriveFont(60f);
             font = new TrueTypeFont(awtFont, false);
         } catch (Exception e) {
             e.printStackTrace();
@@ -105,7 +99,7 @@ public class LevelState extends BasicGameState
             cancion2.parada();
         }
         //R1
-        if(container.getInput().isButtonPressed(5, 0))
+        if(container.getInput().isButtonPressed(5, 0) || container.getInput().isKeyDown(Input.KEY_R))
         {     
             if (getID()%2==0){
                 cancion1.rest();
@@ -143,7 +137,8 @@ public class LevelState extends BasicGameState
             level.resetItemCount();            
             leave(container, sbg);
             player.setX(posX);player.setY(posY);
-            level.resetFrutas();            
+            level.resetFrutas();
+            inputEnded();
             sbg.enterState(levelID+1, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
         } 
         else if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID == Game.ULTIMO_NIVEL-1)
@@ -156,20 +151,18 @@ public class LevelState extends BasicGameState
             leave(container, sbg);
             player.setX(posX);player.setY(posY);
             level.resetFrutas();
+            inputEnded();
             sbg.enterState(Game.ULTIMO_NIVEL, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
         }
     }
  
     public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException 
     { 
-        //if we ever wanter to scale but nope
         g.scale(Game.SCALE, Game.SCALE);
-        
         level.render();
         g.setFont(font);
         g.setColor(Color.black);
         g.drawString("NIVEL: "+levelID, 0,0);
-//        g.drawString("FRUTAS: "+Game.FRUITS_COLLECTED+"/"+level.getItemCount(),0,845);
         g.drawString("FRUTAS: "+Game.FRUITS_COLLECTED+"/"+level.getItemCount(),0,700);
     }
     
@@ -177,12 +170,10 @@ public class LevelState extends BasicGameState
     {        
         if(button == 1 && physics.sueloCierto == true) mjump.play();
     }
-    //this method is overriden from basicgamestate and will trigger once you press any key on your keyboard
+    
     public void keyPressed(int key, char code)
     {
-//        if(key == Input.KEY_R) this.enterState(levelID);
-        //if the key is escape, close our application
-        if(key == Input.KEY_ESCAPE)
+//     if(key == Input.KEY_ESCAPE)
         {
             System.exit(0);
         }
@@ -191,7 +182,6 @@ public class LevelState extends BasicGameState
     
     public int getID() 
     {
-        //this is the id for changing states
         return levelID;
     } 
 }

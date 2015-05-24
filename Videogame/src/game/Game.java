@@ -20,7 +20,6 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 public class Game extends StateBasedGame
 {
-    //set the window width and then the height according to a aspect ratio
 //    public static final int     WINDOW_WIDTH  = 840;
 //    public static final int     WINDOW_HEIGTH = 560;
     public static final int     WINDOW_WIDTH  = 1366;
@@ -28,11 +27,8 @@ public class Game extends StateBasedGame
     
     public static final boolean FULLSCREEN = true;
  
-    //set size of the tile
     private static final int SIZE = 70;
     
-    //1280x720 is our base, we use 32x32 tiles but we want it to be 40x40 at 1280x720
-    //so our base scale is not 1 but 1.25 actually
     public static final float  SCALE         = (float) (0.6122448979591837*((double)WINDOW_WIDTH/840));
     public static final String GAME_NAME     = "Mapuski";
     
@@ -47,8 +43,6 @@ public class Game extends StateBasedGame
  
     public void initStatesList(GameContainer gc) throws SlickException 
     {
- 
-        //create a level state, this state will do the whole logic and rendering for individual levels      
         ULTIMO_NIVEL = 0;
         addState(new Menu());ULTIMO_NIVEL++;
         addState(new LevelState("Nivel_0",1,13));ULTIMO_NIVEL++;
@@ -63,23 +57,18 @@ public class Game extends StateBasedGame
         addState(new LevelState("Nivel_9",10,13));ULTIMO_NIVEL++;   
         addState(new LevelState("Nivel_10",11,13));ULTIMO_NIVEL++; 
         addState(new LevelState("Nivel_11",12,13));ULTIMO_NIVEL++; 
-//        addState(new LevelState("Nivel_12",13,13));ULTIMO_NIVEL++;   
-//        addState(new LevelState("Nivel_13",14,13));ULTIMO_NIVEL++;   
+        addState(new LevelState("Nivel_12",13,13));ULTIMO_NIVEL++;   
+        addState(new LevelState("Nivel_13",14,13));ULTIMO_NIVEL++;   
         addState(new ClosingMenu(ULTIMO_NIVEL));
         this.enterState(0);
-
     }
  
     public static void main(String[] args) throws SlickException 
     {
-         AppGameContainer app = new AppGameContainer(new Game());
- 
-         //set the size of the display to the width and height and fullscreen or not
+         AppGameContainer app = new AppGameContainer(new Game()); 
          app.setShowFPS(false);
          app.setDisplayMode(WINDOW_WIDTH, WINDOW_HEIGTH, FULLSCREEN);
-         //this will attempt to create a framerate of approximately 60 frames per second
-         app.setTargetFrameRate(60);
- 
+         app.setTargetFrameRate(60); 
          app.start();
     }
 }

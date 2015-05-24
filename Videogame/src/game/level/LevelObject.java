@@ -29,16 +29,13 @@ public abstract class LevelObject
         this.x = x;
         this.y = y;
         
-        //default bounding shape is a 70x70 box
         boundingShape = new AABoundingRect(x+5,y+5,60,60);
     }
     
     public void applyGravity(float gravity)
     {
-        //if we aren't already moving at maximum speed
         if(yVelocity < maximumFallSpeed)
         {
-            //accelerate
             yVelocity += gravity;
             if(yVelocity > maximumFallSpeed)
             {
