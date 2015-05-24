@@ -11,6 +11,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
 import org.newdawn.slick.state.BasicGameState;
@@ -26,7 +27,7 @@ public class ClosingMenu extends BasicGameState
 {
     private StateBasedGame game;
     private int IDLevel;
-    private static Sound fin;
+    private static Music fin;
     private int a=0;
     
     public ClosingMenu(int IDLevel)
@@ -38,13 +39,13 @@ public class ClosingMenu extends BasicGameState
     public void init(GameContainer container, StateBasedGame game) throws SlickException 
     {
         this.game = game;
-        fin=new Sound("data/sound/bird.ogg");
+        fin=new Music("data/sound/bird.ogg",true);
     }
  
     @Override
     public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException 
     {   
-        if(!fin.playing() && a==0){
+        if(!fin.playing() && a<=1){
             fin.play();
             a++;
         }
@@ -60,6 +61,7 @@ public class ClosingMenu extends BasicGameState
             inputEnded();
             game.getCurrentState().leave(container, game);
             fin.stop();
+            a=0;
             game.enterState(0, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
         }
         if(container.getInput().isKeyPressed(Input.KEY_ENTER))
@@ -67,6 +69,7 @@ public class ClosingMenu extends BasicGameState
             inputEnded();            
             game.getCurrentState().leave(container, game);
             fin.stop();
+            a=0;
             game.enterState(0, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
         }
     }

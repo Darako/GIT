@@ -106,7 +106,12 @@ public class LevelState extends BasicGameState
         }
         //R1
         if(container.getInput().isButtonPressed(5, 0))
-        {            
+        {     
+            if (getID()%2==0){
+                cancion1.rest();
+            }else {
+                cancion2.rest();
+            }
             inputEnded();
             sbg.getCurrentState().leave(container, sbg);
             player.setX(posX);player.setY(posY);
@@ -116,26 +121,26 @@ public class LevelState extends BasicGameState
         //Select
         if(container.getInput().isButtonPressed(6, 0))
         {
-            inputEnded();
-            leave(container, sbg);
             if (getID()%2==0){
                 cancion1.parada();
             }else {
                 cancion2.parada();
             }
+            inputEnded();
+            leave(container, sbg);            
             player.setX(posX);player.setY(posY);
             level.resetFrutas();
             sbg.enterState(Game.ULTIMO_NIVEL, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
         }
         if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID != Game.ULTIMO_NIVEL-1)
-        {            
-            Game.FRUITS_COLLECTED = 0;
-            level.resetItemCount();
+        {      
             if (getID()%2==0){
                 cancion1.parada();
             }else {
                 cancion2.parada();
             }
+            Game.FRUITS_COLLECTED = 0;
+            level.resetItemCount();            
             leave(container, sbg);
             player.setX(posX);player.setY(posY);
             level.resetFrutas();            
@@ -143,11 +148,14 @@ public class LevelState extends BasicGameState
         } 
         else if(Game.FRUITS_COLLECTED == level.getItemCount() && levelID == Game.ULTIMO_NIVEL-1)
         {
+            if (getID()%2==0){
+                cancion1.parada();
+            }else {
+                cancion2.parada();
+            }
             leave(container, sbg);
             player.setX(posX);player.setY(posY);
-            level.resetFrutas();            
-            cancion1.parada();
-            cancion2.parada();
+            level.resetFrutas();
             sbg.enterState(Game.ULTIMO_NIVEL, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
         }
     }

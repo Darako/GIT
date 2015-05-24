@@ -30,5 +30,11 @@ public class Musica1 {
     }
     
     public void parada(){
+        music.stop();
+    }
+    
+    public void rest(){
+        music.stop();
+        music.play();        
     }
 }
