@@ -10,7 +10,6 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
-import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -25,7 +24,7 @@ public class ClosingMenu extends BasicGameState
 {
     private StateBasedGame game;
     private int IDLevel;
-    private static Music fin;
+    private static Sound fin;
     private int a=0;
     
     public ClosingMenu(int IDLevel)
@@ -37,14 +36,18 @@ public class ClosingMenu extends BasicGameState
     public void init(GameContainer container, StateBasedGame game) throws SlickException 
     {
         this.game = game;
+<<<<<<< HEAD
         inputEnded();
         fin=new Music("data/sound/bird.ogg",true);
+=======
+        fin=new Sound("data/sound/bird.ogg");
+>>>>>>> parent of 0d864fc... Ya tenemos las musica operativa al 100%
     }
  
     @Override
     public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException 
     {   
-        if(!fin.playing() && a<=1){
+        if(!fin.playing() && a==0){
             fin.play();
             a++;
         }
@@ -55,6 +58,7 @@ public class ClosingMenu extends BasicGameState
     public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException 
     {
         //R1
+<<<<<<< HEAD
 //        if(container.getInput().isButtonPressed(5, 0))
 //        {   
 //            inputEnded();
@@ -63,11 +67,19 @@ public class ClosingMenu extends BasicGameState
 //            a=0;
 //            game.enterState(0, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
 //        }      
+=======
+        if(container.getInput().isButtonPressed(5, 0))
+        {   
+            inputEnded();
+            game.getCurrentState().leave(container, game);
+            fin.stop();
+            game.enterState(0, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
+        }
+>>>>>>> parent of 0d864fc... Ya tenemos las musica operativa al 100%
         if(container.getInput().isKeyPressed(Input.KEY_ENTER))
         {   
             game.getCurrentState().leave(container, game);
             fin.stop();
-            a=0;
             game.enterState(0, new FadeOutTransition(Color.black,10), new FadeInTransition(Color.black));
         }      
     }

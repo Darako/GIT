@@ -53,12 +53,16 @@ public class Game extends StateBasedGame
         addState(new LevelState("Nivel_5",6,13));ULTIMO_NIVEL++;                
         addState(new LevelState("Nivel_6",7,13));ULTIMO_NIVEL++;                
         addState(new LevelState("Nivel_7",8,13));ULTIMO_NIVEL++;                
+<<<<<<< HEAD
         addState(new LevelState("Nivel_8",9,13));ULTIMO_NIVEL++;      
         addState(new LevelState("Nivel_9",10,13));ULTIMO_NIVEL++;   
         addState(new LevelState("Nivel_10",11,13));ULTIMO_NIVEL++; 
 //        addState(new LevelState("Nivel_11",12,13));ULTIMO_NIVEL++; 
 //        addState(new LevelState("Nivel_12",13,13));ULTIMO_NIVEL++;   
 //        addState(new LevelState("Nivel_13",14,13));ULTIMO_NIVEL++;   
+=======
+        addState(new LevelState("Nivel_8",9,13));ULTIMO_NIVEL++;                
+>>>>>>> parent of 0d864fc... Ya tenemos las musica operativa al 100%
         addState(new ClosingMenu(ULTIMO_NIVEL));
         this.enterState(0);
     }
