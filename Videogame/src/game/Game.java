@@ -63,8 +63,7 @@ public class Game extends StateBasedGame
         addState(new LevelState("Nivel_9",10,13));ULTIMO_NIVEL++;   
         addState(new LevelState("Nivel_10",11,13));ULTIMO_NIVEL++; 
         addState(new LevelState("Nivel_11",12,13));ULTIMO_NIVEL++; 
-        addState(new LevelState("Nivel_12",13,13));ULTIMO_NIVEL++;   
-//        addState(new LevelState("Nivel_13",13,13));ULTIMO_NIVEL++;   
+        addState(new LevelState("Nivel_12",13,13));ULTIMO_NIVEL++;  
         addState(new ClosingMenu(ULTIMO_NIVEL));
         this.enterState(0);
 
